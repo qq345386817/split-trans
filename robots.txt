@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://luopeike.com/split-trans/sitemap.xml
+Sitemap: http://luopeike.com/split-trans/sitemap.xml
