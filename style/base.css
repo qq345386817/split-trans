@@ -79,7 +79,3 @@ p { margin: 0; }
 @media (max-width: 900px) { .hero, .feature-grid, .feature-grid.two { grid-template-columns: 1fr; } h1 { font-size: 44px; } .hero { min-height: auto; padding: 26px 0; } .split { align-items: flex-start; flex-direction: column; } }
 @media (max-width: 560px) { .page { padding-top: 18px; } .container { width: min(100% - 24px, 1120px); } .nav { justify-content: flex-start; } h1 { font-size: 38px; } .lead { font-size: 18px; } .product-panel { padding: 12px; } }
 .section-lead { max-width: 680px; margin: -4px 0 18px; color: var(--muted); }
-.media-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.shot-card { overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); box-shadow: var(--shadow); }
-.shot-card img { width: 100%; height: auto; display: block; }
-@media (max-width: 900px) { .media-grid { grid-template-columns: 1fr; } }
