@@ -1,78 +1,60 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PhraseCut - 透過真實句子學詞語</title>
-  <meta name="description" content="PhraseCut 幫助你從喜歡的真實句子裡學習詞語和表達，保存有用內容，之後繼續複習，並匯出學習資料。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="把真實句子變成可以理解、保存、複習和匯出的學習資料。貼上一句話，先看整句含義，再拆解詞語和短語，最後把值得記住的內容放進自己的學習庫。">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="http://luopeike.com/split-trans/zh-hant/">
-  <link rel="alternate" hreflang="en" href="http://luopeike.com/split-trans/">
-  <link rel="alternate" hreflang="zh-Hans" href="http://luopeike.com/split-trans/zh-hans/">
-  <link rel="alternate" hreflang="zh-Hant" href="http://luopeike.com/split-trans/zh-hant/">
-  <link rel="alternate" hreflang="hi" href="http://luopeike.com/split-trans/hi/">
-  <link rel="alternate" hreflang="id" href="http://luopeike.com/split-trans/id/">
-  <link rel="alternate" hreflang="vi" href="http://luopeike.com/split-trans/vi/">
-  <link rel="alternate" hreflang="pt-BR" href="http://luopeike.com/split-trans/pt-br/">
-  <link rel="alternate" hreflang="x-default" href="http://luopeike.com/split-trans/">
+  <meta property="og:title" content="PhraseCut | 為閱讀真實內容的語言學習者設計">
+  <meta property="og:description" content="把真實句子變成可以理解、保存、複習和匯出的學習資料。貼上一句話，先看整句含義，再拆解詞語和短語，最後把值得記住的內容放進自己的學習庫。">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="PhraseCut - 透過真實句子學詞語">
-  <meta property="og:description" content="PhraseCut 幫助你從喜歡的真實句子裡學習詞語和表達，保存有用內容，之後繼續複習，並匯出學習資料。">
-  <meta property="og:url" content="http://luopeike.com/split-trans/zh-hant/">
-  <meta property="og:site_name" content="PhraseCut">
+  <meta property="og:url" content="https://phrase-cut.luopeike.com/zh-hant/">
+  <meta property="og:image" content="https://phrase-cut.luopeike.com/favicon/apple-touch-icon.png">
+  <meta property="og:image:alt" content="PhraseCut app icon">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PhraseCut - 透過真實句子學詞語">
-  <meta name="twitter:description" content="PhraseCut 幫助你從喜歡的真實句子裡學習詞語和表達，保存有用內容，之後繼續複習，並匯出學習資料。">
+  <meta name="twitter:title" content="PhraseCut | 為閱讀真實內容的語言學習者設計">
+  <meta name="twitter:description" content="把真實句子變成可以理解、保存、複習和匯出的學習資料。貼上一句話，先看整句含義，再拆解詞語和短語，最後把值得記住的內容放進自己的學習庫。">
+  <meta name="twitter:image" content="https://phrase-cut.luopeike.com/favicon/apple-touch-icon.png">
+  <link rel="canonical" href="https://phrase-cut.luopeike.com/zh-hant/">
+  <link rel="alternate" hreflang="en" href="https://phrase-cut.luopeike.com/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://phrase-cut.luopeike.com/zh-hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://phrase-cut.luopeike.com/zh-hant/">
+  <link rel="alternate" hreflang="hi" href="https://phrase-cut.luopeike.com/hi/">
+  <link rel="alternate" hreflang="id" href="https://phrase-cut.luopeike.com/id/">
+  <link rel="alternate" hreflang="vi" href="https://phrase-cut.luopeike.com/vi/">
+  <link rel="alternate" hreflang="pt-BR" href="https://phrase-cut.luopeike.com/pt-br/">
+  <link rel="alternate" hreflang="x-default" href="https://phrase-cut.luopeike.com/">
   <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
   <link rel="manifest" href="../favicon/site.webmanifest">
+  <meta name="theme-color" content="#111827">
   <link rel="stylesheet" href="../style/base.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PhraseCut","applicationCategory":"EducationalApplication","operatingSystem":"iOS, iPadOS, macOS","url":"http://luopeike.com/split-trans/","downloadUrl":"https://apps.apple.com/app/id6740488386","description":"PhraseCut 幫助你從喜歡的真實句子裡學習詞語和表達，保存有用內容，之後繼續複習，並匯出學習資料。","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Person","name":"Peter Luo"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"它只是一個翻譯 App 嗎？","acceptedAnswer":{"@type":"Answer","text":"不是。它更偏向語言學習：除了翻譯，還幫助你在語境裡理解詞語和短語，並把值得記住的內容保存下來。"}},{"@type":"Question","name":"學習庫裡可以保存什麼？","acceptedAnswer":{"@type":"Answer","text":"可以保存單詞、短語和完整句子，之後繼續複習，或匯出到 CSV / Anki 相容檔案。"}},{"@type":"Question","name":"幫助和隱私說明在哪裡看？","acceptedAnswer":{"@type":"Answer","text":"你可以查看幫助頁面了解使用方式，也可以查看隱私政策了解資料處理方式。"}}]}</script>
+  <title>PhraseCut | 為閱讀真實內容的語言學習者設計</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PhraseCut","applicationCategory":"EducationalApplication","operatingSystem":"iOS, iPadOS, macOS","url":"https://phrase-cut.luopeike.com/zh-hant/","downloadUrl":"https://apps.apple.com/app/id6740488386","description":"把真實句子變成可以理解、保存、複習和匯出的學習資料。貼上一句話，先看整句含義，再拆解詞語和短語，最後把值得記住的內容放進自己的學習庫。","offers":{"@type":"Offer","url":"https://apps.apple.com/app/id6740488386"},"publisher":{"@type":"Person","name":"Peter Luo"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"PhraseCut 只是翻譯工具嗎？","acceptedAnswer":{"@type":"Answer","text":"不是。翻譯只是流程的一部分，PhraseCut 更關注學習：語境、保存學習項、複習和匯出。"}},{"@type":"Question","name":"可以保存什麼？","acceptedAnswer":{"@type":"Answer","text":"可以保存單字、短語和完整句子，並保留原句語境和翻譯。"}},{"@type":"Question","name":"可以匯出學習資料嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。學習庫支援匯出 CSV 或 Anki 相容 CSV。"}}]}</script>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="index.html">PhraseCut</a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#features">功能亮點</a>
-        <a href="#how-it-works">使用方式</a>
-        <a href="#faq">常見問題</a>
-        <a href="help.html">幫助</a>
-        <a href="privacy-policy.html">隱私</a>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="hero"><div class="container"><div class="hero-card">
-      <div class="eyebrow">句子優先的語言學習</div>
-      <h1>不只看翻譯結果，而是真正看懂一句話。</h1>
-      <p class="lead">PhraseCut 幫你拆解真實句子，對照整句翻譯，保存有價值的詞語和短語，之後繼續複習，並在需要時匯出學習庫。</p>
-      <div class="actions">
-        <a class="button primary" href="https://apps.apple.com/app/id6740488386">前往 App Store</a>
-        <a class="button secondary" href="help.html">查看使用幫助</a>
-      </div>
-      <ul class="inline-list"><li>句子分析</li><li>逐詞理解</li><li>複習流程</li><li>CSV / Anki 匯出</li><li>iPhone · iPad · Mac</li></ul>
-    </div></div></section>
-    <section class="section" id="features"><div class="container">
-      <p class="kicker">為什麼適合學習者</p><h2>它不是普通翻譯器，而是更適合長期學習的句子工具。</h2>
-      <div class="grid grid-3"><article class="feature"><h3>看懂一句話怎麼組成</h3><p>輸入一句話後，可以同時看整句翻譯，以及詞語和短語在上下文中的意思。</p></article><article class="feature"><h3>把真實表達沉澱下來</h3><p>把閱讀中遇到的單詞、短語、句子保存成可複用的學習資料。</p></article><article class="feature"><h3>在忘記前繼續複習</h3><p>透過輕量複習流程回顧已保存內容，讓輸入真正變成累積。</p></article></div>
-    </div></section>
-    <section class="section" id="how-it-works"><div class="container grid grid-2">
-      <section class="panel"><p class="kicker">使用方式</p><h2>從喜歡的句子，到可複習的學習資料</h2><ol class="list"><li>貼上文章、郵件、字幕或網頁裡的句子。</li><li>查看整句自然翻譯，並理解詞語或短語在語境中的含義。</li><li>把值得記住的內容保存到學習庫。</li><li>之後繼續複習，並匯出到 CSV 或 Anki 相容檔案。</li></ol></section>
-      <section class="panel"><p class="kicker">適合誰</p><h2>適合從真實內容中學語言的人</h2><ul class="list"><li>想從文章、新聞、郵件或字幕中累積有用表達</li><li>不想孤立背詞，而想在語境裡理解表達</li><li>希望累積自己的句子庫、生詞庫</li><li>希望學習資料後續還能匯出和複用</li></ul></section>
-    </div></section>
-    <section class="section" id="screenshots"><div class="container">
-      <p class="kicker">真實 App 預覽圖</p><h2>下載前先看主流程長什麼樣</h2>
-      <div class="media-grid">
-        <article class="shot-card"><img src="../images/previews/01-learn.png" alt="從一句真實句子開始學習"><div class="shot-body"><h3>從一句真實句子開始學習</h3><p>輸入句子後查看整句翻譯，並理解詞語在語境中的意思。</p></div></article>
-        <article class="shot-card"><img src="../images/previews/02-review.png" alt="複習已保存內容"><div class="shot-body"><h3>複習已保存內容</h3><p>把保存過的單詞、短語和句子重新拿出來複習。</p></div></article>
-        <article class="shot-card"><img src="../images/previews/03-library.png" alt="建立自己的學習庫"><div class="shot-body"><h3>建立自己的學習庫</h3><p>把真實閱讀中遇到的表達沉澱成可複用的學習資料。</p></div></article>
-        <article class="shot-card"><img src="../images/previews/04-settings.png" alt="關於、幫助與支援"><div class="shot-body"><h3>關於、幫助與支援</h3><p>在关于页面查看使用說明、隱私資訊、支援入口和更多應用。</p></div></article>
-        <article class="shot-card"><img src="../images/previews/05-dark-learn.png" alt="Dark 模式學習頁"><div class="shot-body"><h3>Dark 模式學習頁</h3><p>在低亮度環境下也能更舒服地繼續閱讀、拆句和學習。</p></div></article>
-      </div><p class="preview-note">這裡同時展示 Light / Dark 預覽圖，下載前就能更直觀看到產品狀態。</p></div></section>
-    <section class="section" id="faq"><div class="container"><p class="kicker">常見問題</p><h2>你可能會關心這些</h2><details class="faq-item" open><summary>它只是一個翻譯 App 嗎？</summary><p>不是。它更偏向語言學習：除了翻譯，還幫助你在語境裡理解詞語和短語，並把值得記住的內容保存下來。</p></details><details class="faq-item"><summary>學習庫裡可以保存什麼？</summary><p>可以保存單詞、短語和完整句子，之後繼續複習，或匯出到 CSV / Anki 相容檔案。</p></details><details class="faq-item"><summary>幫助和隱私說明在哪裡看？</summary><p>你可以查看幫助頁面了解使用方式，也可以查看隱私政策了解資料處理方式。</p></details></div></section>
-  </main>
-  <footer class="footer"><div class="container"><div class="footer-links"><a href="help.html">幫助</a><a href="privacy-policy.html">隱私</a><a href="mailto:cameoshell09@gmail.com">支援</a></div><div>PhraseCut · Peter Luo</div></div></footer>
-</body></html>
+<body><div class="page"><div class="container">
+      <header class="topbar">
+        <a class="brand" href="../index.html" aria-label="PhraseCut 首頁"><img src="../favicon/apple-touch-icon.png" alt=""><span>PhraseCut</span></a>
+        <nav class="nav" aria-label="Primary"><a href="../index.html">首頁</a><a href="../help.html">幫助</a><a href="../support.html">支援</a><a href="../privacy-policy.html">隱私</a><a class="download-link" href="https://apps.apple.com/app/id6740488386"><img class="store-icon" src="../images/app-store-icon.svg" alt="">下載</a><select class="language-switch" aria-label="Language" onchange="if (this.value) window.location.href = this.value;"><option value="../index.html">English</option><option value="../zh-hans/">简体中文</option><option value="../zh-hant/" selected>繁體中文</option><option value="../hi/">हिन्दी</option><option value="../id/">Indonesia</option><option value="../vi/">Tiếng Việt</option><option value="../pt-br/">Português</option></select></nav>
+      </header>
+      <main>
+        <section class="hero"><div class="hero-copy"><p class="kicker">面向 iPhone、iPad 和 Mac 的句子學習工具</p><h1>PhraseCut</h1><p class="lead">把真實句子變成可以理解、保存、複習和匯出的學習資料。貼上一句話，先看整句含義，再拆解詞語和短語，最後把值得記住的內容放進自己的學習庫。</p><div class="actions"><a class="button primary" href="https://apps.apple.com/app/id6740488386"><img class="store-icon" src="../images/app-store-icon.svg" alt="">在 App Store 下載</a><a class="button" href="../help.html">查看使用幫助</a></div></div><div class="product-panel" aria-label="PhraseCut preview">
+            <div class="device-bar"><span></span><span></span><span></span></div>
+            <div class="workspace-preview">
+              <div class="preview-label">Sentence Workspace</div>
+              <p class="sentence">Real sentences show context, usage, and tone.</p>
+              <div class="translation">真实句子展示语境、用法和语气。</div>
+              <div class="token-grid" aria-hidden="true"><span>Real</span><span>sentences</span><span>context</span><span>usage</span><span>tone</span></div>
+              <div class="preview-actions"><span>Save</span><span>Review</span><span>Export CSV</span></div>
+            </div>
+          </div></section>
+        <section class="section"><h2>真實 App 預覽</h2><p class="section-lead">下載前查看學習、複習和學習庫的主要流程。</p><div class="media-grid"><article class="shot-card"><img src="../images/previews/01-learn.png" alt="Learn from a real sentence"></article><article class="shot-card"><img src="../images/previews/02-review.png" alt="Review saved items"></article><article class="shot-card"><img src="../images/previews/03-library.png" alt="Build your learning library"></article></div></section>
+        <section class="section"><h2>為閱讀真實內容的語言學習者設計</h2><div class="feature-grid"><article class="feature"><strong>先理解整句話</strong><p>先看自然的整句含義，知道這句話到底在說什麼，再學習其中的詞語。</p></article><article class="feature"><strong>拆解單字和短語</strong><p>在語境中理解有用詞彙，而不是只背孤立詞表。</p></article><article class="feature"><strong>保存、複習、匯出</strong><p>把單字、短語和句子放進一個學習庫，之後繼續複習，並匯出 CSV 或 Anki 相容檔案。</p></article></div></section>
+        <section class="section split"><div><h2>輸入一句話，沉澱成可重用的學習庫。</h2><p>PhraseCut 適合從文章、郵件、字幕、歌詞、訊息和書籍裡收集語言材料。它會把原句和含義一起保存，讓之後複習時仍然有上下文。</p></div><a class="button compact" href="https://apps.apple.com/app/id6740488386"><img class="store-icon" src="../images/app-store-icon.svg" alt="">打開 App Store</a></section>
+        <section class="section"><h2>句子詞彙學習指南</h2><div class="feature-grid two"><article class="feature"><strong><a href="help.html">幫助</a></strong><p>了解如何分析句子、保存詞語和短語、繼續複習並匯出學習庫。</p></article></div></section>
+        <section class="section"><h2>常見問題</h2><details class="faq-item" open><summary>PhraseCut 只是翻譯工具嗎？</summary><p>不是。翻譯只是流程的一部分，PhraseCut 更關注學習：語境、保存學習項、複習和匯出。</p></details><details class="faq-item"><summary>可以保存什麼？</summary><p>可以保存單字、短語和完整句子，並保留原句語境和翻譯。</p></details><details class="faq-item"><summary>可以匯出學習資料嗎？</summary><p>可以。學習庫支援匯出 CSV 或 Anki 相容 CSV。</p></details></section>
+      </main><footer class="footer"><div class="footer-links"><a href="../help.html">幫助</a><a href="../support.html">支援</a><a href="../privacy-policy.html">隱私</a><a href="mailto:cameoshell09@gmail.com">cameoshell09@gmail.com</a></div><div>透過句子學習、複習詞彙，並保留可移轉的學習資料。</div></footer>
+    </div></div></body>
+</html>
