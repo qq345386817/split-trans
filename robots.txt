@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://luopeike.com/split-trans/sitemap.xml
+Sitemap: https://phrase-cut.luopeike.com/sitemap.xml
