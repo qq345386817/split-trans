@@ -1,0 +1,81 @@
+# PhraseCut Website
+
+Static, localized marketing and help pages, plus a browser-based sentence study
+workspace at `/study`, `/zh-hans/study`, `/zh-hant/study`, `/hi/study`, `/id/study`,
+`/vi/study`, and `/pt-br/study`.
+
+The workspace supports sentence translation, word breakdown, pronunciation,
+random recommendations with automatic analysis, and selected-word CSV / Anki
+CSV exports. It does not use accounts, cookies, browser storage, or a study
+database. Browser voices may need an online connection. Sentence and individual
+word translation use the keyless Google web translation implementation from
+SafariTranslateSearch, using Google's CORS-enabled translation-client host.
+Browser requests go directly to Google. Network failures may use the existing
+Worker proxy; Google refusals/rate limits do not trigger proxy retries.
+There are no Workers AI calls or paid-provider fallbacks. This differs from the
+Apple Translation engine used by the native app, and individual word meanings
+are not contextual AI explanations.
+
+## Development
+
+```sh
+npm ci
+npm run build
+npm run check
+STUDY_API_URL=http://127.0.0.1:8787/study/analyze npm run dev
+```
+
+Run the companion Worker from the main app repository's `server/` directory:
+
+```sh
+npm ci
+npm run dev
+```
+
+The local Worker forwards translation requests to Google's web endpoint. It
+needs no Google API key or billing account and uses no AI binding. Google may
+rate-limit or change this undocumented endpoint; unavailable translations are
+reported instead of switching to a paid service. The existing Cloudflare
+hosting/request allowance still applies. The production frontend uses
+`https://quote.luopeike.com/study/analyze` only as a network-failure fallback.
+
+## Cloudflare Pages deployment
+
+- Build command: `npm run build`
+- Output directory: `dist`
+- Deploy the companion Worker before publishing the new workspace.
+
+Only public pages and assets are copied into `dist`; dependencies, tests, and
+source-generation scripts are excluded. Generated pages are committed so the
+existing static deployment can continue to work, but `dist` is the recommended
+output directory after adding a package manager build. Never publish
+`node_modules` from the repository root.
+
+Edit the localized workspace text in `scripts/study-locales.mjs`, then run
+`npm run build`. The generator updates the workspace pages, localized entry
+links, web privacy sections, reciprocal hreflang, and sitemap. Canonical URLs
+remain extensionless, matching Cloudflare Pages routes.
+
+UI text is separate from translation languages: the seven localized interfaces
+offer twenty translation languages. No user text is placed in public webpage URL parameters,
+SEO metadata, or public cache keys.
+
+## Search and AI discovery
+
+`scripts/search-copy.mjs` maintains localized home/tool titles, descriptions,
+feature boundaries, and FAQ answers. FAQs are server-rendered HTML and the same
+answers generate FAQ JSON-LD. The site does not use meta-keyword stuffing, fake
+ratings, or invented App Store prices. FAQ markup does not imply eligibility
+for Google's restricted FAQ rich results.
+
+The build also generates a small `llms.txt` navigation aid and `product-facts.md`
+from the same product facts and language definitions. They distinguish the
+stateless online Google translation tool from the native local study library,
+spaced repetition, and offline Apple Translation. These auxiliary files are
+readable by agents but excluded from search indexing with `X-Robots-Tag`;
+the human HTML pages contain the indexable content. They are not ranking
+requirements, robots policies, or a replacement for sitemap/canonical metadata.
+
+The Pages configuration publishes only `dist`. Keep the translation Worker
+deployed before releasing the study pages. The 38-URL sitemap includes canonical
+extensionless HTML routes, not old `.html` redirects or auxiliary text files.

@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dán một câu thật vào PhraseCut để dịch, tách từ hữu ích, lưu mục học, ôn lại và xuất Anki/CSV.">
+  <meta name="description" content="Học từ vựng ngoại ngữ qua câu bạn thích. Dịch câu và từng từ miễn phí, nghe phát âm, xuất CSV/Anki; lưu và ôn tập trong ứng dụng PhraseCut.">
   <meta name="robots" content="index,follow">
-  <meta property="og:title" content="PhraseCut | Dành cho người học đọc nội dung thật">
-  <meta property="og:description" content="Dán một câu thật vào PhraseCut để dịch, tách từ hữu ích, lưu mục học, ôn lại và xuất Anki/CSV.">
+  <meta property="og:title" content="PhraseCut | Học Từ Vựng Qua Câu &amp; Dịch Trực Tuyến">
+  <meta property="og:description" content="Học từ vựng ngoại ngữ qua câu bạn thích. Dịch câu và từng từ miễn phí, nghe phát âm, xuất CSV/Anki; lưu và ôn tập trong ứng dụng PhraseCut.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://phrase-cut.luopeike.com/vi/">
   <meta property="og:image" content="https://phrase-cut.luopeike.com/favicon/android-chrome-512x512.png">
   <meta property="og:image:alt" content="PhraseCut app icon">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="PhraseCut | Dành cho người học đọc nội dung thật">
-  <meta name="twitter:description" content="Dán một câu thật vào PhraseCut để dịch, tách từ hữu ích, lưu mục học, ôn lại và xuất Anki/CSV.">
+  <meta name="twitter:title" content="PhraseCut | Học Từ Vựng Qua Câu &amp; Dịch Trực Tuyến">
+  <meta name="twitter:description" content="Học từ vựng ngoại ngữ qua câu bạn thích. Dịch câu và từng từ miễn phí, nghe phát âm, xuất CSV/Anki; lưu và ôn tập trong ứng dụng PhraseCut.">
   <meta name="twitter:image" content="https://phrase-cut.luopeike.com/favicon/android-chrome-512x512.png">
   <link rel="canonical" href="https://phrase-cut.luopeike.com/vi/">
   <link rel="alternate" hreflang="en" href="https://phrase-cut.luopeike.com/">
@@ -30,17 +30,18 @@
   <link rel="manifest" href="../favicon/site.webmanifest">
   <meta name="theme-color" content="#2F6BFF">
   <link rel="stylesheet" href="../style/base.css">
-  <title>PhraseCut | Dành cho người học đọc nội dung thật</title>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PhraseCut","applicationCategory":"EducationalApplication","operatingSystem":"iOS, iPadOS, macOS","url":"https://phrase-cut.luopeike.com/vi/","downloadUrl":"https://apps.apple.com/app/id6740488386","description":"Dán một câu thật vào PhraseCut để dịch, tách từ hữu ích, lưu mục học, ôn lại và xuất Anki/CSV.","offers":{"@type":"Offer","url":"https://apps.apple.com/app/id6740488386"},"publisher":{"@type":"Person","name":"Peter Luo"}}</script>
+  <title>PhraseCut | Học Từ Vựng Qua Câu &amp; Dịch Trực Tuyến</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PhraseCut","applicationCategory":"EducationalApplication","operatingSystem":"iOS, iPadOS, macOS","url":"https://phrase-cut.luopeike.com/vi/","downloadUrl":"https://apps.apple.com/app/id6740488386","description":"Lưu từ vựng, xây dựng thư viện học và ôn tập ngắt quãng trong ứng dụng PhraseCut.","publisher":{"@type":"Person","name":"Peter Luo"},"@id":"https://phrase-cut.luopeike.com/#native-app"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"PhraseCut có chỉ là app dịch không?","acceptedAnswer":{"@type":"Answer","text":"Không. Dịch là một phần của luồng học, nhưng PhraseCut được tổ chức quanh ngữ cảnh, mục đã lưu, ôn tập và xuất dữ liệu."}},{"@type":"Question","name":"Tôi có thể lưu gì?","acceptedAnswer":{"@type":"Answer","text":"Bạn có thể lưu từ, cụm từ và cả câu cùng ngữ cảnh và bản dịch."}},{"@type":"Question","name":"Có thể xuất tài liệu học không?","acceptedAnswer":{"@type":"Answer","text":"Có. Library có thể xuất CSV hoặc CSV tương thích Anki."}}]}</script>
+<link rel="describedby" href="/llms.txt" type="text/plain">
 </head>
 <body><div class="page"><div class="container">
       <header class="topbar">
         <a class="brand" href="./" aria-label="Trang chủ PhraseCut"><img src="../favicon/apple-touch-icon.png" alt=""><span>PhraseCut</span></a>
-        <nav class="nav" aria-label="Primary"><a href="./">Trang chủ</a><a href="help">Trợ giúp</a><a href="support">Hỗ trợ</a><a href="privacy-policy">Quyền riêng tư</a><select class="language-switch" aria-label="Language" onchange="if (this.value) window.location.href = this.value;"><option value="../">English</option><option value="../zh-hans/">简体中文</option><option value="../zh-hant/">繁體中文</option><option value="../hi/">हिन्दी</option><option value="../id/">Indonesia</option><option value="../vi/" selected>Tiếng Việt</option><option value="../pt-br/">Português</option></select></nav>
+        <nav class="nav" aria-label="Primary"><a class="online-nav" href="study">Dùng thử trực tuyến</a><a href="./">Trang chủ</a><a href="help">Trợ giúp</a><a href="support">Hỗ trợ</a><a href="privacy-policy">Quyền riêng tư</a><select class="language-switch" aria-label="Language" onchange="if (this.value) window.location.href = this.value;"><option value="../">English</option><option value="../zh-hans/">简体中文</option><option value="../zh-hant/">繁體中文</option><option value="../hi/">हिन्दी</option><option value="../id/">Indonesia</option><option value="../vi/" selected>Tiếng Việt</option><option value="../pt-br/">Português</option></select></nav>
       </header>
       <main>
-        <section class="hero"><div class="hero-copy"><p class="kicker">Học ngôn ngữ qua câu cho iPhone, iPad và Mac</p><h1>PhraseCut</h1><p class="lead">Dán một câu thật vào PhraseCut để dịch, tách từ hữu ích, lưu mục học, ôn lại và xuất Anki/CSV.</p><div class="actions"><a class="button primary" href="https://apps.apple.com/app/id6740488386"><img class="store-icon" src="../images/app-store-icon.svg" alt="">Tải trên App Store</a><a class="button" href="help">Đọc hướng dẫn</a></div></div><div class="product-panel" aria-label="PhraseCut preview">
+        <section class="hero"><div class="hero-copy"><p class="kicker">Học từ vựng trên web, iPhone, iPad và Mac</p><h1>PhraseCut</h1><p class="lead">Học từ vựng qua những câu bạn thích. Dịch câu và từng từ miễn phí rồi xuất CSV hoặc Anki CSV. Dùng ứng dụng để lưu bộ sưu tập và ôn tập lâu dài.</p><div class="actions"><a class="button primary online-link" href="study">Dùng thử trực tuyến</a><a class="button" href="https://apps.apple.com/app/id6740488386"><img class="store-icon" src="../images/app-store-icon.svg" alt="">Tải trên App Store</a><a class="button" href="help">Đọc hướng dẫn</a></div></div><div class="product-panel" aria-label="PhraseCut preview">
             <div class="device-bar"><span></span><span></span><span></span></div>
             <div class="workspace-preview">
               <div class="preview-label">Không gian câu</div>
@@ -49,11 +50,11 @@
               <div class="token-grid"><span><strong>Real</strong><small>thật</small></span><span><strong>sentences</strong><small>câu</small></span><span><strong>preserve</strong><small>giữ lại</small></span><span><strong>context</strong><small>ngữ cảnh</small></span><span><strong>usage</strong><small>cách dùng</small></span><span><strong>and</strong><small>và</small></span><span><strong>tone</strong><small>sắc thái</small></span><span><strong>when</strong><small>khi</small></span><span><strong>you</strong><small>bạn</small></span><span><strong>learn</strong><small>học</small></span><span><strong>a</strong><small>một</small></span><span><strong>language</strong><small>ngôn ngữ</small></span></div>
               <div class="preview-actions"><span>Lưu</span><span>Ôn tập</span><span>Xuất CSV</span></div>
             </div>
-          </div></section>
+          </div></section><section data-search-overview><h2><a href="study">Dịch câu và xuất từ vựng trực tuyến miễn phí</a></h2><p>PhraseCut Online dịch cả câu và từng từ, phát âm bằng giọng đọc có sẵn trong trình duyệt, và xuất từ vựng kèm ngữ cảnh câu gốc. Ứng dụng iPhone, iPad và Mac còn có thư viện học cục bộ và ôn tập ngắt quãng.</p></section>
         <section class="section"><h2>Dành cho người học đọc nội dung thật</h2><div class="feature-grid"><article class="feature"><strong>Hiểu toàn bộ câu</strong><p>Bắt đầu bằng nghĩa tự nhiên của cả câu để hiểu dòng đó đang nói gì trước khi học từng phần.</p></article><article class="feature"><strong>Tách từ và cụm từ</strong><p>Hiểu từ vựng trong ngữ cảnh thay vì học danh sách từ rời rạc.</p></article><article class="feature"><strong>Lưu, ôn tập, xuất dữ liệu</strong><p>Giữ từ, cụm từ và câu trong một thư viện, ôn lại sau và xuất CSV hoặc tệp tương thích Anki.</p></article></div></section>
         <section class="section split"><div><h2>Một câu vào, thư viện học ra.</h2><p>PhraseCut phù hợp để thu thập ngôn ngữ từ bài viết, newsletter, phụ đề, lời bài hát, tin nhắn và sách. Câu gốc và nghĩa được giữ cùng nhau để ghi chú vẫn hữu ích về sau.</p></div></section>
         <section class="section"><h2>Hướng dẫn học từ vựng qua câu</h2><div class="feature-grid two"><article class="feature"><strong><a href="help">Trợ giúp</a></strong><p>Tìm hiểu cách phân tích câu, lưu từ và cụm từ hữu ích, ôn tập và xuất thư viện học.</p></article></div></section>
         <section class="section"><h2>Câu hỏi thường gặp</h2><details class="faq-item" open><summary>PhraseCut có chỉ là app dịch không?</summary><p>Không. Dịch là một phần của luồng học, nhưng PhraseCut được tổ chức quanh ngữ cảnh, mục đã lưu, ôn tập và xuất dữ liệu.</p></details><details class="faq-item"><summary>Tôi có thể lưu gì?</summary><p>Bạn có thể lưu từ, cụm từ và cả câu cùng ngữ cảnh và bản dịch.</p></details><details class="faq-item"><summary>Có thể xuất tài liệu học không?</summary><p>Có. Library có thể xuất CSV hoặc CSV tương thích Anki.</p></details></section>
-      </main><footer class="footer"><div class="footer-links"><a href="help">Trợ giúp</a><a href="support">Hỗ trợ</a><a href="privacy-policy">Quyền riêng tư</a><a href="mailto:cameoshell09@gmail.com">cameoshell09@gmail.com</a></div><div>Học qua câu, ôn từ vựng và giữ tài liệu học có thể mang theo.</div></footer>
+      </main><footer class="footer"><div class="footer-links"><a href="help">Trợ giúp</a><a href="support">Hỗ trợ</a><a href="privacy-policy">Quyền riêng tư</a><!--email_off--><a href="mailto:cameoshell09@gmail.com">cameoshell09@gmail.com</a><!--/email_off--></div><div>Học qua câu, ôn từ vựng và giữ tài liệu học có thể mang theo.</div></footer>
     </div></div></body>
 </html>

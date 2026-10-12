@@ -1,0 +1,33 @@
+# PhraseCut
+
+> Learn vocabulary from sentences you like, with a free online sentence translator and native apps for iPhone, iPad, and Mac.
+
+The website has no saved history or review library. Native apps provide local saving and spaced repetition. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
+
+## Product
+
+- [Product facts](https://phrase-cut.luopeike.com/product-facts.md): Accurate feature boundaries, translation providers, language support, and CSV format.
+- [Online tool](https://phrase-cut.luopeike.com/study): Sentence and word-by-word translation, pronunciation, CSV and Anki CSV export.
+- [Help](https://phrase-cut.luopeike.com/help): Native app learning and review workflow.
+
+## Learning guides
+
+- [Learn words from sentences](https://phrase-cut.luopeike.com/learn-words-from-sentences): A practical workflow with examples.
+- [Sentence-based vocabulary](https://phrase-cut.luopeike.com/sentence-based-vocabulary): Keep words connected to their context.
+- [CSV and Anki export](https://phrase-cut.luopeike.com/export-language-study-materials): Web exports and native library exports.
+
+## Localized tools
+
+- [English](https://phrase-cut.luopeike.com/study): Translate a sentence and each word online, listen to pronunciation, and export selected vocabulary to CSV or Anki CSV. No account required. Not just English.
+- [简体中文](https://phrase-cut.luopeike.com/zh-hans/study): 在线翻译整句和单词，听发音并将选中的词汇连同原句导出为 CSV 或 Anki CSV。无需注册，支持英语和其他外语词汇学习。
+- [繁體中文](https://phrase-cut.luopeike.com/zh-hant/study): 線上翻譯整句和單字，聽發音並將選取的單字連同原句匯出為 CSV 或 Anki CSV。不需註冊，支援英語與其他外語學習。
+- [हिन्दी](https://phrase-cut.luopeike.com/hi/study): ऑनलाइन वाक्य और प्रत्येक शब्द का अनुवाद करें, उच्चारण सुनें और चुने हुए शब्द CSV या Anki CSV में निर्यात करें। बिना खाते के विदेशी भाषा सीखें।
+- [Indonesia](https://phrase-cut.luopeike.com/id/study): Terjemahkan kalimat dan tiap kata online, dengarkan pelafalan, lalu ekspor kosakata pilihan ke CSV atau Anki CSV. Tanpa akun, untuk berbagai bahasa asing.
+- [Tiếng Việt](https://phrase-cut.luopeike.com/vi/study): Dịch câu và từng từ trực tuyến, nghe phát âm và xuất từ vựng kèm câu gốc sang CSV hoặc Anki CSV. Không cần tài khoản, hỗ trợ học nhiều ngoại ngữ.
+- [Português](https://phrase-cut.luopeike.com/pt-br/study): Traduza frases e cada palavra online, ouça a pronúncia e exporte vocabulário com contexto para CSV ou Anki CSV. Sem conta, para aprender vários idiomas.
+
+## Optional
+
+- [Privacy](https://phrase-cut.luopeike.com/privacy-policy): How text is processed.
+- [Support](https://phrase-cut.luopeike.com/support): Contact the developer.
+- [App Store](https://apps.apple.com/app/id6740488386): Download the native app.

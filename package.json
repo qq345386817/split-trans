@@ -1,0 +1,11 @@
+{
+  "name": "phrasecut-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-study-pages.mjs",
+    "dev": "node scripts/dev.mjs",
+    "check": "python3 scripts/check_seo.py && node --test tests/*.test.mjs"
+  },
+  "devDependencies": { "lucide-static": "^0.577.0" }
+}

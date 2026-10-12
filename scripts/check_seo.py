@@ -28,6 +28,7 @@ class Page(HTMLParser):
         self.og_url = []
         self.json_ld = []
         self.in_json_ld = False
+        self.in_language_select = False
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -41,12 +42,16 @@ class Page(HTMLParser):
             self.in_json_ld = True
         if tag in ("a", "link", "img", "script"):
             self.links.append(attrs.get("href") or attrs.get("src"))
-        if tag == "option" and attrs.get("value"):
+        if tag == "select":
+            self.in_language_select = "language-switch" in attrs.get("class", "").split()
+        if tag == "option" and self.in_language_select and attrs.get("value"):
             self.links.append(attrs["value"])
 
     def handle_endtag(self, tag):
         if tag == "script":
             self.in_json_ld = False
+        if tag == "select":
+            self.in_language_select = False
 
     def handle_data(self, data):
         if self.in_json_ld:
@@ -68,7 +73,7 @@ def main():
     urls = [node.text for node in xml.findall(".//{*}loc")]
     pages = sorted(
         file for file in ROOT.rglob("*.html")
-        if ".git" not in file.parts and file.name != "404.html"
+        if not {".git", "node_modules", "dist"}.intersection(file.parts) and file.name != "404.html"
         and not file.name.startswith("google")
     )
     expected_urls = {public_url(file) for file in pages}
