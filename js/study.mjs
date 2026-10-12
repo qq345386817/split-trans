@@ -40,7 +40,7 @@ function renderOrigin(origin) {
   if (!origin) return;
   const link = document.createElement("a");
   link.href = origin.url; link.target = "_blank"; link.rel = "noopener noreferrer";
-  link.textContent = `${origin.name} · ${origin.author} — ${origin.title}`;
+  link.textContent = `${origin.name}${origin.author === origin.name ? "" : ` · ${origin.author}`} — ${origin.title}`;
   section.append(link);
   const details = document.createElement("p");
   const date = origin.publishedAt || origin.updatedAt;
