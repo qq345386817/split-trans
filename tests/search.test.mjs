@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { locales } from "../scripts/study-locales.mjs";
 import { searchCopy } from "../scripts/search-copy.mjs";
+import { sourceFAQ } from "../scripts/source-copy.mjs";
 
 const root = new URL("../", import.meta.url);
 const htmlEscape = value => value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;");
@@ -21,8 +22,9 @@ test("all locales have unique search titles and complete, visible FAQ answers", 
     assert.equal((languages.match(/ selected>/g) || []).length, 1);
     const structured = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
     const faq = structured.find(item => item["@type"] === "FAQPage");
-    assert.equal(faq.mainEntity.length, copy.faqs.length);
-    for (const [index, [question, answer]] of copy.faqs.entries()) {
+    const faqs = [...copy.faqs, [sourceFAQ[locale.lang].sourceQuestion, sourceFAQ[locale.lang].sourceAnswer]];
+    assert.equal(faq.mainEntity.length, faqs.length);
+    for (const [index, [question, answer]] of faqs.entries()) {
       assert.equal(faq.mainEntity[index].name, question);
       assert.equal(faq.mainEntity[index].acceptedAnswer.text, answer);
       assert.ok(html.includes("<summary>" + htmlEscape(question) + "</summary>"));

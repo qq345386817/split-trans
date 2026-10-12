@@ -5,7 +5,8 @@ import { locales } from "./study-locales.mjs";
 import { searchCopy } from "./search-copy.mjs";
 import { languageCodes } from "../js/study-core.mjs";
 import { interestCopy } from "./interest-copy.mjs";
-import { topicIDs } from "../js/recommendations.mjs";
+import { topicIDs, sources } from "../js/recommendations.mjs";
+import { sourceCopy, sourceFAQ } from "./source-copy.mjs";
 import { workflowCopy } from "./workflow-copy.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -33,13 +34,14 @@ const privacyDates = {
 
 for (const baseCopy of Object.values(locales)) {
   const seo = searchCopy[baseCopy.lang];
-  const copy = { ...baseCopy, ...interestCopy[baseCopy.lang], title: seo.toolTitle, description: seo.toolDescription };
+  const copy = { ...baseCopy, ...interestCopy[baseCopy.lang], ...sourceCopy[baseCopy.lang], title: seo.toolTitle, description: seo.toolDescription };
   const url = origin + pathFor(copy);
   const alternates = Object.values(locales).map(other => `<link rel="alternate" hreflang="${other.lang}" href="${origin + pathFor(other)}">`).join("\n");
   const options = Object.values(locales).map(other => `<option value="${pathFor(other)}"${other.lang === copy.lang ? " selected" : ""}>${other.name}</option>`).join("");
   const languageNames = new Intl.DisplayNames([copy.lang], { type: "language" });
   const supportedNames = new Intl.ListFormat(copy.lang, { style: "long", type: "conjunction" }).format(languageCodes.map(code => languageNames.of(code)));
-  const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: seo.faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) };
+  const faqs = [...seo.faqs, [sourceFAQ[copy.lang].sourceQuestion, sourceFAQ[copy.lang].sourceAnswer]];
+  const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) };
   const data = JSON.stringify(copy).replaceAll("<", "\\u003c");
   const html = `<!DOCTYPE html>
 <html lang="${copy.lang}">
@@ -65,9 +67,10 @@ for (const baseCopy of Object.values(locales)) {
 <form id="study-form" class="study-workspace">
 <div class="language-pair"><label>${copy.source}<select id="source-language" required></select></label>${button("swap-languages", "arrow-left-right", copy.swap, `class="icon-button" title="${copy.swap}" aria-label="${copy.swap}"`)}<label>${copy.targetLabel}<select id="target-language" required></select></label></div>
 <div class="input-heading"><label for="sentence">${copy.sentence}</label><div class="input-tools">${button("paste", "clipboard", copy.paste, `class="icon-button" title="${copy.paste}" aria-label="${copy.paste}"`)}${button("clear", "x", copy.clear, `class="icon-button" title="${copy.clear}" aria-label="${copy.clear}"`)}</div></div>
+<div id="recommendation-origin" class="recommendation-origin" hidden></div>
 <textarea id="sentence" rows="4" maxlength="800" placeholder="${escape(copy.placeholder)}" required spellcheck="false" dir="auto"></textarea>
 <div class="input-footer"><span id="character-count">0 / 400</span><div class="workspace-actions">${button("recommend", "quote", copy.recommend, 'class="secondary"')}<button id="analyze" type="submit" class="primary">${icon("scan-text")}<span>${copy.analyze}</span></button>${button("cancel", "x", copy.cancel, 'hidden')}</div></div>
-<div class="recommendation-filters"><label>${copy.topic}<select id="recommendation-topic">${topicIDs.map((id, index) => `<option value="${id}">${escape(copy.topics[index])}</option>`).join("")}</select></label><label>${copy.length}<select id="recommendation-length">${copy.lengths.map((label, index) => `<option value="${index}">${escape(label)}</option>`).join("")}</select></label></div>
+<div class="recommendation-filters"><label>${copy.topic}<select id="recommendation-topic">${topicIDs.map((id, index) => `<option value="${id}">${escape(copy.topics[index])}</option>`).join("")}</select></label><label>${copy.length}<select id="recommendation-length">${copy.lengths.map((label, index) => `<option value="${index}">${escape(label)}</option>`).join("")}</select></label><label>${copy.sourceLabel}<select id="recommendation-source">${sources.map(source => `<option value="${source.id}">${escape(source.name || copy.allSources)}</option>`).join("")}</select></label></div>
 <p class="privacy-note">${copy.notice} <a href="privacy-policy">${copy.privacy}</a></p>
 </form>
 <div id="status" class="study-status" role="status" aria-live="polite"></div>
@@ -81,7 +84,7 @@ for (const baseCopy of Object.values(locales)) {
 </section>
 <aside class="app-invitation"><img src="/favicon/apple-touch-icon.png" alt="" width="48" height="48"><div><h2>${copy.appTitle}</h2><p>${copy.appBody}</p></div><a class="button" href="${appStore}?ct=website-study&mt=8">${copy.download}</a></aside>
 <section class="study-questions" aria-labelledby="questions-heading"><h2 id="questions-heading">${seo.questionsHeading}</h2>
-${seo.faqs.map(([question, answer]) => `<details class="study-question"><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join("\n")}
+${faqs.map(([question, answer]) => `<details class="study-question"><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join("\n")}
 <h3>${seo.languageHeading}</h3><p>${escape(supportedNames)}</p></section>
 </main><footer class="footer"><div class="footer-links"><a href="help">${copy.help}</a><a href="privacy-policy">${copy.privacy}</a><a href="mailto:cameoshell09@gmail.com">cameoshell09@gmail.com</a></div></footer>
 </div></div></body></html>\n`;
@@ -133,7 +136,8 @@ for (const copy of Object.values(locales)) {
 }
 await writeFile(`${root}sitemap.xml`, sitemap);
 const facts = `# PhraseCut\n\n> PhraseCut helps people learn vocabulary from sentences they like. It provides a free online sentence translator and native apps for iPhone, iPad, and Mac.\n\n## Online tool\n\nThe website translates a whole sentence and individual words, offers browser pronunciation, and exports selected words to CSV or Anki-compatible CSV. No account is needed. Translation is online Google machine translation from the browser, with a Cloudflare proxy available for network failures. The web endpoint can be rate-limited. Provider refusals are not retried through the proxy. Each analysis accepts up to 400 Unicode characters and 40 words. The website does not save history or maintain a review library. Individual word translations are not contextual AI tutor explanations.\n\nThe CSV columns are Word, Meaning, Sentence, Translation, Source language, and Target language. Anki export is CSV, not an APKG deck. Translation languages: ${new Intl.ListFormat("en").format(languageCodes.map(code => new Intl.DisplayNames(["en"], { type: "language" }).of(code)))}.\n\n## Native apps\n\nThe iPhone, iPad, and Mac apps add a local study library, saved words and sentences, spaced repetition, and library exports. They use Apple Translation, which can work offline after the required language packs are downloaded. They are not limited to learning English. The website and native app use different translation engines.\n\n## Canonical pages\n\n- [Online sentence translator](${origin}/study): The working web tool.\n- [App and website overview](${origin}/): Product overview.\n- [Help](${origin}/help): Native app help.\n- [Privacy](${origin}/privacy-policy): Text processing and local storage boundaries.\n- [App Store](${appStore}): The native app listing.\n`;
-await writeFile(`${root}product-facts.md`, facts);
+const sourceFacts = `\n## Updating content sources\n\nOnline suggestions come from Wikipedia's public daily/article APIs, Global Voices RSS, NASA RSS, and Wikivoyage's public API. Topic compatibility differs by provider. Public source pools are refreshed hourly on demand, cached in R2, and can be served with an explicit stale-cache label during outages. Publication dates differ from retrieval dates. Fixed practice samples are not part of online recommendations.\n\nOriginal author, publisher, article link, publication/update date, and license are displayed above excerpts. Source-based CSV/Anki CSV exports add publisher, author, original URL, license, license URL, and attribution columns. Machine translations are identified as PhraseCut output, not publisher translations. Original and adapted text retain their indicated licenses. Wikinews is not used because it became read-only in May 2026.\n`;
+await writeFile(`${root}product-facts.md`, facts + sourceFacts);
 await writeFile(`${root}llms.txt`, `# PhraseCut\n\n> Learn vocabulary from sentences you like, with a free online sentence translator and native apps for iPhone, iPad, and Mac.\n\nThe website has no saved history or review library. Native apps provide local saving and spaced repetition. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.\n\n## Product\n\n- [Product facts](${origin}/product-facts.md): Accurate feature boundaries, translation providers, language support, and CSV format.\n- [Online tool](${origin}/study): Sentence and word-by-word translation, pronunciation, CSV and Anki CSV export.\n- [Help](${origin}/help): Native app learning and review workflow.\n\n## Learning guides\n\n- [Learn words from sentences](${origin}/learn-words-from-sentences): A practical workflow with examples.\n- [Sentence-based vocabulary](${origin}/sentence-based-vocabulary): Keep words connected to their context.\n- [CSV and Anki export](${origin}/export-language-study-materials): Web exports and native library exports.\n\n## Localized tools\n\n${Object.values(locales).map(copy => `- [${copy.name}](${origin + pathFor(copy)}): ${searchCopy[copy.lang].toolDescription}`).join("\n")}\n\n## Optional\n\n- [Privacy](${origin}/privacy-policy): How text is processed.\n- [Support](${origin}/support): Contact the developer.\n- [App Store](${appStore}): Download the native app.\n`);
 const output = `${root}dist`;
 await rm(output, { recursive: true, force: true });

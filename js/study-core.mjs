@@ -10,9 +10,15 @@ export function csvCell(value) {
 export function exportCSV(result, selected, format) {
   const rows = result.words.filter(word => selected.has(word.index) && word.target);
   const content = rows.map(word => [word.source, word.target, result.source, result.fullTranslation, result.sourceLanguage, result.targetLanguage]);
+  const columns = ["Word", "Meaning", "Sentence", "Translation", "Source language", "Target language"];
+  if (result.origin) {
+    columns.push("Publisher", "Author", "Original URL", "License", "License URL", "Attribution");
+    for (const row of content) row.push(result.origin.name, result.origin.author, result.origin.url, result.origin.license, result.origin.licenseURL,
+      "Excerpt; machine translation by PhraseCut, not the original publisher. Original and adapted text retain the indicated license.");
+  }
   const header = format === "anki"
-    ? "#separator:Comma\n#html:false\n#columns:Word,Meaning,Sentence,Translation,Source language,Target language\n"
-    : "\uFEFF" + ["Word", "Meaning", "Sentence", "Translation", "Source language", "Target language"].map(csvCell).join(",") + "\r\n";
+    ? "#separator:Comma\n#html:false\n#columns:" + columns.join(",") + "\n"
+    : "\uFEFF" + columns.map(csvCell).join(",") + "\r\n";
   return header + content.map(row => row.map(csvCell).join(",")).join("\r\n") + "\r\n";
 }
 

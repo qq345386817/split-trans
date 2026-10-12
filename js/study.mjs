@@ -1,6 +1,6 @@
 import { languageCodes, characterCount, exportCSV, validateResult } from "./study-core.mjs";
 import { analyzeWithGoogle } from "./google-client.mjs";
-import { recommendationURL, playbackPreferences, lengthRanges } from "./recommendations.mjs";
+import { recommendationURL, playbackPreferences, lengthRanges, sources, supportsTopic, validateOrigin } from "./recommendations.mjs";
 
 const copy = JSON.parse(document.getElementById("study-copy").textContent);
 const $ = id => document.getElementById(id);
@@ -11,6 +11,7 @@ const selected = new Set();
 let speakingButton = null;
 let speechGeneration = 0;
 let lastRecommendedID = null;
+let recommended = null;
 const icon = name => {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.classList.add("icon");
@@ -32,6 +33,32 @@ $("source-language").value = "en";
 $("target-language").value = copy.target;
 $("site-language").addEventListener("change", event => { window.location.href = event.target.value; });
 
+function renderOrigin(origin) {
+  const section = $("recommendation-origin");
+  section.replaceChildren();
+  section.hidden = !origin;
+  if (!origin) return;
+  const link = document.createElement("a");
+  link.href = origin.url; link.target = "_blank"; link.rel = "noopener noreferrer";
+  link.textContent = `${origin.name} · ${origin.author} — ${origin.title}`;
+  section.append(link);
+  const details = document.createElement("p");
+  const date = origin.publishedAt || origin.updatedAt;
+  details.textContent = [origin.kind === "headline" ? copy.headline : copy.excerpt,
+    date && Number.isFinite(Date.parse(date)) ? `${origin.publishedAt ? copy.published : copy.updated}: ${new Intl.DateTimeFormat(copy.lang, { dateStyle: "medium" }).format(new Date(date))}` : "",
+    origin.stale ? copy.cachedSource : ""].filter(Boolean).join(" · ");
+  section.append(details);
+  const license = document.createElement("a"); license.href = origin.licenseURL; license.target = "_blank"; license.rel = "noopener noreferrer"; license.textContent = origin.license;
+  section.append(license);
+  const credit = document.createElement("p"); credit.textContent = copy.translationCredit; section.append(credit);
+}
+
+$("recommendation-topic").addEventListener("change", () => {
+  const previous = $("recommendation-source").value;
+  $("recommendation-source").replaceChildren(...sources.filter(source => supportsTopic(source.id, $("recommendation-topic").value)).map(source => new Option(source.name || copy.allSources, source.id)));
+  $("recommendation-source").value = supportsTopic(previous, $("recommendation-topic").value) ? previous : "auto";
+});
+
 function status(message = "", state = "ready") {
   $("status").dataset.state = state;
   $("status").replaceChildren();
@@ -46,6 +73,7 @@ function busy(active, recommending = false) {
   $("cancel").hidden = !active;
   $("recommendation-topic").disabled = active;
   $("recommendation-length").disabled = active;
+  $("recommendation-source").disabled = active;
   $("analyze").querySelector("svg").replaceWith(icon(active && !recommending ? "loader-circle" : "scan-text"));
   $("recommend").querySelector("svg").replaceWith(icon(active && recommending ? "loader-circle" : "quote"));
 }
@@ -69,6 +97,7 @@ function reset() {
   stopSpeech();
   result = null;
   selected.clear();
+  if (recommended && $("sentence").value !== recommended.content) { recommended = null; renderOrigin(null); }
   $("results").hidden = true;
   $("word-grid").replaceChildren();
   $("character-count").textContent = `${characterCount($("sentence").value)} / 400`;
@@ -85,7 +114,10 @@ $("paste").addEventListener("click", async () => {
 $("swap-languages").addEventListener("click", () => {
   const previous = result;
   [$("source-language").value, $("target-language").value] = [$("target-language").value, $("source-language").value];
-  if (previous) $("sentence").value = previous.fullTranslation;
+  if (previous) {
+    $("sentence").value = previous.fullTranslation;
+    if (previous.origin) recommended = { content: previous.fullTranslation, source: previous.origin };
+  }
   reset();
 });
 
@@ -118,6 +150,7 @@ async function analyze(active = new AbortController()) {
     }
     if (controller !== active || active.signal.aborted) return;
     result = validateResult(data, snapshot);
+    if (recommended?.content === snapshot.text) result.origin = recommended.source;
     renderResult();
     status(result.warning === "rate_limited" ? copy.limited : result.words.some(word => word.target === null) ? copy.partial : copy.ready);
     $("results").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
@@ -138,15 +171,18 @@ $("recommend").addEventListener("click", async () => {
   controller = active;
   busy(true, true);
   status(copy.finding, "busy");
-  const timeout = setTimeout(() => active.abort("timeout"), 12000);
+  const timeout = setTimeout(() => active.abort("timeout"), 18000);
   try {
     const range = lengthRanges[Number($("recommendation-length").value)];
-    const response = await fetch(recommendationURL($("recommendation-topic").value, Number($("recommendation-length").value), lastRecommendedID), { signal: active.signal, credentials: "omit", cache: "no-store" });
-    if (!response.ok) throw new Error("quote_failed");
+    const response = await fetch(recommendationURL($("recommendation-topic").value, Number($("recommendation-length").value), lastRecommendedID, $("recommendation-source").value), { signal: active.signal, credentials: "omit", cache: "no-store" });
+    if (!response.ok) throw new Error("source_unavailable");
     const quotes = await response.json();
     if (controller !== active || active.signal.aborted) return;
     if (typeof quotes[0]?.content !== "string" || characterCount(quotes[0].content) < range[0] || characterCount(quotes[0].content) > range[1]) throw new Error("quote_failed");
     if ($("recommendation-topic").value !== "all" && !quotes[0].tags?.includes($("recommendation-topic").value)) throw new Error("quote_failed");
+    const origin = validateOrigin(quotes[0].source);
+    recommended = { content: quotes[0].content, source: origin };
+    renderOrigin(origin);
     lastRecommendedID = quotes[0]._id;
     $("sentence").value = quotes[0].content;
     $("character-count").textContent = `${characterCount(quotes[0].content)} / 400`;
@@ -155,9 +191,9 @@ $("recommend").addEventListener("click", async () => {
     clearTimeout(timeout);
     controller = null;
     await analyze(active);
-  } catch {
+  } catch (error) {
     if (controller === active) {
-      if (!active.signal.aborted || active.signal.reason === "timeout") status(copy.quoteFailed, "error");
+      if (!active.signal.aborted || active.signal.reason === "timeout") status(error.message === "source_unavailable" ? copy.sourceFailed : copy.quoteFailed, "error");
       controller = null;
       busy(false);
     }

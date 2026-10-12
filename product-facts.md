@@ -19,3 +19,9 @@ The iPhone, iPad, and Mac apps add a local study library, saved words and senten
 - [Help](https://phrase-cut.luopeike.com/help): Native app help.
 - [Privacy](https://phrase-cut.luopeike.com/privacy-policy): Text processing and local storage boundaries.
 - [App Store](https://apps.apple.com/app/id6740488386): The native app listing.
+
+## Updating content sources
+
+Online suggestions come from Wikipedia's public daily/article APIs, Global Voices RSS, NASA RSS, and Wikivoyage's public API. Topic compatibility differs by provider. Public source pools are refreshed hourly on demand, cached in R2, and can be served with an explicit stale-cache label during outages. Publication dates differ from retrieval dates. Fixed practice samples are not part of online recommendations.
+
+Original author, publisher, article link, publication/update date, and license are displayed above excerpts. Source-based CSV/Anki CSV exports add publisher, author, original URL, license, license URL, and attribution columns. Machine translations are identified as PhraseCut output, not publisher translations. Original and adapted text retain their indicated licenses. Wikinews is not used because it became read-only in May 2026.

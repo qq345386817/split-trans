@@ -16,12 +16,19 @@ There are no Workers AI calls or paid-provider fallbacks. This differs from the
 Apple Translation engine used by the native app, and individual word meanings
 are not contextual AI explanations.
 
-Recommendations can be filtered by nine interest topics and sentence length.
+Recommendations come from dynamic RSS/API sources and can be filtered by nine
+interest topics, source, and sentence length. Supported providers are Wikipedia,
+Global Voices, NASA (science/technology), and Wikivoyage (travel). The source
+registry is maintained by the companion Worker, with hourly R2 caches under
+`apps/Quotes/feeds/`. There are no fixed practice sentences in online responses.
+The UI displays author, original article link, source date, and license above
+the excerpt. CSV and Anki CSV retain attribution in additional columns. Stale
+cached material is explicitly labeled. Publication frequency varies by source.
 The API excludes the last recommended ID to avoid immediate repeats. The browser
 offers 0.5–1.5x pronunciation and one, three, or five repetitions of the full
 sentence. These settings stay in the tab; there is no browser storage. The
-native app additionally offers a listening-first review mode. Original practice
-sentences are labeled PhraseCut in the recommendation API, not as news reports.
+native app additionally offers a listening-first review mode and labeled fixed
+practice samples only as an offline fallback.
 
 ## Development
 
