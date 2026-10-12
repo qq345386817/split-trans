@@ -1,5 +1,6 @@
 import { languageCodes, characterCount, exportCSV, validateResult } from "./study-core.mjs";
 import { analyzeWithGoogle } from "./google-client.mjs";
+import { recommendationURL, playbackPreferences, lengthRanges } from "./recommendations.mjs";
 
 const copy = JSON.parse(document.getElementById("study-copy").textContent);
 const $ = id => document.getElementById(id);
@@ -9,6 +10,7 @@ let result = null;
 const selected = new Set();
 let speakingButton = null;
 let speechGeneration = 0;
+let lastRecommendedID = null;
 const icon = name => {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.classList.add("icon");
@@ -42,6 +44,8 @@ function busy(active, recommending = false) {
   $("analyze").disabled = active;
   $("recommend").disabled = active;
   $("cancel").hidden = !active;
+  $("recommendation-topic").disabled = active;
+  $("recommendation-length").disabled = active;
   $("analyze").querySelector("svg").replaceWith(icon(active && !recommending ? "loader-circle" : "scan-text"));
   $("recommend").querySelector("svg").replaceWith(icon(active && recommending ? "loader-circle" : "quote"));
 }
@@ -136,11 +140,14 @@ $("recommend").addEventListener("click", async () => {
   status(copy.finding, "busy");
   const timeout = setTimeout(() => active.abort("timeout"), 12000);
   try {
-    const response = await fetch("https://quote.luopeike.com/quotes/random?limit=1&minLength=35&maxLength=160", { signal: active.signal, credentials: "omit", cache: "no-store" });
+    const range = lengthRanges[Number($("recommendation-length").value)];
+    const response = await fetch(recommendationURL($("recommendation-topic").value, Number($("recommendation-length").value), lastRecommendedID), { signal: active.signal, credentials: "omit", cache: "no-store" });
     if (!response.ok) throw new Error("quote_failed");
     const quotes = await response.json();
     if (controller !== active || active.signal.aborted) return;
-    if (typeof quotes[0]?.content !== "string" || characterCount(quotes[0].content) > 400) throw new Error("quote_failed");
+    if (typeof quotes[0]?.content !== "string" || characterCount(quotes[0].content) < range[0] || characterCount(quotes[0].content) > range[1]) throw new Error("quote_failed");
+    if ($("recommendation-topic").value !== "all" && !quotes[0].tags?.includes($("recommendation-topic").value)) throw new Error("quote_failed");
+    lastRecommendedID = quotes[0]._id;
     $("sentence").value = quotes[0].content;
     $("character-count").textContent = `${characterCount(quotes[0].content)} / 400`;
     $("source-language").value = "en";
@@ -248,10 +255,7 @@ function speak(text, language, button) {
   const voice = voices.find(voice => voice.lang.toLowerCase() === voiceLanguage.toLowerCase()) ||
     voices.find(voice => voice.lang.toLowerCase().startsWith(voiceLanguage.toLowerCase() + "-"));
   if (!voice) { status(copy.noVoice, "error"); return; }
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = voiceLanguage;
-  utterance.voice = voice;
-  utterance.rate = .85;
+  const preferences = playbackPreferences($("speech-rate").value, button === $("listen-sentence") ? $("speech-repeat").value : 1);
   const generation = speechGeneration;
   speakingButton = button;
   if (!button.dataset.listenLabel) button.dataset.listenLabel = button.getAttribute("aria-label");
@@ -260,9 +264,22 @@ function speak(text, language, button) {
   button.setAttribute("aria-label", copy.stop);
   button.title = copy.stop;
   button.replaceChildren(icon("square"));
-  utterance.onend = () => { if (generation === speechGeneration) stopSpeech(); };
-  utterance.onerror = event => { if (generation === speechGeneration) { stopSpeech(); if (!["canceled", "interrupted"].includes(event.error)) status(copy.speechFailed, "error"); } };
-  speechSynthesis.speak(utterance);
+  let remaining = preferences.count;
+  const playNext = () => {
+    if (generation !== speechGeneration) return;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = voiceLanguage;
+    utterance.voice = voice;
+    utterance.rate = preferences.rate;
+    utterance.onend = () => {
+      if (generation !== speechGeneration) return;
+      if (--remaining > 0) playNext(); else stopSpeech();
+    };
+    utterance.onerror = event => { if (generation === speechGeneration) { stopSpeech(); if (!["canceled", "interrupted"].includes(event.error)) status(copy.speechFailed, "error"); } };
+    speechSynthesis.speak(utterance);
+  };
+  playNext();
 }
+for (const id of ["speech-rate", "speech-repeat"]) $(id).addEventListener("change", stopSpeech);
 $("listen-sentence").addEventListener("click", () => { if (result) speak(result.source, result.sourceLanguage, $("listen-sentence")); });
 window.addEventListener("pagehide", () => { controller?.abort(); stopSpeech(); });

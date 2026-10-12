@@ -87,3 +87,6 @@
   .result-translation { font-size: 21px; }
 }
 @media (prefers-reduced-motion: reduce) { .study-status[data-state="busy"] .icon { animation: none; } }
+.recommendation-filters, .listening-settings { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+.recommendation-filters label, .listening-settings label { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 14px; }
+.recommendation-filters select, .listening-settings select { max-width: 100%; min-height: 40px; }

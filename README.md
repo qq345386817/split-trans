@@ -16,6 +16,13 @@ There are no Workers AI calls or paid-provider fallbacks. This differs from the
 Apple Translation engine used by the native app, and individual word meanings
 are not contextual AI explanations.
 
+Recommendations can be filtered by nine interest topics and sentence length.
+The API excludes the last recommended ID to avoid immediate repeats. The browser
+offers 0.5–1.5x pronunciation and one, three, or five repetitions of the full
+sentence. These settings stay in the tab; there is no browser storage. The
+native app additionally offers a listening-first review mode. Original practice
+sentences are labeled PhraseCut in the recommendation API, not as news reports.
+
 ## Development
 
 ```sh

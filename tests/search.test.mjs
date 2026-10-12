@@ -16,7 +16,9 @@ test("all locales have unique search titles and complete, visible FAQ answers", 
     titles.add(copy.toolTitle);
     const html = await readFile(new URL((locale.folder ? locale.folder + "/" : "") + "study.html", root), "utf8");
     assert.ok(html.includes("<title>" + htmlEscape(copy.toolTitle) + "</title>"));
-    assert.equal((html.match(/ selected>/g) || []).length, 1);
+    const languages = html.match(/<select[^>]*id="site-language"[^>]*>([\s\S]*?)<\/select>/)?.[1];
+    assert.ok(languages);
+    assert.equal((languages.match(/ selected>/g) || []).length, 1);
     const structured = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
     const faq = structured.find(item => item["@type"] === "FAQPage");
     assert.equal(faq.mainEntity.length, copy.faqs.length);
