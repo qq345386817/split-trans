@@ -1,5 +1,6 @@
 import { readFile, writeFile, readdir, mkdir, rm, cp } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 import { locales } from "./study-locales.mjs";
 import { searchCopy } from "./search-copy.mjs";
 import { languageCodes } from "../js/study-core.mjs";
@@ -8,6 +9,7 @@ import { topicIDs } from "../js/recommendations.mjs";
 import { workflowCopy } from "./workflow-copy.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
+const studyStyleVersion = createHash("sha256").update(await readFile(`${root}style/study.css`)).digest("hex").slice(0, 12);
 const origin = "https://phrase-cut.luopeike.com";
 const appStore = "https://apps.apple.com/app/id6740488386";
 const escape = value => value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;");
@@ -51,7 +53,7 @@ for (const baseCopy of Object.values(locales)) {
 <link rel="canonical" href="${url}">${alternates}<link rel="alternate" hreflang="x-default" href="${origin}/study">
 <link rel="describedby" href="/llms.txt" type="text/plain">
 <link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
-<link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/study.css">
+<link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/study.css?v=${studyStyleVersion}">
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "WebApplication", "@id": url + "#application", name: "PhraseCut Online", applicationCategory: "EducationalApplication", operatingSystem: "Web", url, description: copy.description, inLanguage: copy.lang, isAccessibleForFree: true, featureList: ["Sentence translation", "Individual word translation", "Browser pronunciation", "CSV export", "Anki-compatible CSV export"], publisher: { "@type": "Person", name: "Peter Luo" }, isPartOf: { "@type": "WebSite", name: "PhraseCut", url: origin + "/" } })}</script>
 <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
 <script id="study-copy" type="application/json">${data}</script><script type="module" src="/js/study.mjs"></script>
