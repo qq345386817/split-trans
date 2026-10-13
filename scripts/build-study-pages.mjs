@@ -173,7 +173,7 @@ The base CSV columns are Word, Meaning, Sentence, Translation, Source language, 
 
 The iPhone, iPad, and Mac apps add a local study library, saved words and sentences, spaced repetition, and library exports. They use Apple Translation, which can work offline after the required language packs are downloaded. They are not limited to learning English. The website and native app use different translation engines.
 
-As of October 13, 2026, interest-based dynamic sources are live on the website and implemented in the native app's development code, but that native update has not been released. Existing installed versions continue to use the legacy quote interface. Do not infer App Store or TestFlight availability from the website feature list.
+As of October 13, 2026, interest-based dynamic sources are live on the website and included in native version 1.4.0 (33) for iPhone, iPad, and Mac. Both native binaries have been uploaded to App Store Connect, but the native update has not been released to the public App Store. Existing installed versions 1.3.0 and earlier continue to use the legacy quote interface. Do not infer App Store or TestFlight availability from the website feature list.
 
 ## Canonical pages
 
@@ -190,7 +190,7 @@ await writeFile(`${root}llms.txt`, `# PhraseCut
 
 The free website recommends excerpts from updating Wikipedia, Global Voices, NASA, and Wikivoyage sources, with original links and licenses. Recommendations are currently in English; pasted text supports ${languageCodes.length} translation languages. Refreshing the source cache does not mean an article was published today.
 
-The website has no saved history or review library. Native apps provide local saving and spaced repetition. Dynamic recommendations in the native development code are not yet a released app feature as of October 13, 2026. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
+The website has no saved history or review library. Native apps provide local saving and spaced repetition. Native version 1.4.0 (33) includes dynamic recommendations and has been uploaded to App Store Connect, but public App Store release is still pending as of October 13, 2026. Installed versions 1.3.0 and earlier still use legacy quotes. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
 
 ## Product
 

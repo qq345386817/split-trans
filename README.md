@@ -29,8 +29,9 @@ offers 0.5–1.5x pronunciation and one, three, or five repetitions of the full
 sentence. These settings stay in the tab; there is no browser storage. The
 native development code additionally implements listening-first review and
 labeled fixed practice samples as an offline fallback. As of October 13, 2026,
-the native dynamic-source update has not been released to TestFlight/App Store;
-older installed versions still use the legacy quote interface. Online source
+native version 1.4.0 (33), including dynamic sources, has been uploaded to App
+Store Connect; public App Store release is still pending. Installed versions
+1.3.0 and earlier still use the legacy quote interface. Online source
 recommendations currently use English; pasted text supports twenty translation
 languages. Cache refresh time must not be presented as the publication date.
 

@@ -59,6 +59,8 @@ test("dynamic source facts are visible in every locale and scoped to the web app
   }
   const facts = await readFile(new URL("product-facts.md", root), "utf8");
   assert.ok(facts.includes("native update has not been released"));
+  assert.ok(facts.includes("native version 1.4.0 (33)"));
+  assert.ok(facts.includes("Both native binaries have been uploaded to App Store Connect"));
   assert.ok(facts.includes("Recommendations are currently in English"));
   assert.ok(facts.includes("Publication/update dates differ from retrieval dates"));
   assert.ok(facts.includes("Original URL, License, License URL, and Attribution"));
