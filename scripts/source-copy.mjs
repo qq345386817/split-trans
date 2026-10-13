@@ -1,3 +1,48 @@
+export const sourceOverview = {
+  en: {
+    heading: "Learn words from articles that match your interests",
+    body: "Explore short excerpts about travel, technology, science, culture, and other interests from public sources that keep updating. Translate a sentence and its words, then practice listening with adjustable speed and repeats. Each suggestion links to its original article and license; it is not a complete news article or an audio recording by the publisher.",
+    languageQuestion: "Are the suggested articles available in every translation language?",
+    languageAnswer: "Recommendations currently use English-language sources. You can also paste your own text in any of the 20 supported translation languages. Browser pronunciation depends on the voices installed on your device. This is a vocabulary and listening practice tool, not a multilingual news feed or an AI tutor."
+  },
+  "zh-Hans": {
+    heading: "从感兴趣的文章摘句学单词",
+    body: "按旅行、科技、科学、文化等兴趣，从持续更新的公开来源中发现短句。翻译整句和单词，再调速、循环朗读练习听力。每条推荐保留原文链接和许可；展示的是摘句，而非完整新闻或原作者录音。",
+    languageQuestion: "推荐文章覆盖所有翻译语言吗？",
+    languageAnswer: "目前推荐使用英文来源，也可以粘贴自己的文本，学习支持翻译的 20 种语言。朗读取决于设备上可用的浏览器语音。这是词汇与听力练习工具，不是多语言新闻聚合器，也不是 AI 导师。"
+  },
+  "zh-Hant": {
+    heading: "從感興趣的文章摘句學單字",
+    body: "依旅行、科技、科學、文化等興趣，從持續更新的公開來源探索短句。翻譯整句和單字，再調速、循環朗讀練習聽力。每則推薦保留原文連結及授權；展示的是摘句，而非完整新聞或原作者錄音。",
+    languageQuestion: "推薦文章涵蓋所有翻譯語言嗎？",
+    languageAnswer: "目前推薦使用英文來源，也可以貼上自己的文字，學習支援翻譯的 20 種語言。朗讀取決於裝置上可用的瀏覽器語音。這是單字與聽力練習工具，不是多語言新聞彙整服務，也不是 AI 導師。"
+  },
+  hi: {
+    heading: "अपनी रुचि के लेखों से नए शब्द सीखें",
+    body: "यात्रा, तकनीक, विज्ञान, संस्कृति और दूसरे विषयों पर अपडेट होते सार्वजनिक स्रोतों से छोटे अंश खोजें। वाक्य और शब्दों का अनुवाद करें, फिर गति बदलकर और दोहराकर सुनने का अभ्यास करें। हर सुझाव में मूल लेख और लाइसेंस का लिंक है; यह पूरा समाचार लेख या प्रकाशक की ऑडियो रिकॉर्डिंग नहीं है।",
+    languageQuestion: "क्या सुझाए गए लेख सभी अनुवाद भाषाओं में मिलते हैं?",
+    languageAnswer: "अभी सुझाव अंग्रेज़ी स्रोतों से आते हैं। आप 20 समर्थित अनुवाद भाषाओं में अपना पाठ भी पेस्ट कर सकते हैं। उच्चारण आपके डिवाइस में उपलब्ध ब्राउज़र आवाज़ों पर निर्भर है। यह शब्द और सुनने के अभ्यास का टूल है, बहुभाषी समाचार फ़ीड या AI शिक्षक नहीं।"
+  },
+  id: {
+    heading: "Belajar kata dari artikel yang sesuai minat",
+    body: "Temukan kutipan pendek tentang perjalanan, teknologi, sains, budaya, dan minat lain dari sumber publik yang terus diperbarui. Terjemahkan kalimat dan katanya, lalu latih menyimak dengan kecepatan dan pengulangan yang bisa diatur. Setiap saran menyertakan artikel asli dan lisensi; bukan artikel berita lengkap atau rekaman audio penerbit.",
+    languageQuestion: "Apakah artikel tersedia dalam semua bahasa terjemahan?",
+    languageAnswer: "Saran saat ini berasal dari sumber berbahasa Inggris. Anda juga bisa menempel teks sendiri dalam 20 bahasa terjemahan yang didukung. Pelafalan bergantung pada suara browser yang tersedia di perangkat. Ini alat belajar kosakata dan menyimak, bukan umpan berita multibahasa atau tutor AI."
+  },
+  vi: {
+    heading: "Học từ mới từ bài viết đúng sở thích",
+    body: "Khám phá trích đoạn ngắn về du lịch, công nghệ, khoa học, văn hóa và các chủ đề khác từ nguồn công khai được cập nhật. Dịch câu và từng từ, rồi luyện nghe với tốc độ và số lần lặp tùy chọn. Mỗi gợi ý kèm liên kết bài gốc và giấy phép; đây không phải bài báo đầy đủ hay bản ghi âm của nhà xuất bản.",
+    languageQuestion: "Bài viết gợi ý có đủ mọi ngôn ngữ dịch không?",
+    languageAnswer: "Gợi ý hiện lấy từ nguồn tiếng Anh. Bạn cũng có thể dán văn bản của mình bằng 20 ngôn ngữ dịch được hỗ trợ. Phát âm phụ thuộc vào giọng đọc có trên thiết bị. Đây là công cụ luyện từ vựng và nghe, không phải bảng tin đa ngôn ngữ hay gia sư AI."
+  },
+  "pt-BR": {
+    heading: "Aprenda palavras com artigos dos seus interesses",
+    body: "Explore trechos curtos sobre viagens, tecnologia, ciência, cultura e outros interesses em fontes públicas atualizadas. Traduza a frase e suas palavras, depois pratique a escuta com velocidade e repetições ajustáveis. Cada sugestão inclui o artigo original e a licença; não é uma notícia completa nem uma gravação do editor.",
+    languageQuestion: "Os artigos sugeridos estão em todos os idiomas de tradução?",
+    languageAnswer: "As sugestões usam fontes em inglês por enquanto. Você também pode colar seu texto em qualquer um dos 20 idiomas de tradução disponíveis. A pronúncia depende das vozes do navegador no seu dispositivo. Esta é uma ferramenta de vocabulário e escuta, não um feed de notícias multilíngue nem um tutor de IA."
+  }
+};
+
 export const sourceFAQ = {
   "en": {
     "sourceQuestion": "Where do suggested sentences come from?",

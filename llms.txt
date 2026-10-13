@@ -1,30 +1,32 @@
 # PhraseCut
 
-> Learn vocabulary from sentences you like, with a free online sentence translator and native apps for iPhone, iPad, and Mac.
+> Learn words from sentences you like. Paste your text or explore English article excerpts by interest; translate, practice listening, and export vocabulary online. Save and review in the native app.
 
-The website has no saved history or review library. Native apps provide local saving and spaced repetition. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
+The free website recommends excerpts from updating Wikipedia, Global Voices, NASA, and Wikivoyage sources, with original links and licenses. Recommendations are currently in English; pasted text supports 20 translation languages. Refreshing the source cache does not mean an article was published today.
+
+The website has no saved history or review library. Native apps provide local saving and spaced repetition. Dynamic recommendations in the native development code are not yet a released app feature as of October 13, 2026. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
 
 ## Product
 
-- [Product facts](https://phrase-cut.luopeike.com/product-facts.md): Accurate feature boundaries, translation providers, language support, and CSV format.
-- [Online tool](https://phrase-cut.luopeike.com/study): Sentence and word-by-word translation, pronunciation, CSV and Anki CSV export.
+- [Product facts](https://phrase-cut.luopeike.com/product-facts.md): Feature and release boundaries, content sources, freshness, languages, translation providers, and CSV attribution.
+- [Online tool](https://phrase-cut.luopeike.com/study): Interest-based English excerpts, sentence and word translation, adjustable pronunciation, CSV and Anki CSV export.
 - [Help](https://phrase-cut.luopeike.com/help): Native app learning and review workflow.
 
 ## Learning guides
 
 - [Learn words from sentences](https://phrase-cut.luopeike.com/learn-words-from-sentences): A practical workflow with examples.
 - [Sentence-based vocabulary](https://phrase-cut.luopeike.com/sentence-based-vocabulary): Keep words connected to their context.
-- [CSV and Anki export](https://phrase-cut.luopeike.com/export-language-study-materials): Web exports and native library exports.
+- [CSV and Anki export](https://phrase-cut.luopeike.com/export-language-study-materials): Web exports, source attribution, and native library exports.
 
 ## Localized tools
 
-- [English](https://phrase-cut.luopeike.com/study): Translate a sentence and each word online, listen to pronunciation, and export selected vocabulary to CSV or Anki CSV. No account required. Not just English.
-- [简体中文](https://phrase-cut.luopeike.com/zh-hans/study): 在线翻译整句和单词，听发音并将选中的词汇连同原句导出为 CSV 或 Anki CSV。无需注册，支持英语和其他外语词汇学习。
-- [繁體中文](https://phrase-cut.luopeike.com/zh-hant/study): 線上翻譯整句和單字，聽發音並將選取的單字連同原句匯出為 CSV 或 Anki CSV。不需註冊，支援英語與其他外語學習。
-- [हिन्दी](https://phrase-cut.luopeike.com/hi/study): ऑनलाइन वाक्य और प्रत्येक शब्द का अनुवाद करें, उच्चारण सुनें और चुने हुए शब्द CSV या Anki CSV में निर्यात करें। बिना खाते के विदेशी भाषा सीखें।
-- [Indonesia](https://phrase-cut.luopeike.com/id/study): Terjemahkan kalimat dan tiap kata online, dengarkan pelafalan, lalu ekspor kosakata pilihan ke CSV atau Anki CSV. Tanpa akun, untuk berbagai bahasa asing.
-- [Tiếng Việt](https://phrase-cut.luopeike.com/vi/study): Dịch câu và từng từ trực tuyến, nghe phát âm và xuất từ vựng kèm câu gốc sang CSV hoặc Anki CSV. Không cần tài khoản, hỗ trợ học nhiều ngoại ngữ.
-- [Português](https://phrase-cut.luopeike.com/pt-br/study): Traduza frases e cada palavra online, ouça a pronúncia e exporte vocabulário com contexto para CSV ou Anki CSV. Sem conta, para aprender vários idiomas.
+- [English](https://phrase-cut.luopeike.com/study): Translate sentences and words free online. Explore English excerpts from updating sources by interest, repeat pronunciation, and export CSV or Anki CSV. No account.
+- [简体中文](https://phrase-cut.luopeike.com/zh-hans/study): 免费在线整句与逐词翻译，按兴趣从持续更新的公开来源获取英文摘句、调速朗读，并导出 CSV 或 Anki CSV。无需注册，也可粘贴其他外语文本学习词汇。
+- [繁體中文](https://phrase-cut.luopeike.com/zh-hant/study): 免費線上整句與逐字翻譯，依興趣從持續更新的公開來源取得英文摘句、調速朗讀，並匯出 CSV 或 Anki CSV。不需註冊，也可貼上其他外語文字學習單字。
+- [हिन्दी](https://phrase-cut.luopeike.com/hi/study): मुफ्त वाक्य और शब्द अनुवाद करें। अपडेट होते स्रोतों से रुचि के अनुसार अंग्रेज़ी अंश चुनें, उच्चारण दोहराकर सुनें और CSV या Anki CSV निर्यात करें। खाता जरूरी नहीं।
+- [Indonesia](https://phrase-cut.luopeike.com/id/study): Terjemahkan kalimat dan kata gratis. Pilih kutipan Inggris dari sumber yang terus diperbarui, ulangi pelafalan, dan ekspor CSV atau Anki CSV. Tanpa akun.
+- [Tiếng Việt](https://phrase-cut.luopeike.com/vi/study): Dịch câu và từng từ miễn phí. Chọn trích đoạn tiếng Anh từ nguồn được cập nhật, nghe lặp lại và xuất CSV hoặc Anki CSV. Không cần tài khoản.
+- [Português](https://phrase-cut.luopeike.com/pt-br/study): Traduza frases e palavras grátis. Explore trechos em inglês de fontes atualizadas, repita a pronúncia e exporte CSV ou Anki CSV. Sem criar conta.
 
 ## Optional
 

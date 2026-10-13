@@ -27,8 +27,12 @@ cached material is explicitly labeled. Publication frequency varies by source.
 The API excludes the last recommended ID to avoid immediate repeats. The browser
 offers 0.5–1.5x pronunciation and one, three, or five repetitions of the full
 sentence. These settings stay in the tab; there is no browser storage. The
-native app additionally offers a listening-first review mode and labeled fixed
-practice samples only as an offline fallback.
+native development code additionally implements listening-first review and
+labeled fixed practice samples as an offline fallback. As of October 13, 2026,
+the native dynamic-source update has not been released to TestFlight/App Store;
+older installed versions still use the legacy quote interface. Online source
+recommendations currently use English; pasted text supports twenty translation
+languages. Cache refresh time must not be presented as the publication date.
 
 ## Development
 
@@ -81,6 +85,11 @@ feature boundaries, and FAQ answers. FAQs are server-rendered HTML and the same
 answers generate FAQ JSON-LD. The site does not use meta-keyword stuffing, fake
 ratings, or invented App Store prices. FAQ markup does not imply eligibility
 for Google's restricted FAQ rich results.
+
+`scripts/source-copy.mjs` maintains the localized, visible source overview and
+language-boundary FAQ. Dynamic-source features belong to the web application's
+structured data, not the released native app's feature list. Keep release
+boundaries in the generated product facts current when a native update ships.
 
 The build also generates a small `llms.txt` navigation aid and `product-facts.md`
 from the same product facts and language definitions. They distinguish the
