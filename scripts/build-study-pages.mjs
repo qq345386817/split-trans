@@ -8,15 +8,27 @@ import { interestCopy } from "./interest-copy.mjs";
 import { topicIDs, sources } from "../js/recommendations.mjs";
 import { sourceCopy, sourceFAQ, sourceOverview } from "./source-copy.mjs";
 import { workflowCopy } from "./workflow-copy.mjs";
+import { renderWorkspace } from "./study-layout.mjs";
+import { homeCopy } from "./home-copy.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
+const theme = JSON.parse(await readFile(`${root}design-system/tokens.json`, "utf8"));
+const themeCSS = theme.color.themes.map(({ id }, index) => {
+  const values = theme.color.tokens.map(token => {
+    const value = typeof token.value === "string" ? token.value : token.value[id];
+    return `  --${token.name}: ${/^\{[^}]+\}$/.test(value) ? `var(--${value.slice(1, -1)})` : value};`;
+  }).join("\n");
+  return `${index === 0 ? ":root" : "@media (prefers-color-scheme: dark) { :root"} {\n${values}\n}${index === 0 ? "" : " }"}`;
+}).join("\n") + `\n:root { --font-sans: ${theme.type.families.sans}; ${[...theme.spacing.tokens, ...theme.radius.tokens].map(token => `--${token.name}: ${token.value};`).join(" ")} ${theme.type.groups.flatMap(group => group.styles.map(style => `--type-${style.name}-size: ${style.fontSize}; --type-${style.name}-line: ${style.lineHeight}; --type-${style.name}-weight: ${style.fontWeight};`)).join(" ")} }\n`;
+await writeFile(`${root}style/theme.css`, `/* Generated from design-system/tokens.json. */\n${themeCSS}`);
+const baseStyleVersion = createHash("sha256").update(await readFile(`${root}style/base.css`)).digest("hex").slice(0, 12);
+const themeVersion = createHash("sha256").update(themeCSS).digest("hex").slice(0, 12);
 const studyStyleVersion = createHash("sha256").update(await readFile(`${root}style/study.css`)).digest("hex").slice(0, 12);
 const origin = "https://phrase-cut.luopeike.com";
 const appStore = "https://apps.apple.com/app/id6740488386";
 const escape = value => value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;");
 const pathFor = copy => `${copy.folder ? `/${copy.folder}` : ""}/study`;
 const icon = name => `<svg class="icon" aria-hidden="true"><use href="/images/study-icons.svg#${name}"></use></svg>`;
-const button = (id, name, label, extra = "") => `<button id="${id}" type="button" ${extra}>${icon(name)}<span>${escape(label)}</span></button>`;
 const protectEmailLinks = html => html.replace(/(?:<!--email_off-->)?(<a\b[^>]*href="mailto:[^"]*"[^>]*>[\s\S]*?<\/a>)(?:<!--\/email_off-->)?/g,
   (_, link) => `<!--email_off-->${link}<!--/email_off-->`);
 const contentSources = [
@@ -62,7 +74,7 @@ for (const baseCopy of Object.values(locales)) {
 <link rel="canonical" href="${url}">${alternates}<link rel="alternate" hreflang="x-default" href="${origin}/study">
 <link rel="describedby" href="/llms.txt" type="text/plain">
 <link rel="icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
-<link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/study.css?v=${studyStyleVersion}">
+<link rel="stylesheet" href="/style/theme.css?v=${themeVersion}"><link rel="stylesheet" href="/style/base.css?v=${baseStyleVersion}"><link rel="stylesheet" href="/style/study.css?v=${studyStyleVersion}">
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "WebApplication", "@id": url + "#application", name: "PhraseCut Online", applicationCategory: "EducationalApplication", operatingSystem: "Web", url, description: copy.description, inLanguage: copy.lang, isAccessibleForFree: true, featureList: ["Sentence translation", "Individual word translation", "Interest-based English excerpts from updating public RSS/API sources", "Original article and license attribution", "Browser pronunciation with adjustable speed and repeats", "CSV export", "Anki-compatible CSV export"], publisher: { "@type": "Person", name: "Peter Luo" }, isPartOf: { "@type": "WebSite", name: "PhraseCut", url: origin + "/" } })}</script>
 <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
 <script id="study-copy" type="application/json">${data}</script><script type="module" src="/js/study.mjs"></script>
@@ -71,24 +83,7 @@ for (const baseCopy of Object.values(locales)) {
 <header class="topbar"><a class="brand" href="./"><img src="/favicon/apple-touch-icon.png" alt=""><span>PhraseCut</span></a><nav class="nav"><a href="./">${copy.home}</a><a href="help">${copy.help}</a><a href="privacy-policy">${copy.privacy}</a><select class="language-switch" id="site-language" aria-label="Language">${options}</select><a class="download-link" href="${appStore}?ct=website-study&mt=8">${copy.download}</a></nav></header>
 <main>
 <header class="study-heading"><h1>${copy.heading}</h1></header>
-<form id="study-form" class="study-workspace">
-<div class="language-pair"><label>${copy.source}<select id="source-language" required></select></label>${button("swap-languages", "arrow-left-right", copy.swap, `class="icon-button" title="${copy.swap}" aria-label="${copy.swap}"`)}<label>${copy.targetLabel}<select id="target-language" required></select></label></div>
-<div class="input-heading"><label for="sentence">${copy.sentence}</label><div class="input-tools">${button("paste", "clipboard", copy.paste, `class="icon-button" title="${copy.paste}" aria-label="${copy.paste}"`)}${button("clear", "x", copy.clear, `class="icon-button" title="${copy.clear}" aria-label="${copy.clear}"`)}</div></div>
-<div id="recommendation-origin" class="recommendation-origin" hidden></div>
-<textarea id="sentence" rows="4" maxlength="800" placeholder="${escape(copy.placeholder)}" required spellcheck="false" dir="auto"></textarea>
-<div class="input-footer"><span id="character-count">0 / 400</span><div class="workspace-actions">${button("recommend", "quote", copy.recommend, 'class="secondary"')}<button id="analyze" type="submit" class="primary">${icon("scan-text")}<span>${copy.analyze}</span></button>${button("cancel", "x", copy.cancel, 'hidden')}</div></div>
-<div class="recommendation-filters"><label>${copy.topic}<select id="recommendation-topic">${topicIDs.map((id, index) => `<option value="${id}">${escape(copy.topics[index])}</option>`).join("")}</select></label><label>${copy.length}<select id="recommendation-length">${copy.lengths.map((label, index) => `<option value="${index}">${escape(label)}</option>`).join("")}</select></label><label>${copy.sourceLabel}<select id="recommendation-source">${sources.map(source => `<option value="${source.id}">${escape(source.name || copy.allSources)}</option>`).join("")}</select></label></div>
-<p class="privacy-note">${copy.notice} <a href="privacy-policy">${copy.privacy}</a></p>
-</form>
-<div id="status" class="study-status" role="status" aria-live="polite"></div>
-<noscript><p>${copy.noJS}</p></noscript>
-<section id="results" hidden aria-labelledby="result-heading">
-<div class="result-heading"><h2 id="result-heading">${copy.result}</h2><div>${button("listen-sentence", "volume-2", copy.listen, `class="icon-button" title="${copy.listen}" aria-label="${copy.listen}"`)}${button("copy-result", "copy", copy.copy, `class="icon-button" title="${copy.copy}" aria-label="${copy.copy}"`)}</div></div>
-<p id="result-source" class="result-source" dir="auto"></p><p id="result-translation" class="result-translation" dir="auto"></p>
-<div class="listening-settings"><label>${copy.speed}<select id="speech-rate">${[0.5, 0.75, 1, 1.25, 1.5].map(value => `<option value="${value}"${value === 1 ? " selected" : ""}>${value}x</option>`).join("")}</select></label><label>${copy.repeat}<select id="speech-repeat">${[1, 3, 5].map((value, index) => `<option value="${value}">${escape(copy.counts[index])}</option>`).join("")}</select></label></div>
-<div class="word-heading"><h2>${copy.words}</h2><button id="select-all" type="button" class="text-button">${copy.selectAll}</button></div><div id="word-grid" class="word-grid"></div>
-<div class="export-toolbar"><span id="selection-count" aria-live="polite"></span><label class="export-format">${copy.format}<select id="export-format"><option value="csv">${copy.csv}</option><option value="anki">${copy.anki}</option></select></label>${button("export", "download", copy.export, 'class="secondary"')}</div>
-</section>
+${renderWorkspace(copy)}
 <aside class="app-invitation"><img src="/favicon/apple-touch-icon.png" alt="" width="48" height="48"><div><h2>${copy.appTitle}</h2><p>${copy.appBody}</p></div><a class="button" href="${appStore}?ct=website-study&mt=8">${copy.download}</a></aside>
 ${sourceSection(copy.lang)}
 <section class="study-questions" aria-labelledby="questions-heading"><h2 id="questions-heading">${seo.questionsHeading}</h2>
@@ -100,26 +95,43 @@ ${faqs.map(([question, answer]) => `<details class="study-question"><summary>${e
 
   const folder = `${root}${copy.folder ? `${copy.folder}/` : ""}`;
   for (const filename of await readdir(folder)) {
-    if (!filename.endsWith(".html") || filename === "study.html" || filename === "404.html" || filename.startsWith("google")) continue;
+    if (!filename.endsWith(".html") || filename === "study.html" || filename.startsWith("google")) continue;
     const file = folder + filename;
     let content = await readFile(file, "utf8");
+    content = content.replace(/<link rel="stylesheet" href="[^"]*style\/theme\.css[^\"]*">\n?/g, "");
+    content = content.replace(/<link rel="stylesheet" href="[^"]*style\/base\.css[^\"]*">/, `<link rel="stylesheet" href="/style/theme.css?v=${themeVersion}"><link rel="stylesheet" href="/style/base.css?v=${baseStyleVersion}">`);
     if (!content.includes('class="online-nav"')) content = content.replace(/(<nav class="nav"[^>]*>)/, `$1<a class="online-nav" href="study">${copy.online}</a>`);
-    if (filename === "index.html" && !content.includes('class="button primary online-link"')) {
-      content = content.replace('<div class="actions"><a class="button primary"', `<div class="actions"><a class="button primary online-link" href="study">${copy.online}</a><a class="button"`);
-    }
     if (filename === "index.html") {
+      const home = homeCopy[copy.lang];
+      const nativeFAQ = [...content.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1])).find(schema => schema["@type"] === "FAQPage");
+      const screenshot = copy.folder === "pt-br" ? "pt_BR" : copy.lang === "en" ? "en_US" : copy.lang.replace("-", "_");
+      const nativeQuestions = nativeFAQ.mainEntity.map(item => `<details class="faq-item"><summary>${escape(item.name)}</summary><p>${escape(item.acceptedAnswer.text)}</p></details>`).join("\n");
+      content = content.replace(/<main>[\s\S]*?<\/main>/, `<main>
+<header class="home-heading"><h1>PhraseCut</h1><p class="lead">${escape(home.tagline)}</p></header>
+${renderWorkspace(copy)}
+<section class="native-section" id="app"><div class="native-heading"><div><h2>${escape(home.nativeTitle)}</h2><p>${escape(home.nativeBody)}</p></div><a class="button primary" href="${appStore}?ct=website-home&mt=8">${icon("download")}${copy.download}</a></div>
+<figure class="native-screenshot"><picture><source media="(prefers-color-scheme: dark)" srcset="/images/app/mac_${screenshot}_dark_learn.webp"><img src="/images/app/mac_${screenshot}_light_learn.webp" alt="${escape(home.imageAlt)}" width="1218" height="932" loading="lazy" decoding="async"></picture><figcaption>${escape(home.imageCaption)}</figcaption></figure></section>
+<section data-study-workflow><h2>${escape(workflowCopy[copy.lang].title)}</h2><div class="learning-steps">${home.steps.map(([title, body], index) => `<article><span class="step-number">0${index + 1}</span><h3>${escape(title)}</h3><p>${escape(body)}</p></article>`).join("")}</div></section>
+<section data-search-overview><h2><a href="study">${seo.overviewHeading}</a></h2><p>${seo.overview}</p><a class="text-link" href="help">${copy.help}</a></section>
+${sourceSection(copy.lang)}
+<section class="home-faq"><h2>${escape(home.nativeFAQ)}</h2>${nativeQuestions}</section>
+${copy.lang === "en" ? `<section class="home-guides"><h2>${home.guide}</h2><div class="guide-links"><a href="learn-words-from-sentences">How to learn words from sentences</a><a href="sentence-based-vocabulary">Sentence-based vocabulary</a><a href="export-language-study-materials">CSV and Anki export</a></div></section>` : ""}
+</main>`);
+      content = content.replace(/<body[^>]*>/, '<body class="study-page home-page">');
+      const homeOptions = Object.values(locales).map(other => `<option value="${other.folder ? `/${other.folder}/` : "/"}"${other.lang === copy.lang ? " selected" : ""}>${other.name}</option>`).join("");
+      content = content.replace(/<nav class="nav"[^>]*>[\s\S]*?<\/nav>/, `<nav class="nav" aria-label="PhraseCut"><a href="help">${copy.help}</a><a href="privacy-policy">${copy.privacy}</a><select class="language-switch" id="site-language" aria-label="Language">${homeOptions}</select><a class="download-link" href="${appStore}?ct=website-nav&mt=8">${copy.download}</a></nav>`);
+      content = content.replace(/<script id="study-copy" type="application\/json">[\s\S]*?<\/script>\n?/g, "");
+      content = content.replace(/<script type="application\/ld\+json" data-web-workspace>[\s\S]*?<\/script>\n?/g, "");
+      const homeURL = `${origin}/${copy.folder ? copy.folder + "/" : ""}`;
+      const webSchema = { "@context": "https://schema.org", "@type": "WebApplication", "@id": homeURL + "#workspace", name: "PhraseCut Online", url: homeURL, applicationCategory: "EducationalApplication", operatingSystem: "Web", isAccessibleForFree: true, inLanguage: copy.lang, description: seo.toolDescription };
+      content = content.replace("</head>", `<script type="application/ld+json" data-web-workspace>${JSON.stringify(webSchema)}</script>\n</head>`);
+      if (!content.includes('src="/js/study.mjs"')) content = content.replace("</head>", '<script type="module" src="/js/study.mjs"></script>\n</head>');
+      if (!content.includes('name="phrasecut-api"')) content = content.replace("</head>", '<meta name="phrasecut-api" content="https://quote.luopeike.com/study/analyze">\n</head>');
+      content = content.replace(/<link rel="stylesheet" href="[^\"]*style\/study\.css[^\"]*">/g, "");
+      content = content.replace("</head>", `<link rel="stylesheet" href="/style/study.css?v=${studyStyleVersion}"><script id="study-copy" type="application/json">${data}</script>\n</head>`);
       content = content.replace(/<title>[^<]*<\/title>/, `<title>${escape(seo.homeTitle)}</title>`)
         .replace(/(<meta (?:name="description"|property="og:description"|name="twitter:description") content=")[^"]*(")/g, `$1${escape(seo.homeDescription)}$2`)
-        .replace(/(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*(")/g, `$1${escape(seo.homeTitle)}$2`)
-        .replace(/(<section class="hero"><div class="hero-copy"><p class="kicker">)[^<]*(<\/p>)/, `$1${seo.homeKicker}$2`)
-        .replace(/(<section class="hero">[\s\S]*?<p class="lead">)[^<]*(<\/p>)/, `$1${seo.homeLead}$2`)
-        .replace(/<section data-search-overview>[\s\S]*?<\/section>/, "");
-      content = content.replace("</section>", `</section><section data-search-overview><h2><a href="study">${seo.overviewHeading}</a></h2><p>${seo.overview}</p></section>`);
-      content = content.replace(/<section data-content-sources>[\s\S]*?<\/section>/, "");
-      content = content.replace("</main>", `${sourceSection(copy.lang)}</main>`);
-      content = content.replace(/<section data-study-workflow>[\s\S]*?<\/section>/, "");
-      const workflow = workflowCopy[copy.lang];
-      content = content.replace("</main>", `<section data-study-workflow><h2>${escape(workflow.title)}</h2><p>${escape(workflow.body)}</p><a href="study">${copy.online}</a></section></main>`);
+        .replace(/(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*(")/g, `$1${escape(seo.homeTitle)}$2`);
       content = content.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (tag, text) => {
         const schema = JSON.parse(text);
         if (schema["@type"] !== "SoftwareApplication") return tag;
@@ -173,7 +185,7 @@ The base CSV columns are Word, Meaning, Sentence, Translation, Source language, 
 
 The iPhone, iPad, and Mac apps add a local study library, saved words and sentences, spaced repetition, and library exports. They use Apple Translation, which can work offline after the required language packs are downloaded. They are not limited to learning English. The website and native app use different translation engines.
 
-As of October 13, 2026, interest-based dynamic sources are live on the website and included in native version 1.4.0 (33) for iPhone, iPad, and Mac. Both native binaries have been uploaded to App Store Connect, but the native update has not been released to the public App Store. Existing installed versions 1.3.0 and earlier continue to use the legacy quote interface. Do not infer App Store or TestFlight availability from the website feature list.
+As of October 25, 2026, native version 1.4.0 (33) is available on the App Store for iPhone, iPad, and Mac. The native app and website both support interest-based dynamic sources. Existing installed versions 1.3.0 and earlier continue to use the legacy quote interface until updated. Fetching new recommendations requires internet access; native Apple Translation can still work offline after language packs are downloaded.
 
 ## Canonical pages
 
@@ -190,7 +202,7 @@ await writeFile(`${root}llms.txt`, `# PhraseCut
 
 The free website recommends excerpts from updating Wikipedia, Global Voices, NASA, and Wikivoyage sources, with original links and licenses. Recommendations are currently in English; pasted text supports ${languageCodes.length} translation languages. Refreshing the source cache does not mean an article was published today.
 
-The website has no saved history or review library. Native apps provide local saving and spaced repetition. Native version 1.4.0 (33) includes dynamic recommendations and has been uploaded to App Store Connect, but public App Store release is still pending as of October 13, 2026. Installed versions 1.3.0 and earlier still use legacy quotes. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
+The website has no saved history or review library. Native apps provide local saving and spaced repetition. Native version 1.4.0 (33), with dynamic recommendations and listening practice, is available on the App Store as of October 25, 2026. Installed versions 1.3.0 and earlier still use legacy quotes until updated. New recommendations need internet access. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
 
 ## Product
 

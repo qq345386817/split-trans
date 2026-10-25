@@ -26,7 +26,7 @@ The base CSV columns are Word, Meaning, Sentence, Translation, Source language, 
 
 The iPhone, iPad, and Mac apps add a local study library, saved words and sentences, spaced repetition, and library exports. They use Apple Translation, which can work offline after the required language packs are downloaded. They are not limited to learning English. The website and native app use different translation engines.
 
-As of October 13, 2026, interest-based dynamic sources are live on the website and included in native version 1.4.0 (33) for iPhone, iPad, and Mac. Both native binaries have been uploaded to App Store Connect, but the native update has not been released to the public App Store. Existing installed versions 1.3.0 and earlier continue to use the legacy quote interface. Do not infer App Store or TestFlight availability from the website feature list.
+As of October 25, 2026, native version 1.4.0 (33) is available on the App Store for iPhone, iPad, and Mac. The native app and website both support interest-based dynamic sources. Existing installed versions 1.3.0 and earlier continue to use the legacy quote interface until updated. Fetching new recommendations requires internet access; native Apple Translation can still work offline after language packs are downloaded.
 
 ## Canonical pages
 

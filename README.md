@@ -27,10 +27,10 @@ cached material is explicitly labeled. Publication frequency varies by source.
 The API excludes the last recommended ID to avoid immediate repeats. The browser
 offers 0.5–1.5x pronunciation and one, three, or five repetitions of the full
 sentence. These settings stay in the tab; there is no browser storage. The
-native development code additionally implements listening-first review and
-labeled fixed practice samples as an offline fallback. As of October 13, 2026,
-native version 1.4.0 (33), including dynamic sources, has been uploaded to App
-Store Connect; public App Store release is still pending. Installed versions
+native app additionally implements listening-first review and
+labeled fixed practice samples as an offline fallback. As of October 25, 2026,
+native version 1.4.0 (33), including dynamic sources, is available on the App
+Store. Installed versions
 1.3.0 and earlier still use the legacy quote interface. Online source
 recommendations currently use English; pasted text supports twenty translation
 languages. Cache refresh time must not be presented as the publication date.
@@ -103,3 +103,17 @@ requirements, robots policies, or a replacement for sitemap/canonical metadata.
 The Pages configuration publishes only `dist`. Keep the translation Worker
 deployed before releasing the study pages. The 38-URL sitemap includes canonical
 extensionless HTML routes, not old `.html` redirects or auxiliary text files.
+
+## Website Design
+
+The homepage and dedicated study route mount `scripts/study-layout.mjs` and
+the same `js/study.mjs` engine. Do not introduce a separate fake translator
+or a decorative UI mockup on the homepage. Native screenshots are original,
+localized, uncropped interface examples, compressed as lightweight WebP.
+
+`design-system/README.md` and `design-system/tokens.json` document the native
+brand colors, accessible action colors, typography, spacing, and layout rules.
+The build emits `style/theme.css` and content-versioned stylesheet URLs.
+Source-only design-system previews never enter the Pages `dist` directory or
+the public sitemap. Design draft files are maintained in the parent project's
+`design/phrasecut-website/` directory and are not deployment inputs.

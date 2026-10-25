@@ -73,7 +73,7 @@ def main():
     urls = [node.text for node in xml.findall(".//{*}loc")]
     pages = sorted(
         file for file in ROOT.rglob("*.html")
-        if not {".git", "node_modules", "dist"}.intersection(file.parts) and file.name != "404.html"
+        if not {".git", "node_modules", "dist", "design-system"}.intersection(file.parts) and file.name != "404.html"
         and not file.name.startswith("google")
     )
     expected_urls = {public_url(file) for file in pages}

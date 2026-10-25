@@ -1,0 +1,25 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-25T09:22:00Z"
+  },
+  "title": "PhraseCut",
+  "namespace": "PhraseCut",
+  "libraries": [],
+  "sections": {},
+  "groups": [],
+  "assetGroups": {},
+  "blobs": {},
+  "docs": {
+    "readme": "README.md",
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Peter Luo",
+    "at": "2026-10-25T09:22:00Z",
+    "via": "Codex",
+    "note": "Native blue identity and accessible bilingual website foundations."
+  }
+}
