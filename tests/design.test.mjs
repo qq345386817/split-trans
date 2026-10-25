@@ -5,6 +5,7 @@ import { locales } from "../scripts/study-locales.mjs";
 import { sourceCopy } from "../scripts/source-copy.mjs";
 import { interestCopy } from "../scripts/interest-copy.mjs";
 import { renderWorkspace } from "../scripts/study-layout.mjs";
+import { createHash } from "node:crypto";
 
 const root = new URL("../", import.meta.url);
 const tokens = JSON.parse(await readFile(new URL("design-system/tokens.json", root), "utf8"));
@@ -22,7 +23,19 @@ test("home mounts the real shared workspace in all seven languages without dupli
     assert.ok(!html.includes("product-panel") && !html.includes("workspace-preview"));
     const paths = [...html.matchAll(/(?:src|srcset)="(\/images\/app\/[^"]+)"/g)].map(match => match[1]);
     assert.equal(paths.length, 2);
-    for (const path of paths) assert.ok((await stat(new URL(path.slice(1), root))).size < 150_000);
+    const manifest = JSON.parse(await readFile(new URL("images/app/manifest.json", root), "utf8"));
+    for (const path of paths) {
+      const url = new URL(path.slice(1), root);
+      const version = url.searchParams.get("v");
+      url.search = "";
+      const bytes = await readFile(url);
+      const file = url.pathname.split("/").at(-1);
+      const entry = manifest.images[file];
+      assert.ok(bytes.length < 150_000);
+      assert.equal(createHash("sha256").update(bytes).digest("hex"), entry.sha256);
+      assert.equal(version, entry.sha256.slice(0, 12));
+      assert.ok(html.includes(`width="${entry.width}" height="${entry.height}"`));
+    }
   }
 });
 

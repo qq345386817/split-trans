@@ -12,6 +12,17 @@ import { renderWorkspace } from "./study-layout.mjs";
 import { homeCopy } from "./home-copy.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
+const appCaptures = JSON.parse(await readFile(`${root}images/app/manifest.json`, "utf8"));
+async function appScreenshot(locale, mode) {
+  const file = `mac_${locale}_${mode}_learn.webp`;
+  const entry = appCaptures.images[file];
+  if (!entry || !Number.isInteger(entry.width) || !Number.isInteger(entry.height) || entry.width < 860 || entry.height < 760) {
+    throw new Error(`Invalid native screenshot manifest entry: ${file}`);
+  }
+  const hash = createHash("sha256").update(await readFile(`${root}images/app/${file}`)).digest("hex");
+  if (hash !== entry.sha256) throw new Error(`Native screenshot and manifest differ: ${file}`);
+  return { ...entry, url: `/images/app/${file}?v=${hash.slice(0, 12)}` };
+}
 const theme = JSON.parse(await readFile(`${root}design-system/tokens.json`, "utf8"));
 const themeCSS = theme.color.themes.map(({ id }, index) => {
   const values = theme.color.tokens.map(token => {
@@ -105,12 +116,14 @@ ${faqs.map(([question, answer]) => `<details class="study-question"><summary>${e
       const home = homeCopy[copy.lang];
       const nativeFAQ = [...content.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1])).find(schema => schema["@type"] === "FAQPage");
       const screenshot = copy.folder === "pt-br" ? "pt_BR" : copy.lang === "en" ? "en_US" : copy.lang.replace("-", "_");
+      const lightScreenshot = await appScreenshot(screenshot, "light");
+      const darkScreenshot = await appScreenshot(screenshot, "dark");
       const nativeQuestions = nativeFAQ.mainEntity.map(item => `<details class="faq-item"><summary>${escape(item.name)}</summary><p>${escape(item.acceptedAnswer.text)}</p></details>`).join("\n");
       content = content.replace(/<main>[\s\S]*?<\/main>/, `<main>
 <header class="home-heading"><h1>PhraseCut</h1><p class="lead">${escape(home.tagline)}</p></header>
 ${renderWorkspace(copy)}
 <section class="native-section" id="app"><div class="native-heading"><div><h2>${escape(home.nativeTitle)}</h2><p>${escape(home.nativeBody)}</p></div><a class="button primary" href="${appStore}?ct=website-home&mt=8">${icon("download")}${copy.download}</a></div>
-<figure class="native-screenshot"><picture><source media="(prefers-color-scheme: dark)" srcset="/images/app/mac_${screenshot}_dark_learn.webp"><img src="/images/app/mac_${screenshot}_light_learn.webp" alt="${escape(home.imageAlt)}" width="1218" height="932" loading="lazy" decoding="async"></picture><figcaption>${escape(home.imageCaption)}</figcaption></figure></section>
+<figure class="native-screenshot"><picture><source media="(prefers-color-scheme: dark)" srcset="${darkScreenshot.url}" width="${darkScreenshot.width}" height="${darkScreenshot.height}"><img src="${lightScreenshot.url}" alt="${escape(home.imageAlt)}" width="${lightScreenshot.width}" height="${lightScreenshot.height}" loading="lazy" decoding="async"></picture><figcaption>${escape(home.imageCaption)} · ${escape(appCaptures.version)}</figcaption></figure></section>
 <section data-study-workflow><h2>${escape(workflowCopy[copy.lang].title)}</h2><div class="learning-steps">${home.steps.map(([title, body], index) => `<article><span class="step-number">0${index + 1}</span><h3>${escape(title)}</h3><p>${escape(body)}</p></article>`).join("")}</div></section>
 <section data-search-overview><h2><a href="study">${seo.overviewHeading}</a></h2><p>${seo.overview}</p><a class="text-link" href="help">${copy.help}</a></section>
 ${sourceSection(copy.lang)}
