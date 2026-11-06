@@ -1,3 +1,5 @@
+import { extraSection } from "./extra-locales.mjs";
+
 import { nativeCopy } from "./native-copy.mjs";
 
 export const searchCopy = {
@@ -128,3 +130,5 @@ export const searchCopy = {
     ]
   }
 };
+
+Object.assign(searchCopy, extraSection("search"));

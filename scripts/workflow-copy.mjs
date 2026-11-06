@@ -1,3 +1,5 @@
+import { extraSection } from "./extra-locales.mjs";
+
 export const workflowCopy = {
   "en": {
     "title": "From a favorite line to a word you remember",
@@ -28,3 +30,5 @@ export const workflowCopy = {
     "body": "Copie uma frase de um artigo, livro ou legenda. Entenda o sentido, escolha palavras úteis e salve no app para revisar."
   }
 };
+
+Object.assign(workflowCopy, extraSection("workflow"));

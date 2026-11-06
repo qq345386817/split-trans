@@ -1,3 +1,5 @@
+import { extraSection } from "./extra-locales.mjs";
+
 import { nativeCopy } from "./native-copy.mjs";
 
 export const homeCopy = {
@@ -9,3 +11,5 @@ export const homeCopy = {
   vi: { tagline: "Câu bạn thích. Từ bạn nhớ.", nativeTitle: nativeCopy["vi"].title, nativeBody: nativeCopy["vi"].summary, imageAlt: "PhraseCut cho Mac: câu gốc, bản dịch và nghĩa từng từ", imageCaption: "Xem trước giao diện ứng dụng Mac", steps: [["Hiểu", "Đọc nghĩa cả câu, rồi xem từng từ."], ["Lưu", "Lưu từ vựng hữu ích cùng câu gốc trong ứng dụng."], ["Nhớ", "Ôn tập ngắt quãng hoặc xuất CSV và Anki CSV."]], nativeFAQ: "Về ứng dụng", guide: "Hướng dẫn học qua câu" },
   "pt-BR": { tagline: "Frases que você gosta. Palavras que ficam.", nativeTitle: nativeCopy["pt-BR"].title, nativeBody: nativeCopy["pt-BR"].summary, imageAlt: "PhraseCut para Mac: frase, tradução e significado de cada palavra", imageCaption: "Prévia da interface do app para Mac", steps: [["Entenda", "Leia o significado da frase inteira e depois confira cada palavra."], ["Guarde", "Salve palavras úteis com a frase original no app."], ["Lembre", "Revise com intervalos ou exporte CSV e Anki CSV."]], nativeFAQ: "Sobre o app", guide: "Guias para aprender com frases" }
 };
+
+Object.assign(homeCopy, extraSection("home"));

@@ -2,7 +2,8 @@
 
 Static, localized marketing and help pages, plus a browser-based sentence study
 workspace at `/study`, `/zh-hans/study`, `/zh-hant/study`, `/hi/study`, `/id/study`,
-`/vi/study`, and `/pt-br/study`.
+`/vi/study`, `/pt-br/study`, `/fr/study`, `/de/study`, `/es/study`, `/ja/study`,
+and `/ko/study`.
 
 The workspace supports sentence translation, word breakdown, pronunciation,
 random recommendations with automatic analysis, and selected-word CSV / Anki
@@ -78,18 +79,26 @@ Edit the localized workspace text in `scripts/study-locales.mjs`, then run
 links, web privacy sections, reciprocal hreflang, and sitemap. Canonical URLs
 remain extensionless, matching Cloudflare Pages routes.
 
-UI text is separate from translation languages: the seven localized interfaces
+UI text is separate from translation languages: the twelve localized interfaces
 offer twenty translation languages. No user text is placed in public webpage URL parameters,
 SEO metadata, or public cache keys.
 
 ## Search and AI discovery
 
-`scripts/native-copy.mjs` maintains seven localized native-app introductions,
+`scripts/native-copy.mjs` maintains localized native-app introductions,
 home/help SEO fields and six factual answers about context, local study data,
 spaced review, CSV exports, supported offline pairs and optional explanations.
 Home FAQs, help sections, native JSON-LD and product facts use this source.
 Keep it aligned with Fastlane descriptions and the actual app, not unverified
 release claims. App Store keyword lists are not copied into meta-keywords.
+
+French, German, Spanish, Japanese and Korean source text lives in
+`translations/{fr,de,es,ja,ko}.json`. `extra-locales.mjs` adds those entries to
+the existing copy registries. `localized-shell.mjs` generates their base pages;
+the normal builder supplies the real workspace, FAQ and shared navigation.
+These source JSON files do not enter `dist`. Their native screenshot captions
+explicitly identify the English interface preview until localized captures are
+available; an English screenshot is never relabeled as a localized native UI.
 
 `scripts/search-copy.mjs` maintains localized tool titles, descriptions,
 feature boundaries, and FAQ answers. FAQs are server-rendered HTML and the same

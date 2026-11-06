@@ -18,7 +18,7 @@ Public sources: [Wikipedia](https://en.wikipedia.org/), [Global Voices](https://
 
 ## Languages and exports
 
-Recommendations are currently in English, but users can paste text in any of the 20 supported translation languages. Translation languages: English, Simplified Chinese, Traditional Chinese, Spanish, French, German, Hindi, Indonesian, Vietnamese, Portuguese, Japanese, Korean, Arabic, Italian, Dutch, Polish, Russian, Thai, Turkish, and Ukrainian. Website interfaces are available in English, Simplified Chinese, Traditional Chinese, Hindi, Indonesian, Vietnamese, and Brazilian Portuguese.
+Recommendations are currently in English, but users can paste text in any of the 20 supported translation languages. Translation languages: English, Simplified Chinese, Traditional Chinese, Spanish, French, German, Hindi, Indonesian, Vietnamese, Portuguese, Japanese, Korean, Arabic, Italian, Dutch, Polish, Russian, Thai, Turkish, and Ukrainian. Website interfaces: English, 简体中文, 繁體中文, हिन्दी, Indonesia, Tiếng Việt, Português, Français, Deutsch, Español, 日本語, and 한국어.
 
 The base CSV columns are Word, Meaning, Sentence, Translation, Source language, and Target language. Source-based CSV/Anki CSV exports additionally include Publisher, Author, Original URL, License, License URL, and Attribution. Anki export is CSV, not an APKG deck; importing uses Anki's own note fields and scheduling.
 

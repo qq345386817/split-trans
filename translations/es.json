@@ -1,0 +1,224 @@
+{
+  "study": {
+    "lang": "es",
+    "folder": "es",
+    "target": "es",
+    "name": "Español",
+    "home": "Inicio",
+    "help": "Ayuda",
+    "privacy": "Privacidad",
+    "download": "Descarga la aplicación",
+    "copyFailed": "No se ha podido copiar. Selecciona la traducción y cópiala manualmente.",
+    "title": "Aprende palabras a partir de frases en línea | PhraseCut",
+    "description": "Traduce una frase, explora cada palabra, escucha la pronunciación y exporta vocabulario a CSV o Anki. Prueba PhraseCut en línea sin crear una cuenta.",
+    "heading": "Aprende palabras a partir de tus frases",
+    "intro": "Traduce, escucha y recoge vocabulario de una frase que te guste.",
+    "source": "Idioma de origen",
+    "targetLabel": "Idioma de traducción",
+    "swap": "Intercambiar idiomas",
+    "sentence": "Tu frase",
+    "placeholder": "Pega una frase que quieras aprender…",
+    "analyze": "Analizar frase",
+    "recommend": "Sugerir una frase",
+    "cancel": "Cancelar",
+    "clear": "Borrar",
+    "paste": "Pegar",
+    "finding": "Buscando una frase…",
+    "analyzing": "Traduciendo la frase y las palabras…",
+    "result": "Significado de la frase",
+    "words": "Desglose por palabras",
+    "listen": "Escuchar",
+    "stop": "Detener lectura",
+    "select": "Seleccionar para exportar",
+    "selectAll": "Seleccionar todo",
+    "deselect": "Quitar selección",
+    "export": "Exportar",
+    "copy": "Copiar traducción",
+    "copied": "Copiado",
+    "ready": "Traducción lista",
+    "format": "Formato de exportación",
+    "csv": "CSV",
+    "anki": "Anki CSV",
+    "selected": "palabras seleccionadas",
+    "missing": "Traducción no disponible",
+    "partial": "No se han podido traducir algunas palabras. Vuelve a analizar la frase.",
+    "notice": "La traducción en línea utiliza Google Translate. No introduzcas información sensible. Los resultados permanecen en esta pestaña.",
+    "appTitle": "Estudia frases. Aprende vocabulario en contexto. Repasa con intervalos.",
+    "appBody": "En iPhone, iPad y Mac, comprende una frase que quieras leer, guarda palabras útiles con su contexto original y vuelve a repasarlas cuando toque. Busca en tu biblioteca local, añade notas y exporta CSV para tu propio método de estudio.",
+    "online": "Probar en línea",
+    "noJS": "Activa JavaScript para traducir frases en línea.",
+    "invalid": "Introduce una frase de hasta 400 caracteres y 40 palabras.",
+    "same": "Elige dos idiomas diferentes.",
+    "failed": "La traducción no está disponible en este momento. Inténtalo de nuevo.",
+    "timeout": "La traducción ha tardado demasiado. Inténtalo de nuevo.",
+    "limited": "Demasiadas solicitudes. Espera un poco e inténtalo más tarde.",
+    "quoteFailed": "No se ha podido cargar una frase. Inténtalo de nuevo.",
+    "pasteFailed": "No se puede acceder al portapapeles. Pega el texto directamente en el cuadro.",
+    "noVoice": "Tu dispositivo no dispone de una voz para este idioma.",
+    "speechFailed": "No se ha podido reproducir el audio. Inténtalo de nuevo.",
+    "privacyTitle": "Aprendizaje con frases en línea",
+    "privacyBody": "Cuando analizas una frase en este sitio web, el texto y los idiomas seleccionados se envían desde tu navegador a Google Translate. Si falla la conexión directa, nuestro Cloudflare Worker puede retransmitir la solicitud. Google trata estas solicitudes conforme a su propia política de privacidad. No guardamos el texto ni los resultados en una base de datos ni conservamos un historial de estudio. Google y Cloudflare tratan información de red, incluidas las direcciones IP, para prestar y proteger sus servicios. Las direcciones IP se utilizan para limitar temporalmente la frecuencia de las solicitudes. Los archivos de exportación se crean en tu navegador. La pronunciación utiliza las voces de tu navegador o sistema operativo y puede recurrir al servicio en línea del proveedor de voz. Evita enviar información personal o sensible."
+  },
+  "native": {
+    "title": "Estudia frases. Aprende vocabulario en contexto. Repasa con intervalos.",
+    "summary": "En iPhone, iPad y Mac, comprende una frase que quieras leer, guarda palabras útiles con su contexto original y vuelve a repasarlas cuando toque. Busca en tu biblioteca local, añade notas y exporta CSV para tu propio método de estudio.",
+    "homeTitle": "PhraseCut | Vocabulario en contexto y repaso espaciado",
+    "homeDescription": "Aprende vocabulario con frases que te gusten. Guarda el contexto, las notas y los pares de idiomas, repasa cuando toque en la aplicación o prueba la traducción en línea y la exportación CSV.",
+    "helpTitle": "Ayuda de PhraseCut | Frases, repaso espaciado y CSV",
+    "helpDescription": "Usa PhraseCut en iPhone, iPad y Mac: guarda el contexto, repasa el vocabulario pendiente y exporta CSV. Consulta los requisitos de los paquetes sin conexión y de Apple Intelligence opcional.",
+    "helpHeading": "Aprende a partir de una frase que quieras entender",
+    "sections": [
+      [
+        "Comprende antes de memorizar",
+        "¿Cómo se aprende vocabulario a partir de frases?",
+        "Pega un texto, elige los idiomas de origen y destino y lee la traducción de la frase completa antes de explorar cada palabra. Escucha la pronunciación y guarda una palabra, una expresión o la frase entera. Las palabras traducidas automáticamente por separado pueden tener otros significados; compáralas con la frase original en lugar de considerarlas una explicación contextual."
+      ],
+      [
+        "Conserva el contexto original",
+        "¿Qué guarda la aplicación en la biblioteca de estudio?",
+        "Los elementos de estudio conservan la frase original, la traducción y el par de idiomas. Busca en tu biblioteca local, filtra por palabras, expresiones o frases y añade notas personales. La aplicación sirve para el inglés y otros idiomas compatibles, no solo para frases difíciles en inglés. Los idiomas de la interfaz no garantizan la compatibilidad con todas las direcciones de traducción."
+      ],
+      [
+        "Vuelve a repasar cuando toque",
+        "¿Cómo funcionan el repaso espaciado y los recordatorios?",
+        "La aplicación utiliza un plan sencillo de repaso espaciado. Muestra la respuesta y valora el resultado con opciones como Otra vez, Difícil, Bien o Fácil para ajustar el siguiente repaso. Los recordatorios locales opcionales requieren permiso para enviar notificaciones; su entrega también depende de los ajustes del sistema. El sitio web no dispone de una biblioteca de repaso guardada ni de recordatorios."
+      ],
+      [
+        "Exporta un archivo, no una cuenta",
+        "¿Puedo exportar a Anki o sincronizar mi biblioteca?",
+        "Exporta un CSV estándar o un CSV compatible con Anki desde la Biblioteca de la aplicación. El archivo conserva el contexto y las notas guardadas. Impórtalo manualmente en tu herramienta de estudio preferida; no se trata de una sincronización automática de cuentas ni de un mazo APKG. El CSV para Anki de la aplicación utiliza Front y Back, a diferencia de las columnas Word y Meaning del sitio web."
+      ],
+      [
+        "Prepara los recursos de idiomas sin conexión",
+        "¿Puede PhraseCut traducir sin conexión?",
+        "La aplicación nativa utiliza Apple Translation. La traducción sin conexión requiere un par de idiomas de origen y destino compatible y los paquetes de idiomas instalados en el dispositivo. Descargar recursos y obtener nuevas frases recomendadas requiere acceso a internet. El sitio web, en cambio, utiliza la traducción automática en línea de Google; su lista de idiomas no indica la disponibilidad de la traducción de Apple."
+      ],
+      [
+        "Explicaciones opcionales de frases",
+        "¿Todos los dispositivos admiten explicaciones de frases con IA?",
+        "Las explicaciones opcionales utilizan el modelo del sistema de Apple en iOS 26 o macOS 26 y versiones posteriores, con hardware compatible con Apple Intelligence, la función activada y el modelo listo. La disponibilidad varía según el dispositivo y los idiomas admitidos por el sistema. Esta función es independiente de la traducción de frases y palabras y no está disponible en el sitio web. Contrasta las traducciones y las explicaciones generadas con el original."
+      ]
+    ]
+  },
+  "home": {
+    "tagline": "Frases que te gustan. Palabras que recuerdas.",
+    "nativeTitle": "Estudia frases. Aprende vocabulario en contexto. Repasa con intervalos.",
+    "nativeBody": "En iPhone, iPad y Mac, comprende una frase que quieras leer, guarda palabras útiles con su contexto original y vuelve a repasarlas cuando toque. Busca en tu biblioteca local, añade notas y exporta CSV para tu propio método de estudio.",
+    "imageAlt": "PhraseCut para Mac: una frase, su traducción y los resultados de cada palabra",
+    "imageCaption": "Vista previa de la interfaz de Mac en inglés",
+    "steps": [
+      ["Comprende", "Traduce la frase completa y después examina cada palabra."],
+      ["Guarda", "Conserva el vocabulario útil con su frase original en la aplicación."],
+      ["Recuerda", "Vuelve para el repaso espaciado o exporta tu biblioteca como CSV o Anki CSV."]
+    ],
+    "nativeFAQ": "Acerca de la aplicación",
+    "guide": "Guías para aprender con frases"
+  },
+  "search": {
+    "homeTitle": "PhraseCut | Vocabulario en contexto y repaso espaciado",
+    "homeDescription": "Aprende vocabulario con frases que te gusten. Guarda el contexto, las notas y los pares de idiomas, repasa cuando toque en la aplicación o prueba la traducción en línea y la exportación CSV.",
+    "homeLead": "Aprende palabras con frases que te gusten. Usa tus propios textos o explora fragmentos de artículos en inglés según tus intereses, traduce cada palabra y practica la comprensión oral en línea. Exporta Anki CSV o usa la aplicación para guardar y repasar.",
+    "homeKicker": "Aprende vocabulario en la web, iPhone, iPad y Mac",
+    "toolTitle": "Traducción gratuita de frases y desglose por palabras | PhraseCut",
+    "toolDescription": "Traduce frases y palabras gratis en línea. Explora fragmentos en inglés de fuentes que se actualizan según tus intereses, repite la pronunciación y exporta CSV o Anki CSV. Sin cuenta.",
+    "overviewHeading": "Traducción de frases y exportación de vocabulario gratis en línea",
+    "overview": "PhraseCut en línea traduce tu frase y cada palabra, reproduce la pronunciación con las voces disponibles en el navegador y exporta las palabras seleccionadas con el contexto de la frase. La aplicación nativa añade una biblioteca de estudio guardada y repetición espaciada.",
+    "questionsHeading": "Preguntas sobre el aprendizaje con frases en línea",
+    "languageHeading": "Idiomas de traducción",
+    "faqs": [
+      [
+        "¿Es gratuito el traductor de frases en línea?",
+        "Sí. La herramienta web no requiere una cuenta. Utiliza la traducción automática de Google para la frase completa y cada palabra, con un límite de 400 caracteres y 40 palabras por análisis. Se siguen aplicando los límites de disponibilidad y frecuencia de solicitudes."
+      ],
+      [
+        "¿Puedo exportar a Anki el vocabulario de una frase?",
+        "Sí. Selecciona las palabras que quieras y exporta Anki CSV. Importa el archivo manualmente en Anki y asigna Word y Meaning a los campos del anverso y el reverso. Sentence, Translation, Source language y Target language conservan el contexto original. Es un archivo CSV, no un mazo APKG."
+      ],
+      [
+        "¿La traducción de cada palabra describe su función exacta en la frase?",
+        "Las palabras se traducen por separado. Para interpretar correctamente una palabra con varios significados o una función gramatical, puede ser necesario leer la frase completa. Consulta la traducción de la frase junto al desglose por palabras; son traducciones automáticas, no explicaciones de un tutor de IA."
+      ],
+      [
+        "¿Puedo guardar frases o traducir sin conexión en el sitio web?",
+        "El sitio web no guarda un historial ni una biblioteca de repaso y necesita conexión a internet para traducir. La aplicación nativa utiliza Apple Translation. La traducción sin conexión requiere un par de idiomas de origen y destino compatible y los paquetes de idiomas instalados en el dispositivo. Descargar recursos y obtener nuevas frases recomendadas requiere acceso a internet. El sitio web, en cambio, utiliza la traducción automática en línea de Google; su lista de idiomas no indica la disponibilidad de la traducción de Apple."
+      ]
+    ]
+  },
+  "interest": {
+    "topic": "Tema de interés",
+    "length": "Longitud de la frase",
+    "topics": [
+      "Todos los temas",
+      "Vida cotidiana",
+      "Libros y relatos",
+      "Viajes",
+      "Tecnología",
+      "Negocios",
+      "Ciencia y naturaleza",
+      "Salud y bienestar",
+      "Deportes",
+      "Mundo y cultura"
+    ],
+    "lengths": ["Cualquier longitud", "Frase corta", "Frase más larga"],
+    "speed": "Velocidad de reproducción",
+    "repeat": "Repetir frase",
+    "counts": ["Una vez", "3 veces", "5 veces"]
+  },
+  "sourceOverview": {
+    "heading": "Aprende palabras con artículos que se ajustan a tus intereses",
+    "body": "Explora fragmentos breves sobre viajes, tecnología, ciencia, cultura y otros intereses en fuentes públicas que se actualizan continuamente. Traduce una frase y sus palabras y practica la comprensión oral ajustando la velocidad y las repeticiones. Cada sugerencia enlaza con el artículo original y su licencia; no es un artículo de noticias completo ni una grabación de audio del editor.",
+    "languageQuestion": "¿Los artículos sugeridos están disponibles en todos los idiomas de traducción?",
+    "languageAnswer": "Actualmente, las recomendaciones utilizan fuentes en inglés. También puedes pegar tus propios textos en cualquiera de los 20 idiomas de traducción admitidos. La pronunciación del navegador depende de las voces instaladas en tu dispositivo. Es una herramienta para practicar vocabulario y comprensión oral, no un servicio de noticias multilingüe ni un tutor de IA."
+  },
+  "sourceFAQ": {
+    "sourceQuestion": "¿De dónde proceden las frases sugeridas?",
+    "sourceAnswer": "Las sugerencias son fragmentos breves o titulares de fuentes públicas RSS/API: Wikipedia, Global Voices, NASA y Wikivoyage. La disponibilidad depende del tema y de la fuente. Los conjuntos de contenido se actualizan cada hora cuando se solicitan; las fechas de publicación varían y el material antiguo de la caché se identifica como tal. Se muestran el autor original, el enlace al artículo y la licencia, y se conservan en las exportaciones CSV basadas en fuentes. Las muestras fijas de práctica no se mezclan con las recomendaciones en línea."
+  },
+  "source": {
+    "sourceLabel": "Fuente del contenido",
+    "allSources": "Todas las fuentes disponibles",
+    "headline": "Titular del artículo",
+    "excerpt": "Fragmento del artículo",
+    "published": "Publicado",
+    "updated": "Actualizado",
+    "cachedSource": "Contenido de la fuente en caché",
+    "offlineSample": "Muestra de práctica sin conexión",
+    "translationCredit": "Traducción automática de PhraseCut, no del editor original.",
+    "sourceFailed": "No hay contenido de las fuentes que coincida. Prueba otra fuente o longitud de frase."
+  },
+  "workflow": {
+    "title": "De una frase que te gusta a una palabra que recuerdas",
+    "body": "Copia una frase de un artículo, un libro o un subtítulo. Comprende la frase, elige las palabras útiles y guárdalas para repasarlas en la aplicación."
+  },
+  "pages": {
+    "support": {
+      "title": "Soporte de PhraseCut | Contacto y ayuda de la aplicación",
+      "description": "Obtén ayuda para PhraseCut en iPhone, iPad y Mac.",
+      "heading": "Contacta con el soporte de PhraseCut",
+      "kicker": "Soporte",
+      "lead": "Si la traducción, los paquetes de idiomas, el repaso, la exportación u otra parte de la aplicación no funciona como esperabas, envía una breve descripción e incluye el modelo de tu dispositivo cuando sea posible.",
+      "sections": [
+        ["Correo electrónico", "cameoshell09@gmail.com"],
+        ["Datos útiles que puedes incluir", "Indica el tipo de dispositivo: iPhone, iPad o Mac; la versión de la aplicación que aparece en la pantalla Acerca de, si está disponible; el par de idiomas y lo que intentabas hacer. Añade una captura de pantalla o una grabación si ayuda a explicar el problema."],
+        ["Páginas relacionadas", "Consulta la ayuda para aprender a analizar una frase, guardar palabras y expresiones útiles, repasar más tarde y exportar tu biblioteca de estudio. También puedes consultar la Política de privacidad de PhraseCut."],
+        ["Instala PhraseCut", "Descarga PhraseCut para iPhone, iPad y Mac desde el App Store."]
+      ]
+    },
+    "privacy": {
+      "title": "Política de privacidad de PhraseCut",
+      "description": "Lee la política de privacidad de PhraseCut, que incluye el almacenamiento local de datos de estudio, las exportaciones y las solicitudes de soporte.",
+      "heading": "Política de privacidad de PhraseCut",
+      "kicker": "Privacidad",
+      "lead": "Fecha de entrada en vigor: 12 de octubre de 2026",
+      "sections": [
+        ["Descripción general", "Esta Política de privacidad explica cómo tratan la información PhraseCut y su sitio web complementario, phrase-cut.luopeike.com."],
+        ["Datos de la aplicación", "PhraseCut está diseñado para mantener tus datos de estudio en tu dispositivo. Los elementos guardados, los datos de repaso y los ajustes de la aplicación se almacenan localmente, salvo que los exportes por tu cuenta."],
+        ["Información personal", "No necesitas crear una cuenta para usar la aplicación. No recopilamos directamente tu nombre, dirección ni información personal de perfil similar a través de la aplicación."],
+        ["Análisis y seguimiento", "Este sitio web no utiliza herramientas de análisis de terceros ni SDK publicitarios, y la aplicación no crea perfiles publicitarios sobre ti."],
+        ["Exportaciones y acciones del usuario", "Si exportas tu biblioteca a CSV o a archivos compatibles con Anki, eres tú quien inicia esa acción. El archivo resultante se gestiona en el destino que elijas."],
+        ["Contacto", "Si tienes preguntas sobre privacidad, escribe a cameoshell09@gmail.com."],
+        ["Aprendizaje con frases en línea", "Cuando analizas una frase en este sitio web, el texto y los idiomas seleccionados se envían desde tu navegador a Google Translate. Si falla la conexión directa, nuestro Cloudflare Worker puede retransmitir la solicitud. Google trata estas solicitudes conforme a su propia política de privacidad. No guardamos el texto ni los resultados en una base de datos ni conservamos un historial de estudio. Google y Cloudflare tratan información de red, incluidas las direcciones IP, para prestar y proteger sus servicios. Las direcciones IP se utilizan para limitar temporalmente la frecuencia de las solicitudes. Los archivos de exportación se crean en tu navegador. La pronunciación utiliza las voces de tu navegador o sistema operativo y puede recurrir al servicio en línea del proveedor de voz. Evita enviar información personal o sensible."]
+      ]
+    }
+  }
+}

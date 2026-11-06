@@ -1,3 +1,5 @@
+import { extraSection } from "./extra-locales.mjs";
+
 export const sourceOverview = {
   en: {
     heading: "Learn words from articles that match your interests",
@@ -159,3 +161,7 @@ export const sourceCopy = {
     "sourceFailed": "Nenhum conteúdo adequado. Tente outra fonte ou tamanho de frase."
   }
 };
+
+Object.assign(sourceOverview, extraSection("sourceOverview"));
+Object.assign(sourceFAQ, extraSection("sourceFAQ"));
+Object.assign(sourceCopy, extraSection("source"));

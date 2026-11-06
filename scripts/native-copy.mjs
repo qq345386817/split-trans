@@ -1,3 +1,5 @@
+import { extraSection } from "./extra-locales.mjs";
+
 // Shared native-app facts for visible copy, help and structured answers.
 // Keep these separate from the stateless Google-powered web workspace.
 export const nativeCopy = {
@@ -121,3 +123,5 @@ export const nativeCopy = {
     ]
   }
 };
+
+Object.assign(nativeCopy, extraSection("native"));

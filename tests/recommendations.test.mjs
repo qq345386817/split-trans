@@ -56,6 +56,6 @@ test("dynamic origins reject untrusted links and retain credit in both CSV forma
 });
 
 test("source states and attribution are localized in every interface", () => {
-  assert.equal(Object.keys(sourceCopy).length, 7);
+  assert.equal(Object.keys(sourceCopy).length, 12);
   for (const copy of Object.values(sourceCopy)) assert.ok(Object.values(copy).every(value => value.trim()));
 });

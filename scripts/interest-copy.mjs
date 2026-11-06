@@ -1,3 +1,5 @@
+import { extraSection } from "./extra-locales.mjs";
+
 export const interestCopy = {
   "en": {
     "topic": "Interest topic",
@@ -196,3 +198,5 @@ export const interestCopy = {
     ]
   }
 };
+
+Object.assign(interestCopy, extraSection("interest"));

@@ -11,6 +11,8 @@ import { workflowCopy } from "./workflow-copy.mjs";
 import { renderWorkspace } from "./study-layout.mjs";
 import { homeCopy } from "./home-copy.mjs";
 import { nativeCopy } from "./native-copy.mjs";
+import { addedLocaleIDs, extraContent } from "./extra-locales.mjs";
+import { localizedShell } from "./localized-shell.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const appCaptures = JSON.parse(await readFile(`${root}images/app/manifest.json`, "utf8"));
@@ -63,6 +65,14 @@ const privacyDates = {
   hi: "प्रभावी तिथि: 12 अक्टूबर 2026", id: "Tanggal berlaku: 12 Oktober 2026", vi: "Ngày có hiệu lực: 12 tháng 10, 2026", "pt-BR": "Data de vigência: 12 de outubro de 2026"
 };
 
+for (const locale of addedLocaleIDs) {
+  await mkdir(`${root}${locale}`, { recursive: true });
+  for (const route of ["index", "help", "support", "privacy-policy"]) {
+    await writeFile(`${root}${locale}/${route}.html`, localizedShell(locale, extraContent[locale], route));
+  }
+  privacyDates[locale] = extraContent[locale].pages.privacy.lead;
+}
+
 for (const baseCopy of Object.values(locales)) {
   const native = nativeCopy[baseCopy.lang];
   const seo = searchCopy[baseCopy.lang];
@@ -111,17 +121,28 @@ ${faqs.map(([question, answer]) => `<details class="study-question"><summary>${e
     if (!filename.endsWith(".html") || filename === "study.html" || filename.startsWith("google")) continue;
     const file = folder + filename;
     let content = await readFile(file, "utf8");
+    if (["index.html", "help.html", "support.html", "privacy-policy.html"].includes(filename)) {
+    const route = filename === "index.html" ? "" : filename.replace(/\.html$/, "");
+    const pageURL = other => `${origin}/${other.folder ? other.folder + "/" : ""}${route}`;
+    const languageLinks = Object.values(locales).map(other => `<link rel="alternate" hreflang="${other.lang}" href="${pageURL(other)}">`).join("\n");
+    content = content.replace(/<link rel="alternate"[^>]*>\n?/g, "");
+    content = content.replace("</head>", `${languageLinks}<link rel="alternate" hreflang="x-default" href="${origin}/${route}">\n</head>`);
+    const languageOptions = Object.values(locales).map(other => `<option value="${pageURL(other).slice(origin.length)}"${other.lang === copy.lang ? " selected" : ""}>${escape(other.name)}</option>`).join("");
+    const picker = `<select class="language-switch" aria-label="${escape(copy.name)}" onchange="if(this.value)location.href=this.value">${languageOptions}</select>`;
+    if (content.includes('class="language-switch"')) content = content.replace(/<select[^>]*class="language-switch"[^>]*>[\s\S]*?<\/select>/, picker);
+    else content = content.replace("</nav>", `${picker}</nav>`);
+    }
     content = content.replace(/<link rel="stylesheet" href="[^"]*style\/theme\.css[^\"]*">\n?/g, "");
     content = content.replace(/<link rel="stylesheet" href="[^"]*style\/base\.css[^\"]*">/, `<link rel="stylesheet" href="/style/theme.css?v=${themeVersion}"><link rel="stylesheet" href="/style/base.css?v=${baseStyleVersion}">`);
     if (!content.includes('class="online-nav"')) content = content.replace(/(<nav class="nav"[^>]*>)/, `$1<a class="online-nav" href="study">${copy.online}</a>`);
     if (filename === "index.html") {
       const home = homeCopy[copy.lang];
       const nativeFAQ = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: native.sections.map(([, question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) };
-      const screenshot = copy.folder === "pt-br" ? "pt_BR" : copy.lang === "en" ? "en_US" : copy.lang.replace("-", "_");
+      const screenshot = addedLocaleIDs.includes(copy.lang) ? "en_US" : copy.folder === "pt-br" ? "pt_BR" : copy.lang === "en" ? "en_US" : copy.lang.replace("-", "_");
       const lightScreenshot = await appScreenshot(screenshot, "light");
       const darkScreenshot = await appScreenshot(screenshot, "dark");
       const nativeQuestions = nativeFAQ.mainEntity.map(item => `<details class="faq-item"><summary>${escape(item.name)}</summary><p>${escape(item.acceptedAnswer.text)}</p></details>`).join("\n");
-      content = content.replace(/<main>[\s\S]*?<\/main>/, `<main>
+      content = content.replace(/<main\b[^>]*>[\s\S]*?<\/main>/, `<main>
 <header class="home-heading"><h1>PhraseCut</h1><p class="lead">${escape(home.tagline)}</p></header>
 ${renderWorkspace(copy)}
 <section class="native-section" id="app"><div class="native-heading"><div><h2>${escape(home.nativeTitle)}</h2><p>${escape(home.nativeBody)}</p></div><a class="button primary" href="${appStore}?ct=website-home&mt=8">${icon("download")}${copy.download}</a></div>
@@ -182,8 +203,10 @@ ${copy.lang === "en" ? `<section class="home-guides"><h2>${home.guide}</h2><div 
 }
 let sitemap = await readFile(`${root}sitemap.xml`, "utf8");
 for (const copy of Object.values(locales)) {
-  const url = origin + pathFor(copy);
-  if (!sitemap.includes(`<loc>${url}</loc>`)) sitemap = sitemap.replace("</urlset>", `  <url><loc>${url}</loc></url>\n</urlset>`);
+  for (const route of ["", "help", "support", "privacy-policy", "study"]) {
+    const url = `${origin}/${copy.folder ? copy.folder + "/" : ""}${route}`;
+    if (!sitemap.includes(`<loc>${url}</loc>`)) sitemap = sitemap.replace("</urlset>", `  <url><loc>${url}</loc></url>\n</urlset>`);
+  }
 }
 await writeFile(`${root}sitemap.xml`, sitemap);
 const facts = `# PhraseCut
@@ -206,7 +229,7 @@ Public sources: ${contentSources.map(([name, url]) => `[${name}](${url})`).join(
 
 ## Languages and exports
 
-Recommendations are currently in English, but users can paste text in any of the ${languageCodes.length} supported translation languages. Translation languages: ${new Intl.ListFormat("en").format(languageCodes.map(code => new Intl.DisplayNames(["en"], { type: "language" }).of(code)))}. Website interfaces are available in English, Simplified Chinese, Traditional Chinese, Hindi, Indonesian, Vietnamese, and Brazilian Portuguese.
+Recommendations are currently in English, but users can paste text in any of the ${languageCodes.length} supported translation languages. Translation languages: ${new Intl.ListFormat("en").format(languageCodes.map(code => new Intl.DisplayNames(["en"], { type: "language" }).of(code)))}. Website interfaces: ${new Intl.ListFormat("en").format(Object.values(locales).map(copy => copy.name))}.
 
 The base CSV columns are Word, Meaning, Sentence, Translation, Source language, and Target language. Source-based CSV/Anki CSV exports additionally include Publisher, Author, Original URL, License, License URL, and Attribution. Anki export is CSV, not an APKG deck; importing uses Anki's own note fields and scheduling.
 
@@ -271,4 +294,4 @@ for (const file of await readdir(root)) {
     await cp(`${root}${file}`, `${output}/${file}`, { recursive: true });
   }
 }
-console.log("Built 7 localized study pages, navigation, privacy notices, icon sprite, and sitemap.");
+console.log(`Built ${Object.keys(locales).length} localized study pages, navigation, privacy notices, icon sprite, and sitemap.`);

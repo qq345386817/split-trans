@@ -1,0 +1,213 @@
+{
+  "study": {
+    "lang": "de",
+    "folder": "de",
+    "target": "de",
+    "name": "Deutsch",
+    "home": "Startseite",
+    "help": "Hilfe",
+    "privacy": "Datenschutz",
+    "download": "App herunterladen",
+    "copyFailed": "Kopieren fehlgeschlagen. Wählen Sie die Übersetzung aus und kopieren Sie sie manuell.",
+    "title": "Online Wörter anhand von Sätzen lernen | PhraseCut",
+    "description": "Übersetzen Sie einen Satz, erkunden Sie einzelne Wörter, hören Sie die Aussprache und exportieren Sie Vokabeln als CSV oder für Anki. PhraseCut online ohne Konto ausprobieren.",
+    "heading": "Lernen Sie Wörter aus Ihren Sätzen",
+    "intro": "Übersetzen Sie einen Satz, der Ihnen gefällt, hören Sie ihn an und sammeln Sie nützliche Wörter.",
+    "source": "Ausgangssprache",
+    "targetLabel": "Zielsprache",
+    "swap": "Sprachen tauschen",
+    "sentence": "Ihr Satz",
+    "placeholder": "Fügen Sie einen Satz ein, den Sie lernen möchten…",
+    "analyze": "Satz analysieren",
+    "recommend": "Satz vorschlagen",
+    "cancel": "Abbrechen",
+    "clear": "Leeren",
+    "paste": "Einfügen",
+    "finding": "Satz wird gesucht…",
+    "analyzing": "Satz und Wörter werden übersetzt…",
+    "result": "Bedeutung des Satzes",
+    "words": "Einzelne Wortübersetzungen",
+    "listen": "Anhören",
+    "stop": "Vorlesen beenden",
+    "select": "Für Export auswählen",
+    "selectAll": "Alle auswählen",
+    "deselect": "Auswahl aufheben",
+    "export": "Exportieren",
+    "copy": "Übersetzung kopieren",
+    "copied": "Kopiert",
+    "ready": "Übersetzung bereit",
+    "format": "Exportformat",
+    "csv": "CSV",
+    "anki": "Anki CSV",
+    "selected": "Wörter ausgewählt",
+    "missing": "Übersetzung nicht verfügbar",
+    "partial": "Einige Wörter konnten nicht übersetzt werden. Starten Sie die Analyse erneut.",
+    "notice": "Die Onlineübersetzung verwendet Google Translate. Geben Sie keine sensiblen Informationen ein. Die Ergebnisse bleiben in diesem Tab.",
+    "appTitle": "Sätze verstehen. Wörter im Kontext lernen. In Intervallen wiederholen.",
+    "appBody": "Verstehen Sie auf iPhone, iPad und Mac einen Satz, den Sie lesen möchten, speichern Sie nützliche Wörter mit ihrem ursprünglichen Kontext und wiederholen Sie sie, wenn sie fällig sind. Durchsuchen Sie Ihre lokale Bibliothek, ergänzen Sie Notizen und exportieren Sie CSV-Dateien für Ihren eigenen Lernablauf.",
+    "online": "Online ausprobieren",
+    "noJS": "Aktivieren Sie JavaScript, um Sätze online zu übersetzen.",
+    "invalid": "Geben Sie einen Satz mit höchstens 400 Zeichen und 40 Wörtern ein.",
+    "same": "Wählen Sie zwei unterschiedliche Sprachen.",
+    "failed": "Die Übersetzung ist derzeit nicht verfügbar. Versuchen Sie es erneut.",
+    "timeout": "Die Übersetzung hat zu lange gedauert. Versuchen Sie es erneut.",
+    "limited": "Zu viele Anfragen. Warten Sie bitte und versuchen Sie es später erneut.",
+    "quoteFailed": "Ein Satz konnte nicht geladen werden. Versuchen Sie es erneut.",
+    "pasteFailed": "Der Zugriff auf die Zwischenablage ist nicht verfügbar. Fügen Sie den Text direkt in das Textfeld ein.",
+    "noVoice": "Auf Ihrem Gerät ist keine Stimme für diese Sprache verfügbar.",
+    "speechFailed": "Die Audiowiedergabe ist fehlgeschlagen. Versuchen Sie es erneut.",
+    "privacyTitle": "Online mit Sätzen lernen",
+    "privacyBody": "Wenn Sie auf dieser Website einen Satz analysieren, werden dessen Text und die gewählten Sprachen von Ihrem Browser an Google Translate gesendet. Scheitert die direkte Netzwerkverbindung, kann unser Cloudflare Worker die Anfrage weiterleiten. Google verarbeitet diese Anfragen gemäß seiner eigenen Datenschutzerklärung. Wir schreiben weder den Text noch die Ergebnisse in eine Datenbank und speichern keinen Lernverlauf. Google und Cloudflare verarbeiten Netzwerkinformationen einschließlich IP-Adressen, um ihre Dienste bereitzustellen und zu schützen. IP-Adressen werden zur vorübergehenden Begrenzung der Anfragerate verwendet. Exportdateien werden in Ihrem Browser erstellt. Für die Aussprache werden Stimmen Ihres Browsers oder Betriebssystems genutzt; dabei kann der Onlinedienst des Sprachanbieters zum Einsatz kommen. Übermitteln Sie keine persönlichen oder sensiblen Informationen."
+  },
+  "native": {
+    "title": "Sätze verstehen. Wörter im Kontext lernen. In Intervallen wiederholen.",
+    "summary": "Verstehen Sie auf iPhone, iPad und Mac einen Satz, den Sie lesen möchten, speichern Sie nützliche Wörter mit ihrem ursprünglichen Kontext und wiederholen Sie sie, wenn sie fällig sind. Durchsuchen Sie Ihre lokale Bibliothek, ergänzen Sie Notizen und exportieren Sie CSV-Dateien für Ihren eigenen Lernablauf.",
+    "homeTitle": "PhraseCut | Wörter im Kontext lernen und verteilt wiederholen",
+    "homeDescription": "Lernen Sie Vokabeln aus Sätzen, die Ihnen gefallen. Speichern Sie Kontext, Notizen und Sprachpaare, wiederholen Sie fällige Einträge in der App oder nutzen Sie Onlineübersetzung und CSV-Export.",
+    "helpTitle": "PhraseCut-Hilfe | Sätze lernen, verteilt wiederholen und CSV exportieren",
+    "helpDescription": "PhraseCut auf iPhone, iPad und Mac: Kontext speichern, fällige Vokabeln wiederholen und CSV exportieren. Beachten Sie die Voraussetzungen für Offline-Sprachpakete und optionales Apple Intelligence.",
+    "helpHeading": "Lernen Sie mit einem Satz, den Sie verstehen möchten",
+    "sections": [
+      [
+        "Erst verstehen, dann merken",
+        "Wie funktioniert das Vokabellernen anhand von Sätzen?",
+        "Fügen Sie Text ein, wählen Sie eine Ausgangs- und Zielsprache und lesen Sie zuerst die Übersetzung des ganzen Satzes, bevor Sie einzelne Wörter erkunden. Hören Sie die Aussprache und speichern Sie ein Wort, eine Wendung oder den ganzen Satz. Einzeln maschinell übersetzte Wörter können andere Bedeutungen haben. Vergleichen Sie sie mit dem ursprünglichen Satz, statt sie als Erklärung des jeweiligen Kontexts zu betrachten."
+      ],
+      [
+        "Den ursprünglichen Kontext behalten",
+        "Was speichert die App in der Lernbibliothek?",
+        "Lerneinträge behalten den Ausgangssatz, die Übersetzung und das Sprachpaar. Durchsuchen Sie Ihre lokale Bibliothek, filtern Sie nach Wörtern, Wendungen oder Sätzen und ergänzen Sie persönliche Notizen. Die App eignet sich für Englisch und andere unterstützte Sprachen, nicht nur für schwierige englische Sätze. Die Oberflächensprachen garantieren nicht, dass jede Übersetzungsrichtung unterstützt wird."
+      ],
+      [
+        "Fällige Einträge wiederholen",
+        "Wie funktionieren verteilte Wiederholung und Erinnerungen?",
+        "Die App verwendet einen einfachen Plan für verteilte Wiederholung. Zeigen Sie die Antwort an und geben Sie anschließend eine Rückmeldung wie Noch einmal, Schwer, Gut oder Leicht, um den nächsten Wiederholungszeitpunkt anzupassen. Optionale lokale Erinnerungen erfordern die Berechtigung für Mitteilungen; ihre Zustellung hängt auch von den Systemeinstellungen ab. Die Website bietet weder eine gespeicherte Wiederholungsbibliothek noch Erinnerungen."
+      ],
+      [
+        "Dateien exportieren, kein Konto synchronisieren",
+        "Kann ich nach Anki exportieren oder meine Bibliothek synchronisieren?",
+        "Exportieren Sie eine normale oder Anki-kompatible CSV-Datei aus der Bibliothek der App. Gespeicherter Kontext und Notizen bleiben in der Datei erhalten. Importieren Sie diese manuell in Ihren gewählten Lernablauf. Dies ist weder eine automatische Kontosynchronisierung noch ein APKG-Kartenstapel. Die Anki-CSV der nativen App verwendet Front und Back, anders als die Spalten Word und Meaning auf der Website."
+      ],
+      [
+        "Sprachressourcen für die Offlinenutzung vorbereiten",
+        "Kann PhraseCut offline übersetzen?",
+        "Die native App verwendet Apple Translation. Für Offlineübersetzungen müssen das Ausgangs- und Zielsprachpaar unterstützt und die benötigten Sprachpakete auf dem Gerät installiert sein. Zum Herunterladen von Ressourcen und Abrufen neuer Satzvorschläge ist Internetzugang erforderlich. Die Website verwendet stattdessen die maschinelle Onlineübersetzung von Google. Ihre Sprachenliste beschreibt nicht die Verfügbarkeit der Übersetzung von Apple."
+      ],
+      [
+        "Optionale Satzerklärungen",
+        "Unterstützt jedes Gerät KI-Satzerklärungen?",
+        "Optionale Erklärungen verwenden das Systemmodell von Apple unter iOS 26 oder macOS 26 und neuer. Erforderlich sind mit Apple Intelligence kompatible Hardware, die aktivierte Funktion und ein einsatzbereites Modell. Die Verfügbarkeit hängt vom Gerät und der Sprachunterstützung des Systems ab. Diese Funktion ist von der Satz- und Wortübersetzung getrennt und wird auf der Website nicht angeboten. Prüfen Sie Übersetzungen und generierte Erklärungen anhand des Originals."
+      ]
+    ]
+  },
+  "home": {
+    "tagline": "Wörter, die bleiben. Sätze, die Ihnen gefallen.",
+    "nativeTitle": "Sätze verstehen. Wörter im Kontext lernen. In Intervallen wiederholen.",
+    "nativeBody": "Verstehen Sie auf iPhone, iPad und Mac einen Satz, den Sie lesen möchten, speichern Sie nützliche Wörter mit ihrem ursprünglichen Kontext und wiederholen Sie sie, wenn sie fällig sind. Durchsuchen Sie Ihre lokale Bibliothek, ergänzen Sie Notizen und exportieren Sie CSV-Dateien für Ihren eigenen Lernablauf.",
+    "imageAlt": "PhraseCut für Mac: ein Satz, seine Übersetzung und die Ergebnisse der einzelnen Wörter",
+    "imageCaption": "Vorschau der Mac-Oberfläche auf Englisch",
+    "steps": [
+      ["Verstehen", "Übersetzen Sie den ganzen Satz und betrachten Sie dann die einzelnen Wörter."],
+      ["Behalten", "Speichern Sie nützliche Vokabeln mit ihrem ursprünglichen Satz in der App."],
+      ["Erinnern", "Kehren Sie zur verteilten Wiederholung zurück oder exportieren Sie Ihre Bibliothek als CSV oder Anki CSV."]
+    ],
+    "nativeFAQ": "Über die App",
+    "guide": "Anleitungen zum Lernen mit Sätzen"
+  },
+  "search": {
+    "homeTitle": "PhraseCut | Wörter im Kontext lernen und verteilt wiederholen",
+    "homeDescription": "Lernen Sie Vokabeln aus Sätzen, die Ihnen gefallen. Speichern Sie Kontext, Notizen und Sprachpaare, wiederholen Sie fällige Einträge in der App oder nutzen Sie Onlineübersetzung und CSV-Export.",
+    "homeLead": "Lernen Sie Wörter aus Sätzen, die Ihnen gefallen. Nutzen Sie eigene Texte oder erkunden Sie englische Artikelauszüge nach Interesse, übersetzen Sie jedes Wort und üben Sie online das Hörverstehen. Exportieren Sie Anki CSV oder speichern und wiederholen Sie Einträge in der App.",
+    "homeKicker": "Vokabeln lernen im Web, auf iPhone, iPad und Mac",
+    "toolTitle": "Kostenloser Satzübersetzer und einzelne Wortübersetzungen | PhraseCut",
+    "toolDescription": "Sätze und Wörter kostenlos online übersetzen. Entdecken Sie englische Auszüge aus aktualisierten Quellen nach Interesse, wiederholen Sie die Aussprache und exportieren Sie CSV oder Anki CSV. Ohne Konto.",
+    "overviewHeading": "Kostenlose Online-Satzübersetzung und Vokabelexport",
+    "overview": "PhraseCut online übersetzt Ihren Satz und einzelne Wörter, liest mit den verfügbaren Browserstimmen vor und exportiert ausgewählte Wörter mit ihrem Satzkontext. Die native App ergänzt eine gespeicherte Lernbibliothek und verteilte Wiederholung.",
+    "questionsHeading": "Fragen zum Online-Lernen mit Sätzen",
+    "languageHeading": "Übersetzungssprachen",
+    "faqs": [
+      [
+        "Ist der Online-Satzübersetzer kostenlos?",
+        "Ja. Für das Webwerkzeug ist kein Konto erforderlich. Es verwendet die maschinelle Übersetzung von Google für den ganzen Satz und einzelne Wörter, begrenzt auf 400 Zeichen und 40 Wörter pro Analyse. Einschränkungen bei Verfügbarkeit und Anfragerate gelten weiterhin."
+      ],
+      [
+        "Kann ich Vokabeln aus einem Satz nach Anki exportieren?",
+        "Ja. Wählen Sie die gewünschten Wörter aus und exportieren Sie Anki CSV. Importieren Sie die Datei in Anki und ordnen Sie Word und Meaning Ihren Feldern für Vorder- und Rückseite zu. Sentence, Translation, Source language und Target language behalten den ursprünglichen Kontext. Dies ist eine CSV-Datei, kein APKG-Kartenstapel."
+      ],
+      [
+        "Beschreibt jede Wortübersetzung die genaue Rolle des Wortes im Satz?",
+        "Wörter werden einzeln übersetzt. Um ein mehrdeutiges Wort oder eine grammatische Funktion richtig zu verstehen, kann der ganze Satz nötig sein. Lesen Sie die Satzübersetzung zusammen mit den einzelnen Wortübersetzungen. Es handelt sich um maschinelle Übersetzungen, nicht um Erklärungen eines KI-Sprachlehrers."
+      ],
+      [
+        "Kann ich auf der Website Sätze speichern oder offline übersetzen?",
+        "Die Website speichert weder einen Verlauf noch eine Wiederholungsbibliothek und benötigt eine Internetverbindung zum Übersetzen. Die native App verwendet Apple Translation. Für Offlineübersetzungen müssen das Ausgangs- und Zielsprachpaar unterstützt und die benötigten Sprachpakete auf dem Gerät installiert sein. Zum Herunterladen von Ressourcen und Abrufen neuer Satzvorschläge ist Internetzugang erforderlich. Die Website verwendet stattdessen die maschinelle Onlineübersetzung von Google. Ihre Sprachenliste beschreibt nicht die Verfügbarkeit der Übersetzung von Apple."
+      ]
+    ]
+  },
+  "interest": {
+    "topic": "Interessengebiet",
+    "length": "Satzlänge",
+    "topics": ["Alle Themen", "Alltag", "Bücher und Geschichten", "Reisen", "Technologie", "Wirtschaft", "Wissenschaft und Natur", "Gesundheit und Wohlbefinden", "Sport", "Welt und Kultur"],
+    "lengths": ["Beliebige Länge", "Kurzer Satz", "Längerer Satz"],
+    "speed": "Wiedergabegeschwindigkeit",
+    "repeat": "Satz wiederholen",
+    "counts": ["Einmal", "3-mal", "5-mal"]
+  },
+  "sourceOverview": {
+    "heading": "Lernen Sie Wörter aus Artikeln, die Ihren Interessen entsprechen",
+    "body": "Entdecken Sie kurze Auszüge über Reisen, Technologie, Wissenschaft, Kultur und andere Interessen aus öffentlich zugänglichen, laufend aktualisierten Quellen. Übersetzen Sie einen Satz und seine Wörter und üben Sie dann das Hörverstehen mit einstellbarer Geschwindigkeit und Wiederholungen. Jeder Vorschlag verlinkt auf den Originalartikel und seine Lizenz. Es handelt sich weder um einen vollständigen Nachrichtenartikel noch um eine Audioaufnahme des Herausgebers.",
+    "languageQuestion": "Sind die vorgeschlagenen Artikel in jeder Übersetzungssprache verfügbar?",
+    "languageAnswer": "Die Empfehlungen stammen derzeit aus englischsprachigen Quellen. Sie können auch eigenen Text in einer der 20 unterstützten Übersetzungssprachen einfügen. Die Aussprache im Browser hängt von den auf Ihrem Gerät installierten Stimmen ab. Dies ist ein Werkzeug für Vokabel- und Hörübungen, kein mehrsprachiger Nachrichtenstrom und kein KI-Sprachlehrer."
+  },
+  "sourceFAQ": {
+    "sourceQuestion": "Woher stammen die vorgeschlagenen Sätze?",
+    "sourceAnswer": "Die Vorschläge sind kurze Auszüge oder Überschriften aus öffentlichen RSS- oder API-Quellen: Wikipedia, Global Voices, NASA und Wikivoyage. Ihre Verfügbarkeit hängt vom Thema und der Quelle ab. Die Inhaltssammlungen werden bei Anfragen stündlich aktualisiert; Veröffentlichungsdaten variieren, und veraltete zwischengespeicherte Inhalte werden gekennzeichnet. Ursprünglicher Autor, Artikellink und Lizenz werden angezeigt und bleiben in quellenbasierten CSV-Exporten erhalten. Feste Übungsbeispiele werden nicht unter die Onlineempfehlungen gemischt."
+  },
+  "source": {
+    "sourceLabel": "Inhaltsquelle",
+    "allSources": "Alle verfügbaren Quellen",
+    "headline": "Artikelüberschrift",
+    "excerpt": "Artikelauszug",
+    "published": "Veröffentlicht",
+    "updated": "Aktualisiert",
+    "cachedSource": "Zwischengespeicherter Quellinhalt",
+    "offlineSample": "Offline-Übungsbeispiel",
+    "translationCredit": "Maschinelle Übersetzung durch PhraseCut, nicht durch den ursprünglichen Herausgeber.",
+    "sourceFailed": "Kein passender Quellinhalt gefunden. Wählen Sie eine andere Quelle oder Satzlänge."
+  },
+  "workflow": {
+    "title": "Vom Lieblingssatz zum Wort, das bleibt",
+    "body": "Kopieren Sie eine Zeile aus einem Artikel, Buch oder Untertitel. Verstehen Sie den Satz, wählen Sie nützliche Wörter aus und speichern Sie sie zum Wiederholen in der App."
+  },
+  "pages": {
+    "support": {
+      "title": "PhraseCut-Support | Kontakt und App-Hilfe",
+      "description": "Erhalten Sie Unterstützung für PhraseCut auf iPhone, iPad und Mac.",
+      "heading": "PhraseCut-Support kontaktieren",
+      "kicker": "Unterstützung",
+      "lead": "Wenn Übersetzung, Sprachpakete, Wiederholung, Export oder ein anderer Teil der App nicht wie erwartet funktioniert, senden Sie eine kurze Nachricht und nennen Sie nach Möglichkeit Ihr Gerätemodell.",
+      "sections": [
+        ["E-Mail", "cameoshell09@gmail.com"],
+        ["Hilfreiche Angaben", "Nennen Sie Ihren Gerätetyp: iPhone, iPad oder Mac. Geben Sie nach Möglichkeit die App-Version aus der Ansicht Über an, außerdem das Sprachpaar und was Sie tun wollten. Fügen Sie ein Bildschirmfoto oder eine Bildschirmaufnahme bei, wenn dies das Problem verdeutlicht."],
+        ["Weiterführende Seiten", "In der Hilfe erfahren Sie, wie Sie Sätze analysieren, nützliche Wörter und Wendungen speichern, später wiederholen und Ihre Lernbibliothek exportieren. Lesen Sie außerdem die Datenschutzerklärung von PhraseCut."],
+        ["PhraseCut installieren", "Laden Sie PhraseCut für iPhone, iPad und Mac aus dem App Store herunter."]
+      ]
+    },
+    "privacy": {
+      "title": "PhraseCut-Datenschutzerklärung",
+      "description": "Lesen Sie die Datenschutzerklärung von PhraseCut mit Informationen zur lokalen Speicherung von Lerndaten, zu Exporten und zu Supportanfragen.",
+      "heading": "PhraseCut-Datenschutzerklärung",
+      "kicker": "Datenschutz",
+      "lead": "Gültig ab: 12. Oktober 2026",
+      "sections": [
+        ["Überblick", "Diese Datenschutzerklärung erläutert, wie PhraseCut und die zugehörige Website phrase-cut.luopeike.com mit Informationen umgehen."],
+        ["App-Daten", "PhraseCut ist darauf ausgelegt, Ihre Lerndaten auf Ihrem Gerät zu behalten. Gespeicherte Einträge, Wiederholungsdaten und App-Einstellungen werden lokal gespeichert, sofern Sie sie nicht selbst exportieren."],
+        ["Personenbezogene Informationen", "Sie müssen kein Konto erstellen, um die App zu nutzen. Wir erheben über die App nicht direkt Ihren Namen, Ihre Anschrift oder vergleichbare persönliche Profilinformationen."],
+        ["Analyse und Nachverfolgung", "Diese Website verwendet keine Analysewerkzeuge von Drittanbietern oder Werbe-SDKs, und die App erstellt keine Werbeprofile über Sie."],
+        ["Exporte und Nutzeraktionen", "Wenn Sie Ihre Bibliothek als CSV oder in Anki-kompatible Dateien exportieren, geht diese Aktion von Ihnen aus. Die entstandene Datei wird von dem von Ihnen gewählten Ziel verarbeitet."],
+        ["Kontakt", "Bei Fragen zum Datenschutz wenden Sie sich an cameoshell09@gmail.com."],
+        ["Online mit Sätzen lernen", "Wenn Sie auf dieser Website einen Satz analysieren, werden dessen Text und die gewählten Sprachen von Ihrem Browser an Google Translate gesendet. Scheitert die direkte Netzwerkverbindung, kann unser Cloudflare Worker die Anfrage weiterleiten. Google verarbeitet diese Anfragen gemäß seiner eigenen Datenschutzerklärung. Wir schreiben weder den Text noch die Ergebnisse in eine Datenbank und speichern keinen Lernverlauf. Google und Cloudflare verarbeiten Netzwerkinformationen einschließlich IP-Adressen, um ihre Dienste bereitzustellen und zu schützen. IP-Adressen werden zur vorübergehenden Begrenzung der Anfragerate verwendet. Exportdateien werden in Ihrem Browser erstellt. Für die Aussprache werden Stimmen Ihres Browsers oder Betriebssystems genutzt; dabei kann der Onlinedienst des Sprachanbieters zum Einsatz kommen. Übermitteln Sie keine persönlichen oder sensiblen Informationen."]
+      ]
+    }
+  }
+}

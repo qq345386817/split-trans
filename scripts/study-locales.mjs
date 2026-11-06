@@ -1,3 +1,5 @@
+import { extraSection } from "./extra-locales.mjs";
+
 import { nativeCopy } from "./native-copy.mjs";
 
 export const locales = {
@@ -65,3 +67,5 @@ export const locales = {
     privacyTitle: "Aprendizado online com frases", privacyBody: "Ao analisar uma frase neste site, o texto e os idiomas escolhidos são enviados do navegador ao Google Tradutor. Se a conexão direta falhar, nosso Cloudflare Worker pode encaminhar a solicitação. O Google processa essas solicitações conforme sua própria política de privacidade. Não gravamos o texto ou os resultados em um banco de dados nem mantemos um histórico de estudos. O Google e a Cloudflare processam informações de rede, incluindo endereços IP, para fornecer e proteger seus serviços. Os endereços IP são usados para limitar solicitações temporariamente. Os arquivos de exportação são criados no navegador. A pronúncia usa as vozes do navegador ou sistema operacional e pode utilizar o serviço online do provedor de voz. Não envie informações pessoais ou sensíveis."
   }
 };
+
+Object.assign(locales, extraSection("study"));

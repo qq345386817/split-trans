@@ -1,0 +1,213 @@
+{
+  "study": {
+    "lang": "fr",
+    "folder": "fr",
+    "target": "fr",
+    "name": "Français",
+    "home": "Accueil",
+    "help": "Aide",
+    "privacy": "Confidentialité",
+    "download": "Télécharger l'application",
+    "copyFailed": "La copie a échoué. Sélectionnez la traduction et copiez-la manuellement.",
+    "title": "Apprendre des mots à partir de phrases en ligne | PhraseCut",
+    "description": "Traduisez une phrase, explorez chaque mot, écoutez la prononciation et exportez le vocabulaire au format CSV ou Anki. Essayez PhraseCut en ligne sans compte.",
+    "heading": "Apprenez des mots à partir de vos phrases",
+    "intro": "Traduisez une phrase qui vous plaît, écoutez-la et retenez les mots utiles.",
+    "source": "Langue source",
+    "targetLabel": "Langue de traduction",
+    "swap": "Inverser les langues",
+    "sentence": "Votre phrase",
+    "placeholder": "Collez une phrase que vous souhaitez étudier…",
+    "analyze": "Analyser la phrase",
+    "recommend": "Suggérer une phrase",
+    "cancel": "Annuler",
+    "clear": "Effacer",
+    "paste": "Coller",
+    "finding": "Recherche d'une phrase…",
+    "analyzing": "Traduction de votre phrase et de ses mots…",
+    "result": "Sens de la phrase",
+    "words": "Traduction mot à mot",
+    "listen": "Écouter",
+    "stop": "Arrêter la lecture",
+    "select": "Sélectionner pour l'export",
+    "selectAll": "Tout sélectionner",
+    "deselect": "Désélectionner tout",
+    "export": "Exporter",
+    "copy": "Copier la traduction",
+    "copied": "Copié",
+    "ready": "Traduction prête",
+    "format": "Format d'export",
+    "csv": "CSV",
+    "anki": "Anki CSV",
+    "selected": "mots sélectionnés",
+    "missing": "Traduction indisponible",
+    "partial": "Certains mots n'ont pas pu être traduits. Relancez l'analyse.",
+    "notice": "La traduction en ligne utilise Google Translate. Ne saisissez pas d'informations sensibles. Les résultats restent dans cet onglet.",
+    "appTitle": "Comprendre les phrases. Apprendre les mots en contexte. Réviser à intervalles espacés.",
+    "appBody": "Sur iPhone, iPad et Mac, comprenez une phrase que vous souhaitez lire, enregistrez les mots utiles avec leur contexte d'origine et retrouvez-les à la prochaine révision. Recherchez dans votre bibliothèque locale, ajoutez des notes et exportez un fichier CSV selon votre méthode de travail.",
+    "online": "Essayer en ligne",
+    "noJS": "Activez JavaScript pour traduire des phrases en ligne.",
+    "invalid": "Saisissez une phrase de 400 caractères et 40 mots maximum.",
+    "same": "Choisissez deux langues différentes.",
+    "failed": "La traduction est indisponible pour le moment. Veuillez réessayer.",
+    "timeout": "La traduction a pris trop de temps. Veuillez réessayer.",
+    "limited": "Trop de demandes ont été envoyées. Patientez et réessayez plus tard.",
+    "quoteFailed": "Impossible de charger une phrase. Veuillez réessayer.",
+    "pasteFailed": "L'accès au presse-papiers est indisponible. Collez le texte directement dans le champ.",
+    "noVoice": "Aucune voix n'est disponible pour cette langue sur votre appareil.",
+    "speechFailed": "La lecture audio a échoué. Veuillez réessayer.",
+    "privacyTitle": "Apprentissage de phrases en ligne",
+    "privacyBody": "Lorsque vous analysez une phrase sur ce site, son texte et les langues choisies sont envoyés depuis votre navigateur à Google Translate. Si la connexion directe échoue, notre Cloudflare Worker peut relayer la demande. Google traite ces demandes selon sa propre politique de confidentialité. Nous n'enregistrons ni le texte ni les résultats dans une base de données et ne conservons aucun historique d'apprentissage. Google et Cloudflare traitent des informations réseau, dont les adresses IP, pour fournir et protéger leurs services. Les adresses IP servent à limiter temporairement le nombre de demandes. Les fichiers d'export sont créés dans votre navigateur. La prononciation utilise les voix de votre navigateur ou de votre système d'exploitation et peut faire appel au service en ligne du fournisseur de voix. Évitez d'envoyer des informations personnelles ou sensibles."
+  },
+  "native": {
+    "title": "Comprendre les phrases. Apprendre les mots en contexte. Réviser à intervalles espacés.",
+    "summary": "Sur iPhone, iPad et Mac, comprenez une phrase que vous souhaitez lire, enregistrez les mots utiles avec leur contexte d'origine et retrouvez-les à la prochaine révision. Recherchez dans votre bibliothèque locale, ajoutez des notes et exportez un fichier CSV selon votre méthode de travail.",
+    "homeTitle": "PhraseCut | Vocabulaire en contexte et révision espacée",
+    "homeDescription": "Apprenez du vocabulaire à partir de phrases qui vous plaisent. Enregistrez contexte, notes et paires de langues, révisez dans l'application ou essayez la traduction en ligne et l'export CSV.",
+    "helpTitle": "Aide PhraseCut | Étude de phrases, révision espacée et CSV",
+    "helpDescription": "Utilisez PhraseCut sur iPhone, iPad et Mac : conservez le contexte, révisez les mots à revoir et exportez en CSV. Consultez les conditions des packs hors ligne et d'Apple Intelligence en option.",
+    "helpHeading": "Partez d'une phrase que vous souhaitez comprendre",
+    "sections": [
+      [
+        "Comprendre avant de mémoriser",
+        "Comment apprendre du vocabulaire à partir de phrases ?",
+        "Collez du texte, choisissez une langue source et une langue cible, puis lisez la traduction de la phrase entière avant d'explorer chaque mot. Écoutez la prononciation et enregistrez un mot, une expression ou toute la phrase. Les mots traduits automatiquement et séparément peuvent avoir d'autres sens : comparez-les à la phrase d'origine plutôt que de les considérer comme une explication en contexte."
+      ],
+      [
+        "Conserver le contexte d'origine",
+        "Que conserve l'application dans la bibliothèque d'apprentissage ?",
+        "Les éléments enregistrés conservent la phrase source, sa traduction et la paire de langues. Recherchez dans votre bibliothèque locale, filtrez les mots, expressions ou phrases et ajoutez vos notes personnelles. L'application permet d'étudier l'anglais et d'autres langues prises en charge, pas seulement des phrases anglaises difficiles. Les langues de l'interface ne garantissent pas la prise en charge de tous les sens de traduction."
+      ],
+      [
+        "Retrouver les éléments à réviser",
+        "Comment fonctionnent la révision espacée et les rappels ?",
+        "L'application propose un programme simple de révision espacée. Affichez la réponse, puis indiquez par exemple À revoir, Difficile, Bien ou Facile pour ajuster la prochaine révision. Les rappels locaux facultatifs nécessitent l'autorisation d'envoyer des notifications ; leur réception dépend aussi des réglages du système. Le site ne propose ni bibliothèque de révision enregistrée ni rappels."
+      ],
+      [
+        "Exporter un fichier, sans synchroniser de compte",
+        "Puis-je exporter vers Anki ou synchroniser ma bibliothèque ?",
+        "Exportez un fichier CSV standard ou compatible avec Anki depuis la bibliothèque de l'application. Le contexte et les notes enregistrés restent dans le fichier. Importez-le manuellement dans l'outil de votre choix : il ne s'agit ni d'une synchronisation automatique de compte ni d'un paquet APKG. Le CSV Anki de l'application utilise les colonnes Front et Back, contrairement aux colonnes Word et Meaning du site."
+      ],
+      [
+        "Préparer les ressources linguistiques hors ligne",
+        "PhraseCut peut-il traduire hors ligne ?",
+        "L'application native utilise Apple Translation. La traduction hors ligne nécessite une paire de langues source et cible prise en charge ainsi que les packs de langues installés sur l'appareil. Le téléchargement des ressources et l'obtention de nouvelles phrases suggérées nécessitent une connexion Internet. Le site utilise quant à lui la traduction automatique en ligne de Google ; sa liste de langues ne décrit pas la disponibilité de la traduction Apple."
+      ],
+      [
+        "Explications de phrases en option",
+        "Tous les appareils proposent-ils des explications de phrases par IA ?",
+        "Les explications facultatives utilisent le modèle système d'Apple sous iOS 26 ou macOS 26 et versions ultérieures, avec un appareil compatible avec Apple Intelligence, la fonctionnalité activée et un modèle prêt à l'emploi. La disponibilité dépend de l'appareil et des langues prises en charge par le système. Cette fonctionnalité est distincte de la traduction des phrases et des mots et n'est pas proposée sur le site. Vérifiez les traductions et les explications générées en les comparant au texte d'origine."
+      ]
+    ]
+  },
+  "home": {
+    "tagline": "Des mots qui restent. Des phrases qui vous plaisent.",
+    "nativeTitle": "Comprendre les phrases. Apprendre les mots en contexte. Réviser à intervalles espacés.",
+    "nativeBody": "Sur iPhone, iPad et Mac, comprenez une phrase que vous souhaitez lire, enregistrez les mots utiles avec leur contexte d'origine et retrouvez-les à la prochaine révision. Recherchez dans votre bibliothèque locale, ajoutez des notes et exportez un fichier CSV selon votre méthode de travail.",
+    "imageAlt": "PhraseCut pour Mac : une phrase, sa traduction et les résultats mot à mot",
+    "imageCaption": "Aperçu de l'interface Mac en anglais",
+    "steps": [
+      ["Comprendre", "Traduisez la phrase entière, puis examinez chaque mot."],
+      ["Conserver", "Enregistrez les mots utiles avec leur phrase d'origine dans l'application."],
+      ["Mémoriser", "Retrouvez-les lors des révisions espacées ou exportez votre bibliothèque au format CSV ou Anki CSV."]
+    ],
+    "nativeFAQ": "À propos de l'application",
+    "guide": "Guides pour apprendre à partir de phrases"
+  },
+  "search": {
+    "homeTitle": "PhraseCut | Vocabulaire en contexte et révision espacée",
+    "homeDescription": "Apprenez du vocabulaire à partir de phrases qui vous plaisent. Enregistrez contexte, notes et paires de langues, révisez dans l'application ou essayez la traduction en ligne et l'export CSV.",
+    "homeLead": "Apprenez des mots à partir de phrases qui vous plaisent. Utilisez vos propres textes ou explorez des extraits d'articles en anglais selon vos centres d'intérêt, traduisez chaque mot et exercez votre écoute en ligne. Exportez un fichier Anki CSV ou utilisez l'application pour enregistrer et réviser.",
+    "homeKicker": "Apprentissage du vocabulaire sur le Web, iPhone, iPad et Mac",
+    "toolTitle": "Traduction de phrases et de mots gratuite en ligne | PhraseCut",
+    "toolDescription": "Traduisez gratuitement des phrases et des mots en ligne. Explorez des extraits en anglais de sources actualisées selon vos intérêts, répétez la prononciation et exportez au format CSV ou Anki CSV. Sans compte.",
+    "overviewHeading": "Traduction de phrases et export de vocabulaire gratuits en ligne",
+    "overview": "PhraseCut en ligne traduit votre phrase et chaque mot, lit la prononciation avec les voix disponibles dans votre navigateur et exporte les mots sélectionnés avec leur phrase de contexte. L'application native ajoute une bibliothèque d'apprentissage enregistrée et la répétition espacée.",
+    "questionsHeading": "Questions sur l'apprentissage de phrases en ligne",
+    "languageHeading": "Langues de traduction",
+    "faqs": [
+      [
+        "Le traducteur de phrases en ligne est-il gratuit ?",
+        "Oui. L'outil Web ne nécessite aucun compte. Il utilise la traduction automatique de Google pour la phrase entière et chaque mot, avec une limite de 400 caractères et 40 mots par analyse. Des limites de disponibilité et de fréquence des demandes s'appliquent."
+      ],
+      [
+        "Puis-je exporter le vocabulaire d'une phrase vers Anki ?",
+        "Oui. Sélectionnez les mots souhaités et exportez un fichier Anki CSV. Importez-le dans Anki et associez Word et Meaning à vos champs recto et verso. Les colonnes Sentence, Translation, Source language et Target language conservent le contexte d'origine. Il s'agit d'un fichier CSV, pas d'un paquet APKG."
+      ],
+      [
+        "La traduction de chaque mot décrit-elle son rôle exact dans la phrase ?",
+        "Les mots sont traduits séparément. Pour interpréter correctement un mot polysémique ou sa fonction grammaticale, la phrase entière peut être nécessaire. Lisez la traduction de la phrase avec les résultats mot à mot : ce sont des traductions automatiques, pas des explications fournies par un professeur virtuel fondé sur l'IA."
+      ],
+      [
+        "Puis-je enregistrer des phrases ou traduire hors ligne sur le site ?",
+        "Le site ne conserve ni historique ni bibliothèque de révision et nécessite une connexion Internet pour traduire. L'application native utilise Apple Translation. La traduction hors ligne nécessite une paire de langues source et cible prise en charge ainsi que les packs de langues installés sur l'appareil. Le téléchargement des ressources et l'obtention de nouvelles phrases suggérées nécessitent une connexion Internet. Le site utilise quant à lui la traduction automatique en ligne de Google ; sa liste de langues ne décrit pas la disponibilité de la traduction Apple."
+      ]
+    ]
+  },
+  "interest": {
+    "topic": "Centre d'intérêt",
+    "length": "Longueur de la phrase",
+    "topics": ["Tous les sujets", "Vie quotidienne", "Livres et récits", "Voyages", "Technologie", "Économie et affaires", "Sciences et nature", "Santé et bien-être", "Sport", "Monde et culture"],
+    "lengths": ["Toutes les longueurs", "Phrase courte", "Phrase plus longue"],
+    "speed": "Vitesse de lecture",
+    "repeat": "Répéter la phrase",
+    "counts": ["Une fois", "3 fois", "5 fois"]
+  },
+  "sourceOverview": {
+    "heading": "Apprenez des mots à partir d'articles qui correspondent à vos intérêts",
+    "body": "Explorez de courts extraits sur les voyages, la technologie, les sciences, la culture et d'autres sujets qui vous intéressent, issus de sources publiques régulièrement actualisées. Traduisez une phrase et ses mots, puis exercez votre écoute en réglant la vitesse et les répétitions. Chaque suggestion renvoie à l'article d'origine et à sa licence ; il ne s'agit ni d'un article d'actualité complet ni d'un enregistrement audio de l'éditeur.",
+    "languageQuestion": "Les articles suggérés sont-ils disponibles dans toutes les langues de traduction ?",
+    "languageAnswer": "Les suggestions proviennent actuellement de sources en anglais. Vous pouvez aussi coller votre propre texte dans l'une des 20 langues de traduction prises en charge. La prononciation dans le navigateur dépend des voix installées sur votre appareil. Il s'agit d'un outil pour travailler le vocabulaire et la compréhension orale, pas d'un fil d'actualité multilingue ni d'un professeur virtuel fondé sur l'IA."
+  },
+  "sourceFAQ": {
+    "sourceQuestion": "D'où viennent les phrases suggérées ?",
+    "sourceAnswer": "Les suggestions sont de courts extraits ou des titres provenant de sources RSS ou API publiques : Wikipedia, Global Voices, NASA et Wikivoyage. Leur disponibilité dépend du sujet et de la source. Les réserves de contenu sont actualisées toutes les heures lorsqu'elles sont sollicitées ; les dates de publication varient et les contenus anciens en cache sont signalés. L'auteur d'origine, le lien de l'article et la licence sont affichés et conservés dans les exports CSV issus de ces sources. Les exemples fixes destinés à l'entraînement ne sont pas intégrés aux suggestions en ligne."
+  },
+  "source": {
+    "sourceLabel": "Source du contenu",
+    "allSources": "Toutes les sources disponibles",
+    "headline": "Titre de l'article",
+    "excerpt": "Extrait de l'article",
+    "published": "Publié le",
+    "updated": "Mis à jour le",
+    "cachedSource": "Contenu source en cache",
+    "offlineSample": "Exemple d'entraînement hors ligne",
+    "translationCredit": "Traduction automatique réalisée par PhraseCut, et non par l'éditeur d'origine.",
+    "sourceFailed": "Aucun contenu source correspondant. Essayez une autre source ou une autre longueur de phrase."
+  },
+  "workflow": {
+    "title": "D'une phrase qui vous plaît à un mot que vous retenez",
+    "body": "Copiez une phrase d'un article, d'un livre ou d'un sous-titre. Comprenez-la, choisissez les mots utiles, puis conservez-les dans l'application pour les réviser."
+  },
+  "pages": {
+    "support": {
+      "title": "Assistance PhraseCut | Contact et aide pour l'application",
+      "description": "Obtenez de l'aide pour PhraseCut sur iPhone, iPad et Mac.",
+      "heading": "Contacter l'assistance PhraseCut",
+      "kicker": "Assistance",
+      "lead": "Si la traduction, les packs de langues, la révision, l'export ou un autre élément de l'application ne fonctionne pas comme prévu, envoyez un court message en précisant si possible le modèle de votre appareil.",
+      "sections": [
+        ["Adresse e-mail", "cameoshell09@gmail.com"],
+        ["Informations utiles à joindre", "Indiquez votre type d'appareil : iPhone, iPad ou Mac. Précisez la version de l'application affichée dans l'écran À propos, si elle est disponible, la paire de langues et ce que vous cherchiez à faire. Joignez une capture d'écran ou un enregistrement de l'écran si cela permet d'expliquer le problème."],
+        ["Pages associées", "Consultez l'aide pour apprendre à analyser une phrase, enregistrer les mots et expressions utiles, les réviser plus tard et exporter votre bibliothèque d'apprentissage. Consultez également la politique de confidentialité de PhraseCut."],
+        ["Installer PhraseCut", "Téléchargez PhraseCut sur iPhone, iPad et Mac depuis l'App Store."]
+      ]
+    },
+    "privacy": {
+      "title": "Politique de confidentialité de PhraseCut",
+      "description": "Consultez la politique de confidentialité de PhraseCut, notamment le stockage local des données d'apprentissage, les exports et les demandes d'assistance.",
+      "heading": "Politique de confidentialité de PhraseCut",
+      "kicker": "Confidentialité",
+      "lead": "Date d'entrée en vigueur : 12 octobre 2026",
+      "sections": [
+        ["Présentation", "Cette politique de confidentialité explique comment PhraseCut et son site associé, phrase-cut.luopeike.com, traitent les informations."],
+        ["Données de l'application", "PhraseCut est conçu pour conserver vos données d'apprentissage sur votre appareil. Les éléments enregistrés, les données de révision et les réglages de l'application sont stockés localement, sauf si vous les exportez vous-même."],
+        ["Informations personnelles", "Vous n'avez pas besoin de créer un compte pour utiliser l'application. Nous ne recueillons pas directement votre nom, votre adresse ou d'autres informations personnelles de profil similaires par l'intermédiaire de l'application."],
+        ["Analyse d'audience et suivi", "Ce site n'utilise pas d'outils d'analyse d'audience tiers ni de SDK publicitaires, et l'application n'établit pas de profil publicitaire à votre sujet."],
+        ["Exports et actions de l'utilisateur", "L'export de votre bibliothèque au format CSV ou dans des fichiers compatibles avec Anki est une action que vous déclenchez vous-même. Le fichier produit est ensuite pris en charge par la destination que vous choisissez."],
+        ["Contact", "Pour toute question concernant la confidentialité, contactez cameoshell09@gmail.com."],
+        ["Apprentissage de phrases en ligne", "Lorsque vous analysez une phrase sur ce site, son texte et les langues choisies sont envoyés depuis votre navigateur à Google Translate. Si la connexion directe échoue, notre Cloudflare Worker peut relayer la demande. Google traite ces demandes selon sa propre politique de confidentialité. Nous n'enregistrons ni le texte ni les résultats dans une base de données et ne conservons aucun historique d'apprentissage. Google et Cloudflare traitent des informations réseau, dont les adresses IP, pour fournir et protéger leurs services. Les adresses IP servent à limiter temporairement le nombre de demandes. Les fichiers d'export sont créés dans votre navigateur. La prononciation utilise les voix de votre navigateur ou de votre système d'exploitation et peut faire appel au service en ligne du fournisseur de voix. Évitez d'envoyer des informations personnelles ou sensibles."]
+      ]
+    }
+  }
+}

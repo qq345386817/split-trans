@@ -9,7 +9,7 @@ const mime = { ".html": "text/html", ".css": "text/css", ".mjs": "text/javascrip
 const server = createServer(async (req, res) => {
   try {
     const pathname = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
-    if (pathname.split("/").some(part => part.startsWith(".")) || pathname.includes("node_modules") || pathname.includes("scripts")) throw new Error("not_found");
+    if (pathname.split("/").some(part => part.startsWith(".")) || pathname.includes("node_modules") || pathname.includes("scripts") || pathname.includes("translations")) throw new Error("not_found");
     let file = resolve(root, `.${pathname}`);
     if (file !== root && !file.startsWith(root + sep)) throw new Error("not_found");
     const info = await stat(file).catch(() => null);

@@ -21,6 +21,11 @@ The website has no saved history, review library or AI explanations. Native apps
 - [Indonesia](https://phrase-cut.luopeike.com/id/help): Pelajari pustaka lokal, jadwal ulasan dan ekspor CSV di iPhone, iPad, dan Mac, termasuk syarat paket bahasa offline dan penjelasan Apple Intelligence opsional.
 - [Tiếng Việt](https://phrase-cut.luopeike.com/vi/help): Tìm hiểu cách lưu ngữ cảnh, ôn tập và xuất CSV trên iPhone, iPad và Mac, cùng điều kiện gói ngôn ngữ ngoại tuyến và Apple Intelligence tùy chọn.
 - [Português](https://phrase-cut.luopeike.com/pt-br/help): Saiba como salvar contexto, revisar e exportar CSV no iPhone, iPad e Mac, com os requisitos de idiomas offline e explicações opcionais por Apple Intelligence.
+- [Français](https://phrase-cut.luopeike.com/fr/help): Utilisez PhraseCut sur iPhone, iPad et Mac : conservez le contexte, révisez les mots à revoir et exportez en CSV. Consultez les conditions des packs hors ligne et d'Apple Intelligence en option.
+- [Deutsch](https://phrase-cut.luopeike.com/de/help): PhraseCut auf iPhone, iPad und Mac: Kontext speichern, fällige Vokabeln wiederholen und CSV exportieren. Beachten Sie die Voraussetzungen für Offline-Sprachpakete und optionales Apple Intelligence.
+- [Español](https://phrase-cut.luopeike.com/es/help): Usa PhraseCut en iPhone, iPad y Mac: guarda el contexto, repasa el vocabulario pendiente y exporta CSV. Consulta los requisitos de los paquetes sin conexión y de Apple Intelligence opcional.
+- [日本語](https://phrase-cut.luopeike.com/ja/help): iPhone、iPad、MacのPhraseCutで文脈を保存し、復習時期の来た語彙を学び、CSVを書き出す方法。オフライン用言語パックと任意のApple Intelligence機能の要件も確認できます。
+- [한국어](https://phrase-cut.luopeike.com/ko/help): iPhone, iPad, Mac에서 PhraseCut으로 문맥을 저장하고, 복습하고, CSV를 내보내는 방법을 알아보세요. 오프라인 언어 팩과 선택형 Apple Intelligence 기능의 이용 조건도 확인하세요.
 
 ## Learning guides
 
@@ -37,6 +42,11 @@ The website has no saved history, review library or AI explanations. Native apps
 - [Indonesia](https://phrase-cut.luopeike.com/id/study): Terjemahkan kalimat dan kata gratis. Pilih kutipan Inggris dari sumber yang terus diperbarui, ulangi pelafalan, dan ekspor CSV atau Anki CSV. Tanpa akun.
 - [Tiếng Việt](https://phrase-cut.luopeike.com/vi/study): Dịch câu và từng từ miễn phí. Chọn trích đoạn tiếng Anh từ nguồn được cập nhật, nghe lặp lại và xuất CSV hoặc Anki CSV. Không cần tài khoản.
 - [Português](https://phrase-cut.luopeike.com/pt-br/study): Traduza frases e palavras grátis. Explore trechos em inglês de fontes atualizadas, repita a pronúncia e exporte CSV ou Anki CSV. Sem criar conta.
+- [Français](https://phrase-cut.luopeike.com/fr/study): Traduisez gratuitement des phrases et des mots en ligne. Explorez des extraits en anglais de sources actualisées selon vos intérêts, répétez la prononciation et exportez au format CSV ou Anki CSV. Sans compte.
+- [Deutsch](https://phrase-cut.luopeike.com/de/study): Sätze und Wörter kostenlos online übersetzen. Entdecken Sie englische Auszüge aus aktualisierten Quellen nach Interesse, wiederholen Sie die Aussprache und exportieren Sie CSV oder Anki CSV. Ohne Konto.
+- [Español](https://phrase-cut.luopeike.com/es/study): Traduce frases y palabras gratis en línea. Explora fragmentos en inglés de fuentes que se actualizan según tus intereses, repite la pronunciación y exporta CSV o Anki CSV. Sin cuenta.
+- [日本語](https://phrase-cut.luopeike.com/ja/study): 文章と単語を無料でオンライン翻訳。更新される情報源から興味に合った英語の抜粋を探し、発音を繰り返し聞いて、CSVやAnki CSVを書き出せます。アカウント不要。
+- [한국어](https://phrase-cut.luopeike.com/ko/study): 문장과 단어를 온라인에서 무료로 번역하세요. 갱신되는 출처에서 관심사별 영어 발췌문을 찾고, 발음을 반복해 듣고, CSV나 Anki CSV로 내보내세요. 계정이 필요 없습니다.
 
 ## Optional
 

@@ -5,6 +5,7 @@ import { locales } from "../scripts/study-locales.mjs";
 import { searchCopy } from "../scripts/search-copy.mjs";
 import { sourceFAQ, sourceOverview } from "../scripts/source-copy.mjs";
 import { nativeCopy } from "../scripts/native-copy.mjs";
+import { addedLocaleIDs, extraContent } from "../scripts/extra-locales.mjs";
 
 const root = new URL("../", import.meta.url);
 const htmlEscape = value => value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;");
@@ -113,6 +114,26 @@ test("AI discovery preserves native limits without promoting them as web feature
   }
   assert.ok(facts.includes("Front, Back, Source Sentence, Sentence Translation, Notes and Tags"));
   assert.ok(llms.includes("## Localized app help"));
+});
+
+test("new languages expose all five routes, twelve choices, reciprocal hreflang and explicit screenshot language", async () => {
+  assert.equal(Object.keys(locales).length, 12);
+  for (const locale of addedLocaleIDs) {
+    for (const name of ["index", "help", "support", "privacy-policy", "study"]) {
+      const html = await readFile(new URL(`${locale}/${name}.html`, root), "utf8");
+      assert.ok(html.includes(`<html lang="${locale}">`));
+      assert.ok(!html.includes("undefined") && !html.includes("[object Object]"));
+      assert.equal((html.match(/rel="alternate" hreflang=/g) || []).length, 13);
+      const choices = html.match(/<select[^>]*class="language-switch"[^>]*>([\s\S]*?)<\/select>/)?.[1];
+      assert.equal((choices?.match(/<option /g) || []).length, 12);
+      assert.equal((choices?.match(/ selected>/g) || []).length, 1);
+      if (name === "index") {
+        assert.ok(html.includes("mac_en_US_light_learn.webp"));
+        assert.ok(html.includes(htmlEscape(extraContent[locale].home.imageCaption)));
+      }
+    }
+  }
+  await assert.rejects(readFile(new URL("dist/translations/fr.json", root)), { code: "ENOENT" });
 });
 
 test("AI discovery files link to real public pages and are published outside the sitemap", async () => {
