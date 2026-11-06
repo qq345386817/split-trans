@@ -10,6 +10,7 @@ import { sourceCopy, sourceFAQ, sourceOverview } from "./source-copy.mjs";
 import { workflowCopy } from "./workflow-copy.mjs";
 import { renderWorkspace } from "./study-layout.mjs";
 import { homeCopy } from "./home-copy.mjs";
+import { nativeCopy } from "./native-copy.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const appCaptures = JSON.parse(await readFile(`${root}images/app/manifest.json`, "utf8"));
@@ -63,6 +64,7 @@ const privacyDates = {
 };
 
 for (const baseCopy of Object.values(locales)) {
+  const native = nativeCopy[baseCopy.lang];
   const seo = searchCopy[baseCopy.lang];
   const copy = { ...baseCopy, ...interestCopy[baseCopy.lang], ...sourceCopy[baseCopy.lang], title: seo.toolTitle, description: seo.toolDescription };
   const url = origin + pathFor(copy);
@@ -114,7 +116,7 @@ ${faqs.map(([question, answer]) => `<details class="study-question"><summary>${e
     if (!content.includes('class="online-nav"')) content = content.replace(/(<nav class="nav"[^>]*>)/, `$1<a class="online-nav" href="study">${copy.online}</a>`);
     if (filename === "index.html") {
       const home = homeCopy[copy.lang];
-      const nativeFAQ = [...content.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1])).find(schema => schema["@type"] === "FAQPage");
+      const nativeFAQ = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: native.sections.map(([, question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) };
       const screenshot = copy.folder === "pt-br" ? "pt_BR" : copy.lang === "en" ? "en_US" : copy.lang.replace("-", "_");
       const lightScreenshot = await appScreenshot(screenshot, "light");
       const darkScreenshot = await appScreenshot(screenshot, "dark");
@@ -147,13 +149,27 @@ ${copy.lang === "en" ? `<section class="home-guides"><h2>${home.guide}</h2><div 
         .replace(/(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*(")/g, `$1${escape(seo.homeTitle)}$2`);
       content = content.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (tag, text) => {
         const schema = JSON.parse(text);
+        if (schema["@type"] === "FAQPage") return `<script type="application/ld+json">${JSON.stringify(nativeFAQ)}</script>`;
         if (schema["@type"] !== "SoftwareApplication") return tag;
         schema.description = copy.appBody;
+        schema.inLanguage = copy.lang;
+        schema.featureList = native.sections.map(([title]) => title);
         schema["@id"] = origin + "/#native-app";
         // Price and reviews are not invented to qualify for software rich results.
         delete schema.offers;
         return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
       });
+    }
+    if (filename === "help.html") {
+      content = content.replace(/<main\b[^>]*>[\s\S]*?<\/main>/, `<main class="article" data-native-help><p class="kicker">${escape(copy.help)}</p><h1>${escape(native.helpHeading)}</h1><p class="lead">${escape(native.summary)}</p>${native.sections.map(([title, , body]) => `<section><h2>${escape(title)}</h2><p>${escape(body)}</p></section>`).join("")}<div class="actions"><a class="button primary compact" href="${appStore}?ct=website-help&mt=8">${escape(copy.download)}</a><a class="button compact" href="study">${escape(copy.online)}</a></div></main>`);
+      content = content.replace(/<title>[^<]*<\/title>/, `<title>${escape(native.helpTitle)}</title>`)
+        .replace(/(<meta (?:name="description"|property="og:description"|name="twitter:description") content=")[^"]*(")/g, `$1${escape(native.helpDescription)}$2`)
+        .replace(/(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*(")/g, `$1${escape(native.helpTitle)}$2`)
+        .replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (tag, text) => {
+          const schema = JSON.parse(text);
+          if (schema["@type"] !== "WebPage") return tag;
+          return `<script type="application/ld+json">${JSON.stringify({ ...schema, name: native.helpTitle, description: native.helpDescription, dateModified: "2026-11-07" })}</script>`;
+        });
     }
     if (!content.includes('rel="describedby"')) content = content.replace("</head>", '<link rel="describedby" href="/llms.txt" type="text/plain">\n</head>');
     if (filename === "privacy-policy.html") {
@@ -196,9 +212,13 @@ The base CSV columns are Word, Meaning, Sentence, Translation, Source language, 
 
 ## Native apps and release boundary
 
-The iPhone, iPad, and Mac apps add a local study library, saved words and sentences, spaced repetition, and library exports. They use Apple Translation, which can work offline after the required language packs are downloaded. They are not limited to learning English. The website and native app use different translation engines.
+${nativeCopy.en.summary}
 
-As of October 25, 2026, native version 1.4.0 (33) is available on the App Store for iPhone, iPad, and Mac. The native app and website both support interest-based dynamic sources. Existing installed versions 1.3.0 and earlier continue to use the legacy quote interface until updated. Fetching new recommendations requires internet access; native Apple Translation can still work offline after language packs are downloaded.
+${nativeCopy.en.sections.map(([title, , answer]) => `### ${title}\n\n${answer}`).join("\n\n")}
+
+Native library CSV includes Kind, Title, Meaning, Source Sentence, Sentence Translation, Notes, Language From, Language To and review metadata. Native Anki CSV contains Front, Back, Source Sentence, Sentence Translation, Notes and Tags. Map those columns to your own Anki note type; importing does not transfer PhraseCut review scheduling. Exports are files, not automatic account sync or a cloud backup service.
+
+The native app and website both offer interest-based dynamic sources. New recommendations need internet access. Fixed native offline practice samples are labeled as samples, not fresh articles. Consult the App Store listing for the version available in your region and on your platform; screenshot version labels identify captured interfaces, not release availability. UI localization and web translation languages do not guarantee Apple's native language-pair or model support.
 
 ## Canonical pages
 
@@ -215,13 +235,17 @@ await writeFile(`${root}llms.txt`, `# PhraseCut
 
 The free website recommends excerpts from updating Wikipedia, Global Voices, NASA, and Wikivoyage sources, with original links and licenses. Recommendations are currently in English; pasted text supports ${languageCodes.length} translation languages. Refreshing the source cache does not mean an article was published today.
 
-The website has no saved history or review library. Native apps provide local saving and spaced repetition. Native version 1.4.0 (33), with dynamic recommendations and listening practice, is available on the App Store as of October 25, 2026. Installed versions 1.3.0 and earlier still use legacy quotes until updated. New recommendations need internet access. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
+The website has no saved history, review library or AI explanations. Native apps save sentence context, translations, language pairs and notes locally, and provide lightweight spaced review with optional local reminders that require notification permission. Native offline Apple Translation needs a supported source/target pair and installed language packs. Downloads and new recommendations require internet access. Optional sentence explanations require iOS 26/macOS 26 or later, eligible Apple Intelligence hardware, the feature enabled and a ready system model; availability varies. CSV/Anki CSV exports are files for manual import, not automatic account sync or APKG decks. Consult the App Store listing for current platform/region availability rather than a screenshot's version label. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
 
 ## Product
 
 - [Product facts](${origin}/product-facts.md): Feature and release boundaries, content sources, freshness, languages, translation providers, and CSV attribution.
 - [Online tool](${origin}/study): Interest-based English excerpts, sentence and word translation, adjustable pronunciation, CSV and Anki CSV export.
 - [Help](${origin}/help): Native app learning and review workflow.
+
+## Localized app help
+
+${Object.values(locales).map(copy => `- [${copy.name}](${origin}/${copy.folder ? copy.folder + "/" : ""}help): ${nativeCopy[copy.lang].helpDescription}`).join("\n")}
 
 ## Learning guides
 

@@ -4,13 +4,23 @@
 
 The free website recommends excerpts from updating Wikipedia, Global Voices, NASA, and Wikivoyage sources, with original links and licenses. Recommendations are currently in English; pasted text supports 20 translation languages. Refreshing the source cache does not mean an article was published today.
 
-The website has no saved history or review library. Native apps provide local saving and spaced repetition. Native version 1.4.0 (33), with dynamic recommendations and listening practice, is available on the App Store as of October 25, 2026. Installed versions 1.3.0 and earlier still use legacy quotes until updated. New recommendations need internet access. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
+The website has no saved history, review library or AI explanations. Native apps save sentence context, translations, language pairs and notes locally, and provide lightweight spaced review with optional local reminders that require notification permission. Native offline Apple Translation needs a supported source/target pair and installed language packs. Downloads and new recommendations require internet access. Optional sentence explanations require iOS 26/macOS 26 or later, eligible Apple Intelligence hardware, the feature enabled and a ready system model; availability varies. CSV/Anki CSV exports are files for manual import, not automatic account sync or APKG decks. Consult the App Store listing for current platform/region availability rather than a screenshot's version label. This file is an optional navigation aid, not a sitemap, robots policy, or Google ranking requirement.
 
 ## Product
 
 - [Product facts](https://phrase-cut.luopeike.com/product-facts.md): Feature and release boundaries, content sources, freshness, languages, translation providers, and CSV attribution.
 - [Online tool](https://phrase-cut.luopeike.com/study): Interest-based English excerpts, sentence and word translation, adjustable pronunciation, CSV and Anki CSV export.
 - [Help](https://phrase-cut.luopeike.com/help): Native app learning and review workflow.
+
+## Localized app help
+
+- [English](https://phrase-cut.luopeike.com/help): Use PhraseCut on iPhone, iPad and Mac: save context, review due vocabulary and export CSV. Check offline language packs and optional Apple Intelligence requirements.
+- [简体中文](https://phrase-cut.luopeike.com/zh-hans/help): 了解 iPhone、iPad 和 Mac 版 PhraseCut：保存带语境的词汇、到期复习、导出 CSV，以及离线语言包和可选 Apple Intelligence 句子解释的使用条件。
+- [繁體中文](https://phrase-cut.luopeike.com/zh-hant/help): 了解 iPhone、iPad 和 Mac 版 PhraseCut：儲存有情境的單字、到期複習、匯出 CSV，以及離線語言套件和選用 Apple Intelligence 句子解說的使用條件。
+- [हिन्दी](https://phrase-cut.luopeike.com/hi/help): iPhone, iPad और Mac पर संदर्भ सहेजना, समय पर दोहराना और CSV निर्यात सीखें। ऑफ़लाइन भाषा पैक और वैकल्पिक Apple Intelligence की शर्तें जानें।
+- [Indonesia](https://phrase-cut.luopeike.com/id/help): Pelajari pustaka lokal, jadwal ulasan dan ekspor CSV di iPhone, iPad, dan Mac, termasuk syarat paket bahasa offline dan penjelasan Apple Intelligence opsional.
+- [Tiếng Việt](https://phrase-cut.luopeike.com/vi/help): Tìm hiểu cách lưu ngữ cảnh, ôn tập và xuất CSV trên iPhone, iPad và Mac, cùng điều kiện gói ngôn ngữ ngoại tuyến và Apple Intelligence tùy chọn.
+- [Português](https://phrase-cut.luopeike.com/pt-br/help): Saiba como salvar contexto, revisar e exportar CSV no iPhone, iPad e Mac, com os requisitos de idiomas offline e explicações opcionais por Apple Intelligence.
 
 ## Learning guides
 

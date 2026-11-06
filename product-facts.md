@@ -24,9 +24,35 @@ The base CSV columns are Word, Meaning, Sentence, Translation, Source language, 
 
 ## Native apps and release boundary
 
-The iPhone, iPad, and Mac apps add a local study library, saved words and sentences, spaced repetition, and library exports. They use Apple Translation, which can work offline after the required language packs are downloaded. They are not limited to learning English. The website and native app use different translation engines.
+On iPhone, iPad and Mac, understand a sentence you want to read, save useful words with the original context, and return when they are due. Search your local library, add notes, and export CSV for your own study workflow.
 
-As of October 25, 2026, native version 1.4.0 (33) is available on the App Store for iPhone, iPad, and Mac. The native app and website both support interest-based dynamic sources. Existing installed versions 1.3.0 and earlier continue to use the legacy quote interface until updated. Fetching new recommendations requires internet access; native Apple Translation can still work offline after language packs are downloaded.
+### Understand before memorizing
+
+Paste text, choose a source and target language, and read the whole-sentence translation before exploring individual words. Listen to pronunciation and save a word, phrase or the whole sentence. Individual machine-translated words may have other meanings; compare them with the original sentence rather than treating them as a contextual explanation.
+
+### Keep the original context
+
+Study items retain the source sentence, translation and language pair. Search your local library, filter by words, phrases or sentences, and add personal notes. The app is for English and other supported languages, not only difficult English sentences. Interface languages do not guarantee support for every translation direction.
+
+### Return when items are due
+
+The app uses a lightweight spaced-review plan. Reveal the answer, then give feedback such as Again, Hard, Good or Easy to adjust the next review time. Optional local reminders require notification permission; delivery also depends on system settings. The website has no saved review library or reminders.
+
+### Export a file, not an account
+
+Export a standard CSV or an Anki-compatible CSV from the app's Library. Saved context and notes remain in the file. Import it manually into your chosen workflow; this is not automatic account sync or an APKG deck. Native Anki CSV uses Front and Back, unlike the website's Word and Meaning columns.
+
+### Prepare offline language resources
+
+The native app uses Apple Translation. Offline translation requires a supported source/target pair and installed language packs on the device. Downloading resources and fetching new recommended sentences need internet access. The website uses online Google machine translation instead; its language list does not describe Apple's translation availability.
+
+### Optional sentence explanations
+
+Optional explanations use Apple's system model on iOS 26 or macOS 26 and later, with eligible Apple Intelligence hardware, the feature enabled, and a ready model. Availability varies by device and system language support. This is separate from sentence and word translation and is not offered by the website. Check translations and generated explanations against the original.
+
+Native library CSV includes Kind, Title, Meaning, Source Sentence, Sentence Translation, Notes, Language From, Language To and review metadata. Native Anki CSV contains Front, Back, Source Sentence, Sentence Translation, Notes and Tags. Map those columns to your own Anki note type; importing does not transfer PhraseCut review scheduling. Exports are files, not automatic account sync or a cloud backup service.
+
+The native app and website both offer interest-based dynamic sources. New recommendations need internet access. Fixed native offline practice samples are labeled as samples, not fresh articles. Consult the App Store listing for the version available in your region and on your platform; screenshot version labels identify captured interfaces, not release availability. UI localization and web translation languages do not guarantee Apple's native language-pair or model support.
 
 ## Canonical pages
 

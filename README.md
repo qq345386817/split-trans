@@ -28,10 +28,13 @@ The API excludes the last recommended ID to avoid immediate repeats. The browser
 offers 0.5–1.5x pronunciation and one, three, or five repetitions of the full
 sentence. These settings stay in the tab; there is no browser storage. The
 native app additionally implements listening-first review and
-labeled fixed practice samples as an offline fallback. As of October 25, 2026,
-native version 1.4.0 (33), including dynamic sources, is available on the App
-Store. Installed versions
-1.3.0 and earlier still use the legacy quote interface. Online source
+labeled fixed practice samples as an offline fallback. Native offline translation
+requires a supported source/target pair and installed language packs. Optional
+sentence explanations additionally require iOS 26/macOS 26 or later, eligible
+Apple Intelligence hardware, an enabled feature and a ready model. Local review
+reminders need notification permission. Exports are files for manual import,
+not automatic account sync. Consult the App Store listing for current release
+availability; screenshot version labels describe captured interfaces. Online source
 recommendations currently use English; pasted text supports twenty translation
 languages. Cache refresh time must not be presented as the publication date.
 
@@ -81,7 +84,14 @@ SEO metadata, or public cache keys.
 
 ## Search and AI discovery
 
-`scripts/search-copy.mjs` maintains localized home/tool titles, descriptions,
+`scripts/native-copy.mjs` maintains seven localized native-app introductions,
+home/help SEO fields and six factual answers about context, local study data,
+spaced review, CSV exports, supported offline pairs and optional explanations.
+Home FAQs, help sections, native JSON-LD and product facts use this source.
+Keep it aligned with Fastlane descriptions and the actual app, not unverified
+release claims. App Store keyword lists are not copied into meta-keywords.
+
+`scripts/search-copy.mjs` maintains localized tool titles, descriptions,
 feature boundaries, and FAQ answers. FAQs are server-rendered HTML and the same
 answers generate FAQ JSON-LD. The site does not use meta-keyword stuffing, fake
 ratings, or invented App Store prices. FAQ markup does not imply eligibility
@@ -99,6 +109,9 @@ spaced repetition, and offline Apple Translation. These auxiliary files are
 readable by agents but excluded from search indexing with `X-Robots-Tag`;
 the human HTML pages contain the indexable content. They are not ranking
 requirements, robots policies, or a replacement for sitemap/canonical metadata.
+See [Google's AI search guidance](https://developers.google.com/search/docs/appearance/ai-features):
+crawlable, useful text and structured data matching visible content remain the
+foundation; a special AI text file does not guarantee indexing or citations.
 
 The Pages configuration publishes only `dist`. Keep the translation Worker
 deployed before releasing the study pages. The 38-URL sitemap includes canonical
