@@ -6,6 +6,7 @@ import { searchCopy } from "../scripts/search-copy.mjs";
 import { sourceFAQ, sourceOverview } from "../scripts/source-copy.mjs";
 import { nativeCopy } from "../scripts/native-copy.mjs";
 import { addedLocaleIDs, extraContent } from "../scripts/extra-locales.mjs";
+import { appScreenshotLocales } from "../scripts/app-screenshots.mjs";
 
 const root = new URL("../", import.meta.url);
 const htmlEscape = value => value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;");
@@ -116,7 +117,7 @@ test("AI discovery preserves native limits without promoting them as web feature
   assert.ok(llms.includes("## Localized app help"));
 });
 
-test("new languages expose all five routes, twelve choices, reciprocal hreflang and explicit screenshot language", async () => {
+test("new languages expose all five routes, twelve choices, reciprocal hreflang and localized native screenshots", async () => {
   assert.equal(Object.keys(locales).length, 12);
   for (const locale of addedLocaleIDs) {
     for (const name of ["index", "help", "support", "privacy-policy", "study"]) {
@@ -128,7 +129,11 @@ test("new languages expose all five routes, twelve choices, reciprocal hreflang 
       assert.equal((choices?.match(/<option /g) || []).length, 12);
       assert.equal((choices?.match(/ selected>/g) || []).length, 1);
       if (name === "index") {
-        assert.ok(html.includes("mac_en_US_light_learn.webp"));
+        for (const mode of ["light", "dark"]) {
+          assert.ok(html.includes(`mac_${appScreenshotLocales[locale]}_${mode}_learn.webp`));
+          assert.ok(!html.includes(`mac_en_US_${mode}_learn.webp`));
+        }
+        assert.ok(html.includes(htmlEscape(extraContent[locale].home.imageAlt)));
         assert.ok(html.includes(htmlEscape(extraContent[locale].home.imageCaption)));
       }
     }

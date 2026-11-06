@@ -96,9 +96,12 @@ French, German, Spanish, Japanese and Korean source text lives in
 `translations/{fr,de,es,ja,ko}.json`. `extra-locales.mjs` adds those entries to
 the existing copy registries. `localized-shell.mjs` generates their base pages;
 the normal builder supplies the real workspace, FAQ and shared navigation.
-These source JSON files do not enter `dist`. Their native screenshot captions
-explicitly identify the English interface preview until localized captures are
-available; an English screenshot is never relabeled as a localized native UI.
+These source JSON files do not enter `dist`. Each native screenshot uses its
+own localized capture: `fr_FR`, `de_DE`, `es_ES`, `ja` and `ko`, with matching
+localized captions. The builder requires real light/dark captures for all twelve
+interfaces and never falls back to English. Sync fresh assets before building
+or publishing; [the screenshot guide](images/app/README.md) documents subset
+syncing, preservation of existing images and per-capture version labels.
 
 `scripts/search-copy.mjs` maintains localized tool titles, descriptions,
 feature boundaries, and FAQ answers. FAQs are server-rendered HTML and the same

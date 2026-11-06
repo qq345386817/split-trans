@@ -102,6 +102,96 @@
       "bytes": 53232,
       "sha256": "72d4682b2b1c31ed8979438648dd93f4039e0c095c735fce025cad0fe727b5b5",
       "capturedAt": "2026-10-25T18:33:19.823Z"
+    },
+    "mac_fr_FR_light_learn.webp": {
+      "height": 900,
+      "width": 1320,
+      "bytes": 46576,
+      "sha256": "61b0b2e001798fe56081c54da51ad07281ec6cff44b033c3f3bc014a467194a6",
+      "capturedAt": "2026-11-06T19:46:45.229Z",
+      "version": "1.4.1",
+      "build": "34"
+    },
+    "mac_fr_FR_dark_learn.webp": {
+      "height": 900,
+      "width": 1320,
+      "bytes": 43810,
+      "sha256": "7d80d12b15abf7e1991c0b0b38d71104c40ed47f4b7deea78199d99b64f71e22",
+      "capturedAt": "2026-11-06T19:47:40.868Z",
+      "version": "1.4.1",
+      "build": "34"
+    },
+    "mac_de_DE_light_learn.webp": {
+      "height": 900,
+      "width": 1320,
+      "bytes": 44918,
+      "sha256": "59cec65a03e6a6d59aa34f02304f00246ec9d7cee6859b231419876a47016ed6",
+      "capturedAt": "2026-11-06T19:48:06.285Z",
+      "version": "1.4.1",
+      "build": "34"
+    },
+    "mac_de_DE_dark_learn.webp": {
+      "height": 900,
+      "width": 1320,
+      "bytes": 41596,
+      "sha256": "bafebe355f9a0ad0c838a85eb14114d188e73a1b287d90a2fa4c63cdc024a8a5",
+      "capturedAt": "2026-11-06T19:49:08.635Z",
+      "version": "1.4.1",
+      "build": "34"
+    },
+    "mac_es_ES_light_learn.webp": {
+      "width": 1320,
+      "height": 900,
+      "bytes": 47462,
+      "sha256": "36f2c2784e808324bd93014580aba351681ffb51ea044d04eb1a6a386045236d",
+      "capturedAt": "2026-11-06T19:49:20.547Z",
+      "version": "1.4.1",
+      "build": "34"
+    },
+    "mac_es_ES_dark_learn.webp": {
+      "height": 900,
+      "width": 1320,
+      "bytes": 43934,
+      "sha256": "4c8a4b7db3f00b12967ffb27eb3fcb01fc31b7516322d9d48ba498fb611199c5",
+      "capturedAt": "2026-11-06T19:49:52.846Z",
+      "version": "1.4.1",
+      "build": "34"
+    },
+    "mac_ja_light_learn.webp": {
+      "width": 1320,
+      "height": 900,
+      "bytes": 40298,
+      "sha256": "be0fab1850baa7e1e804e948af26db1ca13c70fb9d373c8b1a9c1abef10ae4b8",
+      "capturedAt": "2026-11-06T19:50:14.061Z",
+      "version": "1.4.1",
+      "build": "34"
+    },
+    "mac_ja_dark_learn.webp": {
+      "width": 1320,
+      "height": 900,
+      "bytes": 37608,
+      "sha256": "dae9b723bd82e64de1e1155e6f7242e4db689d844cd819d62cfb3cbacfd5dc03",
+      "capturedAt": "2026-11-06T19:51:20.297Z",
+      "version": "1.4.1",
+      "build": "34"
+    },
+    "mac_ko_light_learn.webp": {
+      "height": 900,
+      "width": 1320,
+      "bytes": 37652,
+      "sha256": "ad0c0a08d6fbe6dce038f0e588ac121ecd7763ce1178f936546ddbc3cba90ec4",
+      "capturedAt": "2026-11-06T19:56:20.002Z",
+      "version": "1.4.1",
+      "build": "34"
+    },
+    "mac_ko_dark_learn.webp": {
+      "width": 1320,
+      "height": 900,
+      "bytes": 35074,
+      "sha256": "1883cc60c773ee2c14dd77be1fff2f57f5c22576563d6bb359ddad7bf86f9b0f",
+      "capturedAt": "2026-11-06T19:56:49.042Z",
+      "version": "1.4.1",
+      "build": "34"
     }
   }
 }

@@ -5,6 +5,8 @@ import { locales } from "../scripts/study-locales.mjs";
 import { sourceCopy } from "../scripts/source-copy.mjs";
 import { interestCopy } from "../scripts/interest-copy.mjs";
 import { renderWorkspace } from "../scripts/study-layout.mjs";
+import { appScreenshotLocales } from "../scripts/app-screenshots.mjs";
+import { homeCopy } from "../scripts/home-copy.mjs";
 import { createHash } from "node:crypto";
 
 const root = new URL("../", import.meta.url);
@@ -12,7 +14,8 @@ const tokens = JSON.parse(await readFile(new URL("design-system/tokens.json", ro
 const luminance = hex => hex.slice(1).match(/../g).map(value => parseInt(value, 16) / 255).map(value => value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4).reduce((sum, value, index) => sum + value * [0.2126, 0.7152, 0.0722][index], 0);
 const contrast = (a, b) => (Math.max(luminance(a), luminance(b)) + 0.05) / (Math.min(luminance(a), luminance(b)) + 0.05);
 
-test("home mounts the real shared workspace in all seven languages without duplicate IDs", async () => {
+test("home mounts the real shared workspace and localized native screenshots in all twelve languages", async () => {
+  const manifest = JSON.parse(await readFile(new URL("images/app/manifest.json", root), "utf8"));
   for (const locale of Object.values(locales)) {
     const html = await readFile(new URL((locale.folder ? `${locale.folder}/` : "") + "index.html", root), "utf8");
     assert.ok(html.includes(renderWorkspace({ ...locale, ...interestCopy[locale.lang], ...sourceCopy[locale.lang] })));
@@ -23,7 +26,7 @@ test("home mounts the real shared workspace in all seven languages without dupli
     assert.ok(!html.includes("product-panel") && !html.includes("workspace-preview"));
     const paths = [...html.matchAll(/(?:src|srcset)="(\/images\/app\/[^"]+)"/g)].map(match => match[1]);
     assert.equal(paths.length, 2);
-    const manifest = JSON.parse(await readFile(new URL("images/app/manifest.json", root), "utf8"));
+    assert.deepEqual(paths.map(path => path.split("?")[0]), ["dark", "light"].map(mode => `/images/app/mac_${appScreenshotLocales[locale.lang]}_${mode}_learn.webp`));
     for (const path of paths) {
       const url = new URL(path.slice(1), root);
       const version = url.searchParams.get("v");
@@ -35,7 +38,9 @@ test("home mounts the real shared workspace in all seven languages without dupli
       assert.equal(createHash("sha256").update(bytes).digest("hex"), entry.sha256);
       assert.equal(version, entry.sha256.slice(0, 12));
       assert.ok(html.includes(`width="${entry.width}" height="${entry.height}"`));
+      assert.ok(html.includes(`<figcaption>${homeCopy[locale.lang].imageCaption} · ${entry.version ?? manifest.version}</figcaption>`));
     }
+    assert.ok(html.includes(`alt="${homeCopy[locale.lang].imageAlt}"`));
   }
 });
 
